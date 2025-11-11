@@ -9,8 +9,8 @@
             <span class="text-mint"> Process</span>
           </h1>
           <p class="content-spacing text-lead max-w-2xl">
-            A structured approach refined over 13 years and dozens of projects. 
-            Designed to deliver quality, speed, and maintainability—every time.
+            A structured approach refined over 13 years and hundreds of projects. 
+            Designed to deliver quality, speed, and maintainability.
           </p>
         </div>
       </div>
@@ -20,33 +20,28 @@
     <section class="bg-surface">
       <div class="container section-padding">
         <div class="text-center mb-16">
-          <h2 class="heading-section">Four Phases to Success</h2>
+          <h2 class="heading-section">Repeatable Success</h2>
           <p class="content-spacing text-lead max-w-3xl mx-auto">
             Every project follows the same proven methodology, adapted to your specific needs and constraints. 
             No surprises, no chaos—just consistent, high-quality delivery.
           </p>
         </div>
 
-        <div class="grid md:grid-cols-4 gap-8 max-w-6xl mx-auto">
+        <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           <div class="text-center">
             <div class="w-16 h-16 bg-mint text-ink rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">1</div>
-            <h3 class="heading-service mb-2">Discovery</h3>
-            <p class="text-slate text-sm">Understand, scope, and plan</p>
-          </div>
-          <div class="text-center">
-            <div class="w-16 h-16 bg-mint text-ink rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">2</div>
-            <h3 class="heading-service mb-2">Architecture</h3>
-            <p class="text-slate text-sm">Design system and structure</p>
+            <h3 class="heading-service mb-2">Clear Communication</h3>
+            <p class="text-slate text-sm">Discovery, plan, and alignment</p>
           </div>
           <div class="text-center">
             <div class="w-16 h-16 bg-mint text-ink rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">3</div>
-            <h3 class="heading-service mb-2">Build</h3>
-            <p class="text-slate text-sm">Develop and iterate</p>
+            <h3 class="heading-service mb-2">Focused work</h3>
+            <p class="text-slate text-sm">Build and refine</p>
           </div>
           <div class="text-center">
             <div class="w-16 h-16 bg-mint text-ink rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">4</div>
-            <h3 class="heading-service mb-2">Handoff</h3>
-            <p class="text-slate text-sm">Test, document, and transfer</p>
+            <h3 class="heading-service mb-2">Speed</h3>
+            <p class="text-slate text-sm">Test, document, and handoff</p>
           </div>
         </div>
       </div>
@@ -55,7 +50,7 @@
     <!-- Detailed Phase Breakdown -->
     <section class="bg-ink">
       <div class="container section-padding">
-        <h2 class="heading-section text-center mb-16">Deep Dive: Each Phase</h2>
+        <h2 class="heading-section text-center mb-16">What you can expect</h2>
         
         <div class="max-w-5xl mx-auto space-y-16">
           <!-- Phase 1: Discovery -->
@@ -64,13 +59,13 @@
               <div class="flex items-center gap-4 mb-6">
                 <div class="w-12 h-12 bg-mint text-ink rounded-full flex items-center justify-center font-bold">1</div>
                 <div>
-                  <h3 class="heading-service">Discovery & Audit</h3>
-                  <div class="text-mint text-sm">Week 1 • Foundation Setting</div>
+                  <h3 class="heading-service">Discovery / Audit</h3>
+                  <div class="text-mint text-sm">Phase 1 • Solid Foundation</div>
                 </div>
               </div>
               
               <p class="text-body mb-6">
-                Before any code is written, we establish a solid foundation. I dive deep into your design assets, 
+                Before any code is written, we establish a solid foundation. Together we review your design assets, 
                 technical requirements, and project goals to ensure perfect alignment from day one.
               </p>
 
@@ -87,8 +82,8 @@
                   <div class="flex items-start gap-3">
                     <span class="text-mint mt-1">✓</span>
                     <div>
-                      <strong class="text-offwhite">Technical Requirements Analysis</strong>
-                      <p class="text-slate text-sm">Browser support, performance targets, accessibility needs</p>
+                      <strong class="text-offwhite">Technical Requirements Gathering</strong>
+                      <p class="text-slate text-sm">Potential challenges, platform goals</p>
                     </div>
                   </div>
                   <div class="flex items-start gap-3">
@@ -96,13 +91,6 @@
                     <div>
                       <strong class="text-offwhite">Scope Definition</strong>
                       <p class="text-slate text-sm">Component count, complexity assessment, timeline planning</p>
-                    </div>
-                  </div>
-                  <div class="flex items-start gap-3">
-                    <span class="text-mint mt-1">✓</span>
-                    <div>
-                      <strong class="text-offwhite">Risk Assessment</strong>
-                      <p class="text-slate text-sm">Potential challenges, mitigation strategies, contingency planning</p>
                     </div>
                   </div>
                 </div>
@@ -114,9 +102,7 @@
               <ul class="space-y-2 text-slate">
                 <li>• Project scope document</li>
                 <li>• Technical requirements specification</li>
-                <li>• Component inventory and complexity map</li>
                 <li>• Timeline with milestones</li>
-                <li>• Risk assessment and mitigation plan</li>
               </ul>
               
               <div class="mt-6 pt-6 border-t border-mint/10">
@@ -129,79 +115,6 @@
             </div>
           </div>
 
-          <!-- Phase 2: Architecture -->
-          <div class="grid lg:grid-cols-2 gap-12 items-center">
-            <div class="order-2 lg:order-1">
-              <div class="card bg-surface border-mint/20">
-                <h4 class="heading-service text-mint mb-4">Deliverables</h4>
-                <ul class="space-y-2 text-slate">
-                  <li>• Component architecture diagram</li>
-                  <li>• Naming conventions guide</li>
-                  <li>• File structure and organization</li>
-                  <li>• Reusability pattern definitions</li>
-                  <li>• Performance and accessibility strategy</li>
-                </ul>
-                
-                <div class="mt-6 pt-6 border-t border-mint/10">
-                  <h5 class="text-offwhite font-semibold mb-2">Success Criteria</h5>
-                  <p class="text-slate text-sm">
-                    Clear blueprint for scalable, maintainable code. 
-                    All architectural decisions documented and approved.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div class="order-1 lg:order-2">
-              <div class="flex items-center gap-4 mb-6">
-                <div class="w-12 h-12 bg-mint text-ink rounded-full flex items-center justify-center font-bold">2</div>
-                <div>
-                  <h3 class="heading-service">Architecture Design</h3>
-                  <div class="text-mint text-sm">Days 3-5 • System Planning</div>
-                </div>
-              </div>
-              
-              <p class="text-body mb-6">
-                The foundation of every great codebase is thoughtful architecture. Before writing a single component, 
-                I design the system structure, naming conventions, and reusability patterns that will scale with your team.
-              </p>
-
-              <div class="space-y-4">
-                <h4 class="text-offwhite font-semibold mb-3">Key Activities:</h4>
-                <div class="grid gap-3">
-                  <div class="flex items-start gap-3">
-                    <span class="text-mint mt-1">✓</span>
-                    <div>
-                      <strong class="text-offwhite">Component Hierarchy Design</strong>
-                      <p class="text-slate text-sm">Atomic design principles, composition patterns</p>
-                    </div>
-                  </div>
-                  <div class="flex items-start gap-3">
-                    <span class="text-mint mt-1">✓</span>
-                    <div>
-                      <strong class="text-offwhite">Naming Convention Standards</strong>
-                      <p class="text-slate text-sm">Consistent, predictable naming across components</p>
-                    </div>
-                  </div>
-                  <div class="flex items-start gap-3">
-                    <span class="text-mint mt-1">✓</span>
-                    <div>
-                      <strong class="text-offwhite">Reusability Strategy</strong>
-                      <p class="text-slate text-sm">Prop APIs, composition patterns, extension points</p>
-                    </div>
-                  </div>
-                  <div class="flex items-start gap-3">
-                    <span class="text-mint mt-1">✓</span>
-                    <div>
-                      <strong class="text-offwhite">Performance Optimization Plan</strong>
-                      <p class="text-slate text-sm">Bundle splitting, lazy loading, critical path optimization</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
           <!-- Phase 3: Build -->
           <div class="grid lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -209,7 +122,7 @@
                 <div class="w-12 h-12 bg-mint text-ink rounded-full flex items-center justify-center font-bold">3</div>
                 <div>
                   <h3 class="heading-service">Build & Iterate</h3>
-                  <div class="text-mint text-sm">Weeks 2-3 • Development Sprint</div>
+                  <div class="text-mint text-sm">Phase 2 • Development Sprint</div>
                 </div>
               </div>
               
@@ -238,14 +151,14 @@
                   <div class="flex items-start gap-3">
                     <span class="text-mint mt-1">✓</span>
                     <div>
-                      <strong class="text-offwhite">Responsive Implementation</strong>
-                      <p class="text-slate text-sm">Mobile-first approach, breakpoint optimization</p>
+                      <strong class="text-offwhite">Mobile-first approach</strong>
+                      <p class="text-slate text-sm">Responsive Implementation , breakpoint optimization</p>
                     </div>
                   </div>
                   <div class="flex items-start gap-3">
                     <span class="text-mint mt-1">✓</span>
                     <div>
-                      <strong class="text-offwhite">Cross-Browser Testing</strong>
+                      <strong class="text-offwhite">Browser Testing</strong>
                       <p class="text-slate text-sm">Modern browser support, progressive enhancement</p>
                     </div>
                   </div>
@@ -257,7 +170,6 @@
               <h4 class="heading-service text-mint mb-4">Deliverables</h4>
               <ul class="space-y-2 text-slate">
                 <li>• Production-ready Vue 3 components</li>
-                <li>• Integrated design system and tokens</li>
                 <li>• Responsive, accessible implementation</li>
                 <li>• Performance-optimized code</li>
                 <li>• Cross-browser compatibility</li>
@@ -273,35 +185,14 @@
             </div>
           </div>
 
-          <!-- Phase 4: Handoff -->
+          <!-- Phase 3: Handoff -->
           <div class="grid lg:grid-cols-2 gap-12 items-center">
-            <div class="order-2 lg:order-1">
-              <div class="card bg-surface border-mint/20">
-                <h4 class="heading-service text-mint mb-4">Deliverables</h4>
-                <ul class="space-y-2 text-slate">
-                  <li>• Comprehensive component documentation</li>
-                  <li>• Usage examples and guidelines</li>
-                  <li>• Team training session (optional)</li>
-                  <li>• Maintenance and extension guide</li>
-                  <li>• 30-day post-launch support</li>
-                </ul>
-                
-                <div class="mt-6 pt-6 border-t border-mint/10">
-                  <h5 class="text-offwhite font-semibold mb-2">Success Criteria</h5>
-                  <p class="text-slate text-sm">
-                    Your team can confidently use, maintain, and extend 
-                    the component system without ongoing dependency.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div class="order-1 lg:order-2">
+            <div>
               <div class="flex items-center gap-4 mb-6">
                 <div class="w-12 h-12 bg-mint text-ink rounded-full flex items-center justify-center font-bold">4</div>
                 <div>
                   <h3 class="heading-service">QA & Handoff</h3>
-                  <div class="text-mint text-sm">Week 4 • Knowledge Transfer</div>
+                  <div class="text-mint text-sm">Phase 3 • Showtime</div>
                 </div>
               </div>
               
@@ -323,27 +214,46 @@
                   <div class="flex items-start gap-3">
                     <span class="text-mint mt-1">✓</span>
                     <div>
-                      <strong class="text-offwhite">Documentation Creation</strong>
+                      <strong class="text-offwhite">Documentation</strong>
                       <p class="text-slate text-sm">Usage guides, API references, best practices</p>
                     </div>
                   </div>
                   <div class="flex items-start gap-3">
                     <span class="text-mint mt-1">✓</span>
                     <div>
-                      <strong class="text-offwhite">Team Training</strong>
+                      <strong class="text-offwhite">Handoff</strong>
                       <p class="text-slate text-sm">Live walkthrough, Q&A, ongoing support setup</p>
                     </div>
                   </div>
                   <div class="flex items-start gap-3">
                     <span class="text-mint mt-1">✓</span>
                     <div>
-                      <strong class="text-offwhite">Maintenance Planning</strong>
+                      <strong class="text-offwhite">Ongoing Support</strong>
                       <p class="text-slate text-sm">Extension strategies, future optimization roadmap</p>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+            <div>
+              <div class="card bg-surface border-mint/20">
+                <h4 class="heading-service text-mint mb-4">Deliverables</h4>
+                <ul class="space-y-2 text-slate">
+                  <li>• Production-ready Code</li>
+                  <li>• Usage examples and guidelines</li>
+                  <li>• 30-day post-launch support</li>
+                </ul>
+                
+                <div class="mt-6 pt-6 border-t border-mint/10">
+                  <h5 class="text-offwhite font-semibold mb-2">Success Criteria</h5>
+                  <p class="text-slate text-sm">
+                    Your team can confidently use, maintain, and extend 
+                    the code base without ongoing dependency.
+                  </p>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
@@ -421,7 +331,7 @@
               </p>
               <p>
                 You'll always know where the project stands, what's coming next, and any potential 
-                challenges on the horizon. No surprises, no radio silence—just consistent, professional collaboration.
+                challenges on the horizon.
               </p>
             </div>
           </div>
@@ -429,17 +339,17 @@
           <div class="space-y-6">
             <div class="card">
               <h3 class="heading-service mb-3">Project Updates</h3>
-              <p class="text-slate text-sm">Weekly progress reports, milestone demos, real-time Slack communication</p>
+              <p class="text-slate text-sm">Regular communication (Slack), Video Conferencing</p>
             </div>
             
             <div class="card">
               <h3 class="heading-service mb-3">Feedback Integration</h3>
-              <p class="text-slate text-sm">Structured review cycles, rapid iteration, design alignment checkpoints</p>
+              <p class="text-slate text-sm">Structured review, Todo tracking (Trello)</p>
             </div>
             
             <div class="card">
               <h3 class="heading-service mb-3">Knowledge Sharing</h3>
-              <p class="text-slate text-sm">Technical documentation, team training, best practice recommendations</p>
+              <p class="text-slate text-sm">Technical documentation, best practice recommendations</p>
             </div>
           </div>
         </div>
@@ -450,7 +360,7 @@
     <section class="bg-surface">
       <div class="container section-padding">
         <div class="card shadow-soft max-w-4xl mx-auto text-center bg-ink border-mint/20">
-          <h2 class="heading-section mb-6">Ready to Experience the Process?</h2>
+          <h2 class="heading-section mb-6">Ready to get started?</h2>
           <p class="text-lead mb-8">
             Let's discuss your project and walk through how this proven methodology 
             can deliver exactly what you need—on time, on budget, and beyond expectations.

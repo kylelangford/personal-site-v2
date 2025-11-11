@@ -230,7 +230,7 @@ onMounted(() => {
             Your projects ship faster, look better, and stay maintainable long after launch.
           </p>
           <div class="content-spacing-sm text-slate">
-            <span class="text-offwhite font-semibold">13 years experience</span> • Design + Engineering • Greater Boston & Remote
+            <span class="text-offwhite font-semibold">14 years experience</span> • Frontend Engineering • Greater Boston & Remote
           </div>
           <div class="actions-spacing flex items-center gap-4" role="group" aria-label="Primary actions">
             <button @click="openContactModal('project')" class="btn-primary" aria-describedby="hero-heading">Start a project</button>
@@ -247,23 +247,23 @@ onMounted(() => {
         <div class="grid-cards-3">
           <div class="card" data-animate="fade-up" data-delay="100">
             <div class="text-mint text-2xl mb-3">🎯</div>
-            <h2 class="heading-card">Design-to-Code Clarity</h2>
+            <h2 class="heading-card">Design-to-Code</h2>
             <p class="content-spacing-sm text-body">
-              Translating Figma and design systems into production-ready UI. No more fragile handoffs or broken implementations.
+              Translating Figma and design files into production-ready UI. No more fragile handoffs or broken implementations.
             </p>
           </div>
           <div class="card" data-animate="fade-up" data-delay="150">
             <div class="text-mint text-2xl mb-3">⚡</div>
-            <h2 class="heading-card">Speed + Maintainability</h2>
+            <h2 class="heading-card">Speed + Flexibility</h2>
             <p class="content-spacing-sm text-body">
-              Fixed-scope projects that deliver fast without sacrificing code quality. Build once, scale forever.
+              Fixed-scope projects that deliver fast without sacrificing quality. Build once, scale forever.
             </p>
           </div>
           <div class="card" data-animate="fade-up" data-delay="200">
             <div class="text-mint text-2xl mb-3">🔧</div>
-            <h2 class="heading-card">UX-First Engineering</h2>
+            <h2 class="heading-card">UX-First Development</h2>
             <p class="content-spacing-sm text-body">
-              Code that respects design quality and user experience. 13 years bridging design and engineering disciplines.
+              Code that respects design quality and user experience. 14 years bridging design and engineering disciplines.
             </p>
           </div>
         </div>
@@ -275,7 +275,7 @@ onMounted(() => {
       <div class="container section-padding">
         <div class="text-center max-w-4xl mx-auto">
           <div class="text-mint text-sm font-semibold uppercase tracking-wide mb-4" data-animate="fade-up">Signature Offer</div>
-          <h2 id="signature-offer-heading" class="heading-section" data-animate="fade-up">UI Accelerator Package</h2>
+          <h2 id="signature-offer-heading" class="heading-section" data-animate="fade-up">UI Foundation</h2>
           <p class="content-spacing text-lead max-w-3xl mx-auto" data-animate="fade-up" data-delay="100">
             Take designs from Figma to production-ready, reusable Vue 3 component systems in 2–4 weeks.
           </p>
@@ -295,15 +295,15 @@ onMounted(() => {
               </li>
               <li class="flex items-start gap-3">
                 <span class="text-mint mt-1">✓</span>
-                Pattern documentation + reuse system
-              </li>
-              <li class="flex items-start gap-3">
-                <span class="text-mint mt-1">✓</span>
                 Accessibility + performance optimization
               </li>
               <li class="flex items-start gap-3">
                 <span class="text-mint mt-1">✓</span>
-                Optional training handoff
+                Documentation and Training (optional)
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-mint mt-1">✓</span>
+                Smooth handoff
               </li>
             </ul>
           </div>
@@ -313,15 +313,15 @@ onMounted(() => {
             <ul class="space-y-3 text-body">
               <li class="flex items-start gap-3">
                 <span class="text-accent">•</span>
-                SaaS teams scaling product UI
+                Your design is ready to go.
               </li>
               <li class="flex items-start gap-3">
                 <span class="text-accent">•</span>
-                Marketing teams with interactive campaigns
+                You need a world class frontend.
               </li>
               <li class="flex items-start gap-3">
                 <span class="text-accent">•</span>
-                Agencies needing reliable frontend specialists
+                You like when the thing you bought works!
               </li>
             </ul>
             <div class="mt-6 pt-6 border-t border-mint/10">
@@ -340,29 +340,24 @@ onMounted(() => {
         <h2 id="services-heading" class="heading-section" data-animate="fade-up">All Services</h2>
         <div class="actions-spacing grid-cards-3" role="list" aria-label="Available services">
           <div class="card" data-animate="fade-up" data-delay="100" role="listitem">
-            <h3 class="heading-service">UI Accelerator Package</h3>
-            <p class="content-spacing-xs text-body mb-4">Figma to production-ready Vue components in 2-4 weeks.</p>
-            <div class="text-slate text-sm">$8,000 – $18,000</div>
+            <h3 class="heading-service">UI Foundation</h3>
+            <p class="content-spacing-xs text-body mb-4">Figma to production-ready in 2-4 weeks.</p>
+            <div class="text-slate text-sm">Typical Investment: $6,000 – $18,000</div>
           </div>
           <div class="card" data-animate="fade-up" data-delay="150" role="listitem">
-            <h3 class="heading-service">Interactive Tool Build</h3>
-            <p class="content-spacing-xs text-body mb-4">ROI calculators, configurators, lead-gen apps.</p>
-            <div class="text-slate text-sm">$10,000 – $25,000</div>
-          </div>
-          <div class="card" data-animate="fade-up" data-delay="200" role="listitem">
-            <h3 class="heading-service">Frontend Refactor</h3>
-            <p class="content-spacing-xs text-body mb-4">Cleanup and optimization of messy UI codebases.</p>
-            <div class="text-slate text-sm">$6,000 – $15,000</div>
+            <h3 class="heading-service">Interactive Tool</h3>
+            <p class="content-spacing-xs text-body mb-4">Calculators, configurators, lead-gen.</p>
+            <div class="text-slate text-sm">Typical Investment: $8,000 – $25,000</div>
           </div>
           <div class="card" data-animate="fade-up" data-delay="250" role="listitem">
-            <h3 class="heading-service">Design System Setup</h3>
-            <p class="content-spacing-xs text-body mb-4">Reusable UI library with documentation.</p>
-            <div class="text-slate text-sm">$15,000 – $35,000</div>
+            <h3 class="heading-service">Frontend Rebuild</h3>
+            <p class="content-spacing-xs text-body mb-4">Migrate and refactor messy UI codebases.</p>
+            <div class="text-slate text-sm">Typical Investment: $10,000 – $25,000</div>
           </div>
           <div class="card" data-animate="fade-up" data-delay="300" role="listitem">
-            <h3 class="heading-service">Fractional Frontend Partner</h3>
-            <p class="content-spacing-xs text-body mb-4">Ongoing monthly support for scaling teams.</p>
-            <div class="text-slate text-sm">$3,000 – $10,000/mo</div>
+            <h3 class="heading-service">Service Level Agreement</h3>
+            <p class="content-spacing-xs text-body mb-4">Ongoing monthly retainer for scaling bandwith.</p>
+            <div class="text-slate text-sm">Typical Investment: $3,000 – $9,000/mo</div>
           </div>
           <div class="card border-mint/20 bg-ink" data-animate="fade-up" data-delay="350" role="listitem">
             <h3 class="heading-service text-mint">Custom Projects</h3>
@@ -373,58 +368,19 @@ onMounted(() => {
       </div>
     </section>
 
-    <!-- PROCESS -->
-    <section class="bg-ink" data-animate="fade-up" aria-labelledby="process-heading" role="region">
+     <!-- BUILT FOR -->
+    <section class="bg-ink" data-animate="fade-up" aria-labelledby="target-audience-heading" role="region">
       <div class="container section-padding">
-        <h2 id="process-heading" class="heading-section" data-animate="fade-up">How It Works</h2>
-        <div class="content-spacing max-w-4xl mx-auto">
-          <div class="space-y-8">
-            <div class="flex gap-6" data-animate="fade-up" data-delay="100">
-              <div class="flex-shrink-0 w-12 h-12 bg-mint text-ink rounded-full flex items-center justify-center font-bold">1</div>
-              <div>
-                <h3 class="heading-service mb-2">Discovery & Audit</h3>
-                <p class="text-body">Identify scope, UX goals, and design assets. Confirm component requirements and project fit.</p>
-              </div>
-            </div>
-            <div class="flex gap-6" data-animate="fade-up" data-delay="150">
-              <div class="flex-shrink-0 w-12 h-12 bg-mint text-ink rounded-full flex items-center justify-center font-bold">2</div>
-              <div>
-                <h3 class="heading-service mb-2">Architecture Design</h3>
-                <p class="text-body">Define structure, naming, and reusable patterns before implementation begins.</p>
-              </div>
-            </div>
-            <div class="flex gap-6" data-animate="fade-up" data-delay="200">
-              <div class="flex-shrink-0 w-12 h-12 bg-mint text-ink rounded-full flex items-center justify-center font-bold">3</div>
-              <div>
-                <h3 class="heading-service mb-2">Build & Iterate</h3>
-                <p class="text-body">Develop components, integrate design system, and ensure responsive behavior across devices.</p>
-              </div>
-            </div>
-            <div class="flex gap-6" data-animate="fade-up" data-delay="250">
-              <div class="flex-shrink-0 w-12 h-12 bg-mint text-ink rounded-full flex items-center justify-center font-bold">4</div>
-              <div>
-                <h3 class="heading-service mb-2">QA & Handoff</h3>
-                <p class="text-body">Deliver documentation, training, and code handoff. Ensure long-term maintainability.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- BUILT FOR -->
-    <section class="bg-surface" data-animate="fade-up" aria-labelledby="target-audience-heading" role="region">
-      <div class="container section-padding">
-        <h2 id="target-audience-heading" class="heading-section" data-animate="fade-up">Built for Teams Who Value Quality</h2>
+        <h2 id="target-audience-heading" class="heading-section" data-animate="fade-up">Built for people who value quality</h2>
         <div class="content-spacing grid-cards-2">
           <div class="space-y-4">
             <div class="card text-body" data-animate="fade-up" data-delay="100">
-              <h3 class="heading-service mb-3">SaaS Product Teams</h3>
-              <p>Seed–Series B companies scaling product UI without accumulating technical debt.</p>
+              <h3 class="heading-service mb-3">Product Teams</h3>
+              <p>Need an impactful UI that matches your products ambition.</p>
             </div>
             <div class="card text-body" data-animate="fade-up" data-delay="200">
               <h3 class="heading-service mb-3">Marketing Teams</h3>
-              <p>Building interactive campaigns, calculators, and lead-generation tools that convert.</p>
+              <p>Building interactive tools, calculators, and lead-generation pages that convert.</p>
             </div>
           </div>
           <div class="space-y-4">
@@ -433,8 +389,8 @@ onMounted(() => {
               <p>Need a reliable frontend specialist for white-label projects and ongoing partnerships.</p>
             </div>
             <div class="card text-body" data-animate="fade-up" data-delay="250">
-              <h3 class="heading-service mb-3">Engineering Teams</h3>
-              <p>Want clean UI systems and maintainable code—not fragile, hard-to-scale frontends.</p>
+              <h3 class="heading-service mb-3">Startups</h3>
+              <p>Building for the future...</p>
             </div>
           </div>
         </div>
@@ -464,7 +420,7 @@ onMounted(() => {
     </section>
 
     <!-- TECH STACK -->
-    <section class="bg-ink" data-animate="fade-up" aria-labelledby="tech-heading" role="region">
+    <section class="bg-surface" data-animate="fade-up" aria-labelledby="tech-heading" role="region">
       <div class="container section-padding-sm">
         <h2 id="tech-heading" class="heading-section" data-animate="fade-up">I love working with</h2>
         <p class="content-spacing-sm text-body" data-animate="fade-up" data-delay="100">Vue 3 • Tailwind CSS • TypeScript • Vite • REST / GraphQL • UI Systems</p>
@@ -478,7 +434,7 @@ onMounted(() => {
           <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
             <div>
               <h3 id="contact-heading" class="heading-card">Ready to Build Something Great?</h3>
-              <p class="content-spacing-xs text-body">Fixed-scope packages starting at $8k • Free UI Architecture Audit for qualified projects</p>
+              <p class="content-spacing-xs text-body">Fixed-scope packages starting at $8k • Free estimate for qualified projects</p>
             </div>
             <button @click="openContactModal('intro')" class="btn-primary" aria-label="Book a 15-minute intro call">Book a 15‑min intro</button>
           </div>
@@ -489,7 +445,7 @@ onMounted(() => {
     <!-- FOOTER -->
     <footer class="bg-ink border-t border-mint/10" role="contentinfo" aria-label="Site footer">
       <div class="container py-10 text-slate">
-        <p>© {{ year }} Precision Frontend Engineering. Built with Vue 3, Vite, and Tailwind. Deployed on Vercel.</p>
+        <p>© {{ year }} Precision Frontend Engineering. Built with Vue 3, and Tailwind. Deployed on Vercel.</p>
       </div>
     </footer>
     </main>

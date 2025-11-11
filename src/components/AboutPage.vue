@@ -6,7 +6,7 @@
         <div class="max-w-4xl">
           <h1 class="heading-hero">
             <span>Design Meets</span>
-            <span class="text-mint"> Engineering</span>
+            <span class="text-mint"> Implementation</span>
           </h1>
           <p class="content-spacing text-lead max-w-2xl">
             13 years bridging the gap between beautiful designs and production-ready code. 
@@ -21,7 +21,7 @@
       <div class="container section-padding">
         <div class="grid lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
           <div>
-            <h2 class="heading-section mb-8">The Rare Blend</h2>
+            <h2 class="heading-section mb-8">What is your unfair advantage?</h2>
             <div class="space-y-6 text-body">
               <p>
                 Most frontend developers understand code. Most designers understand pixels. 
@@ -31,16 +31,11 @@
                 With a design degree and 13 years in the industry, I speak both languages fluently. 
                 This means your designs don't get lost in translation—they get elevated in implementation.
               </p>
-              <p>
-                I've worked with everyone from early-stage startups to established agencies, 
-                always with the same focus: building interfaces that look great, perform well, 
-                and scale with your business.
-              </p>
             </div>
           </div>
           
           <div class="card bg-ink border-mint/20">
-            <h3 class="heading-service text-mint mb-6">Core Expertise</h3>
+            <h3 class="heading-service text-mint mb-6">What I do Best</h3>
             <div class="space-y-4">
               <div>
                 <h4 class="text-offwhite font-semibold mb-2">Frontend Engineering</h4>
@@ -48,16 +43,13 @@
               </div>
               <div>
                 <h4 class="text-offwhite font-semibold mb-2">Component Architecture</h4>
-                <p class="text-slate text-sm">Scalable systems, design tokens, reusable patterns</p>
+                <p class="text-slate text-sm">Scalable systems, design patterns, reusable components</p>
               </div>
               <div>
                 <h4 class="text-offwhite font-semibold mb-2">UX-First Implementation</h4>
                 <p class="text-slate text-sm">Accessibility, performance, user experience focus</p>
               </div>
-              <div>
-                <h4 class="text-offwhite font-semibold mb-2">Design Systems</h4>
-                <p class="text-slate text-sm">Tokens, documentation, team adoption strategies</p>
-              </div>
+
             </div>
           </div>
         </div>
@@ -96,7 +88,7 @@
               </div>
               <div>
                 <div class="text-mint text-sm font-semibold mb-2">2018 – 2024</div>
-                <h3 class="heading-service mb-3">Senior Frontend Engineer</h3>
+                <h3 class="heading-service mb-3">Technical Lead</h3>
                 <p class="text-body mb-4">
                   Led frontend architecture and implementation for multiple SaaS platforms and marketing websites. 
                   Built scalable component systems serving millions of users.
@@ -207,8 +199,8 @@
               <div class="flex items-start gap-3">
                 <span class="text-mint mt-1">✓</span>
                 <div>
-                  <strong class="text-offwhite">Performance-First CSS</strong>
-                  <p class="text-slate text-sm mt-1">Minimal bundle sizes, critical path optimization, modern layout techniques</p>
+                  <strong class="text-offwhite">Tailwind CSS</strong>
+                  <p class="text-slate text-sm mt-1">Minimal bundle sizes, fast and extendable, modern layout techniques</p>
                 </div>
               </div>
               <div class="flex items-start gap-3">
@@ -221,8 +213,8 @@
               <div class="flex items-start gap-3">
                 <span class="text-mint mt-1">✓</span>
                 <div>
-                  <strong class="text-offwhite">Component-Driven Development</strong>
-                  <p class="text-slate text-sm mt-1">Reusable, testable, maintainable component architecture</p>
+                  <strong class="text-offwhite">Lighting Fast</strong>
+                  <p class="text-slate text-sm mt-1">Reusable, testable, lightweight architecture</p>
                 </div>
               </div>
             </div>
@@ -255,7 +247,7 @@
               <div class="flex items-start gap-3">
                 <span class="text-mint mt-1">✓</span>
                 <div>
-                  <strong class="text-offwhite">Ongoing Partnership</strong>
+                  <strong class="text-offwhite">Invested in Your Success</strong>
                   <p class="text-slate text-sm mt-1">Available for future iterations, optimizations, and new feature development</p>
                 </div>
               </div>
@@ -269,7 +261,7 @@
     <section class="bg-surface">
       <div class="container section-padding">
         <div class="text-center max-w-3xl mx-auto">
-          <h2 class="heading-section mb-8">Boston-Based, Globally Available</h2>
+          <h2 class="heading-section mb-8">Boston-Based, Global Availability</h2>
           <p class="text-lead mb-12">
             Located in Greater Boston with deep connections to the New England tech ecosystem. 
             I work with teams locally and remotely, with a preference for EST/EDT timezone alignment.

@@ -5,11 +5,11 @@
       <div class="container py-20 md:py-28">
         <div class="max-w-4xl">
           <h1 class="heading-hero">
-            <span>Frontend Services</span>
-            <span class="text-mint"> That Scale</span>
+            <span>Frontend Solutions</span>
+            <span class="text-mint"> That Work</span>
           </h1>
           <p class="content-spacing text-lead max-w-2xl">
-            Fixed-scope packages designed to get your frontend from concept to production fast—without sacrificing quality or maintainability.
+            Fixed-scope packages designed to get your frontend from concept to production fast.
           </p>
         </div>
       </div>
@@ -20,7 +20,7 @@
       <div class="container section-padding">
         <div class="max-w-4xl mx-auto">
           <div class="text-center mb-16">
-            <div class="text-mint text-sm font-semibold uppercase tracking-wide mb-4">Signature Offer</div>
+            <div class="text-mint text-sm font-semibold uppercase tracking-wide mb-4">Best Value</div>
             <h2 class="heading-section">UI Accelerator Package</h2>
             <p class="content-spacing text-lead">
               Take designs from Figma to production-ready, reusable Vue 3 component systems in 2–4 weeks.
@@ -78,20 +78,19 @@
                 </div>
                 
                 <div>
-                  <div class="text-offwhite font-semibold mb-2">2-4 Week Delivery</div>
+                  <div class="text-offwhite font-semibold mb-2">4-6 Week Delivery</div>
                   <ul class="text-slate text-sm space-y-1">
                     <li>• Week 1: Discovery & Architecture</li>
-                    <li>• Week 2-3: Build & Iterate</li>
-                    <li>• Week 4: QA & Handoff</li>
+                    <li>• Week 2-4: Build & Iterate</li>
+                    <li>• Week 5-6: QA & Handoff</li>
                   </ul>
                 </div>
 
                 <div class="pt-4 border-t border-mint/10">
                   <h4 class="text-offwhite font-semibold mb-3">Perfect For:</h4>
                   <ul class="text-body space-y-2">
-                    <li>• SaaS product teams scaling UI</li>
-                    <li>• Marketing sites needing interactive elements</li>
-                    <li>• Agencies with frontend bottlenecks</li>
+                    <li>• Comapnies looking for seriously good UI.</li>
+                    <li>• Companies looking to incrtease ROI</li>
                   </ul>
                 </div>
               </div>
@@ -104,7 +103,7 @@
     <!-- All Services Grid -->
     <section class="bg-ink">
       <div class="container section-padding">
-        <h2 class="heading-section text-center mb-16">Complete Service Menu</h2>
+        <h2 class="heading-section text-center mb-16">Services</h2>
         
         <div class="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
           <!-- Interactive Tool Build -->
@@ -240,15 +239,15 @@
               <div class="w-16 h-16 bg-mint text-ink rounded-full flex items-center justify-center text-xl font-bold">2</div>
             </div>
             <div>
-              <h3 class="heading-service mb-4">Architecture Design</h3>
+              <h3 class="heading-service mb-4">Architecture & Setup</h3>
               <p class="text-body mb-4">
-                Define component structure, naming conventions, and reusable patterns before any code is written. This ensures scalability and maintainability from day one.
+                Establish the foundation with modern tooling, component architecture, and development workflow setup to ensure maintainable, scalable code.
               </p>
               <ul class="text-slate text-sm space-y-1">
-                <li>• Component hierarchy and organization</li>
-                <li>• Naming conventions and file structure</li>
-                <li>• Reusability and composition patterns</li>
-                <li>• Performance and accessibility considerations</li>
+                <li>• Project scaffolding and development environment</li>
+                <li>• Component architecture and folder structure</li>
+                <li>• Build tooling and development workflow</li>
+                <li>• Code quality standards and linting setup</li>
               </ul>
             </div>
           </div>
