@@ -47,13 +47,11 @@ const toggleTheme = () => {
 
 // Contact modal functions
 const openContactModal = (type) => {
-  console.log('Opening modal with type:', type) // Debug log
   contactFormType.value = type
   showContactModal.value = true
   resetForm()
   // Focus trap and body scroll prevention
   document.body.style.overflow = 'hidden'
-  console.log('Modal state:', showContactModal.value) // Debug log
 }
 
 const closeContactModal = () => {
@@ -108,15 +106,33 @@ const submitForm = async () => {
   submitMessage.value = ''
   
   try {
-    // TODO: Implement actual form submission logic here
-    await new Promise(resolve => setTimeout(resolve, 2000)) // Simulate API call
+    const response = await fetch('/api/contact', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        name: formData.value.name,
+        email: formData.value.email,
+        company: formData.value.company,
+        message: formData.value.message,
+        type: contactFormType.value
+      }),
+    })
+
+    const result = await response.json()
+
+    if (!response.ok) {
+      throw new Error(result.error || 'Failed to send message')
+    }
     
     submitMessage.value = 'Thank you! Your message has been sent successfully.'
     setTimeout(() => {
       closeContactModal()
     }, 2000)
   } catch (error) {
-    submitMessage.value = 'Sorry, there was an error sending your message. Please try again.'
+    console.error('Form submission error:', error)
+    submitMessage.value = error.message || 'Sorry, there was an error sending your message. Please try again.'
   } finally {
     isSubmitting.value = false
   }
