@@ -282,7 +282,7 @@ onMounted(() => {
           </div>
           <div class="card" data-animate="fade-up" data-delay="350" role="listitem">
             <h3 class="heading-service">Design Systems</h3>
-            <p class="content-spacing-xs text-body">Tokens, accessibility, and documentation.</p>
+            <p class="content-spacing-xs text-body">Components, accessibility, and documentation.</p>
           </div>
         </div>
       </div>
@@ -291,12 +291,12 @@ onMounted(() => {
     <!-- BUILT FOR -->
     <section class="bg-surface" data-animate="fade-up" aria-labelledby="target-audience-heading" role="region">
       <div class="container section-padding">
-        <h2 id="target-audience-heading" class="heading-section" data-animate="fade-up">Built for</h2>
+        <h2 id="target-audience-heading" class="heading-section" data-animate="fade-up">Ready for</h2>
         <ul class="content-spacing grid-list-2" role="list" aria-label="Target audience types">
-          <li class="card text-body" data-animate="fade-up" data-delay="100">Teams who need frontend bandwidth without hiring full-time</li>
-          <li class="card text-body" data-animate="fade-up" data-delay="150">SaaS teams scaling fast and tired of UI debt</li>
-          <li class="card text-body" data-animate="fade-up" data-delay="200">Marketing teams needing high-converting interactive tools</li>
-          <li class="card text-body" data-animate="fade-up" data-delay="250">Engineering teams who want clean UI systems—not spaghetti code</li>
+          <li class="card text-body" data-animate="fade-up" data-delay="100">Teams who need frontend bandwidth without hiring full-time.</li>
+          <li class="card text-body" data-animate="fade-up" data-delay="150">SaaS teams scaling fast and tired of UI debt.</li>
+          <li class="card text-body" data-animate="fade-up" data-delay="200">Marketing teams needing high-converting interactive tools.</li>
+          <li class="card text-body" data-animate="fade-up" data-delay="250">Engineering teams who want clean UI systems—not spaghetti code.</li>
         </ul>
       </div>
     </section>
@@ -305,7 +305,7 @@ onMounted(() => {
     <section class="bg-ink" data-animate="fade-up" aria-labelledby="tech-heading" role="region">
       <div class="container section-padding-sm">
         <h2 id="tech-heading" class="heading-section" data-animate="fade-up">I love working with</h2>
-        <p class="content-spacing-sm text-body" data-animate="fade-up" data-delay="100">Vue 3 • Tailwind CSS • TypeScript • Vite • REST / GraphQL • UI Systems</p>
+        <p class="content-spacing-sm text-body" data-animate="fade-up" data-delay="100">Vue 3 • Tailwind • TypeScript • Vite • Design Systems</p>
       </div>
     </section>
 
@@ -316,7 +316,7 @@ onMounted(() => {
           <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
             <div>
               <h3 id="contact-heading" class="heading-card">Have a Frontend project?</h3>
-              <p class="content-spacing-xs text-body">Hourly Rate • Fixed-scope packages available</p>
+              <p class="content-spacing-xs text-body">Fixed-scope projects available</p>
             </div>
             <button @click="openContactModal('intro')" class="btn-primary" aria-label="Book a 15-minute intro call">Book a 15‑min intro</button>
           </div>
@@ -327,7 +327,23 @@ onMounted(() => {
     <!-- FOOTER -->
     <footer class="bg-ink border-t border-mint/10" role="contentinfo" aria-label="Site footer">
       <div class="container py-10 text-slate">
-        <p>© {{ year }} Precision Frontend Engineering. Built with Vue 3, Vite, and Tailwind. Deployed on Vercel.</p>
+        <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-4">
+          <p>© {{ year }} Precision Frontend Engineering. Built with Vue 3, Vite, and Tailwind. Deployed on Vercel.</p>
+          <div class="flex items-center gap-4">
+            <a 
+              href="https://www.linkedin.com/in/kylelangford/" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="inline-flex items-center gap-2 text-slate hover:text-mint transition-colors text-sm"
+              aria-label="Kyle Langford on LinkedIn"
+            >
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+              LinkedIn
+            </a>
+          </div>
+        </div>
       </div>
     </footer>
   </main>
