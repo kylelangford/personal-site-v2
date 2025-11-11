@@ -46,13 +46,16 @@ export default async function handler(req, res) {
     `;
 
     // Send email using Resend
-    await resend.emails.send({
+    console.log('Attempting to send email with Resend...');
+    const emailResult = await resend.emails.send({
       from: 'contact@precisionfrontend.com',
       to: 'kyle.langford@gmail.com',
       subject: `${subject} from ${name}`,
       html: htmlContent,
       replyTo: email,
     });
+    
+    console.log('Resend response:', emailResult);
 
     return res.status(200).json({ 
       success: true, 
