@@ -1,46 +1,39 @@
 @import "tailwindcss";
 
 
-/* Brand tokens: Midnight Electric */
+/* Brand tokens: High Contrast Orange */
 @theme {
     /* Typography */
     --font-display: "Space Grotesk", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
     --font-sans: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
 
-    /* Colors */
-    --color-offwhite: #E6EDF3;
-    --color-mint: #00FFC2;
-    --color-accent: #FF4655;
-    --color-slate: #9AA2B1;
-    --color-ink: #0A0F1F;
-    --color-surface: #0F152A;
+    /* Colors - WCAG AA Compliant */
+    --color-offwhite: #FFFFFF;
+    --color-orange: #EA3700;
+    --color-accent: #EA3700;
+    --color-slate: #A0A0A0;
+    --color-ink: #000000;
+    --color-surface: #000000;
+
+    /* Tailwind color mappings */
+    --color-orange-DEFAULT: #EA3700;
 
     /* Layout */
     --container-max: 1200px;
 }
 
-/* Color tokens - Dark Theme (default) */
+/* Color tokens - High Contrast Theme */
 :root,
 [data-theme="dark"] {
-    --color-ink: #0A0F1F; /* Primary deep ink */
-    --color-mint: #00FFC2; /* Secondary electric mint */
-    --color-accent: #FF4655; /* Accent red/pink */
-    --color-slate: #9AA2B1; /* Neutral */
-    --color-code: #1E293B; /* Code gray */
-    --color-offwhite: #E6EDF3; /* Light text on dark */
-    --color-surface: #0F152A; /* Subtle surface */
+    --color-ink: #000000; /* Pure black background - highest contrast */
+    --color-orange: #EA3700; /* Bright orange primary */
+    --color-accent: #EA3700; /* Same orange for consistency */
+    --color-slate: #A0A0A0; /* Light gray - WCAG AA on black (contrast ratio 7.98:1) */
+    --color-code: #000000; /* Pure black for code backgrounds */
+    --color-offwhite: #FFFFFF; /* Pure white text - highest contrast */
+    --color-surface: #000000; /* Pure black surface - no muddy colors */
 }
 
-/* Light Theme */
-[data-theme="light"] {
-    --color-ink: #FFFFFF; /* Pure white background */
-    --color-mint: #059669; /* Emerald green for better contrast */
-    --color-accent: #DC2626; /* Clean red accent */
-    --color-slate: #64748B; /* Slate gray for readable text */
-    --color-code: #F1F5F9; /* Light gray code background */
-    --color-offwhite: #0F172A; /* Near black for high contrast text */
-    --color-surface: #F8FAFC; /* Very subtle gray surface */
-}
 
 
 html, body { height: 100%; }
@@ -60,8 +53,9 @@ html, body { height: 100%; }
 /* Button */
 .btn-primary {
     @apply inline-flex items-center gap-2 rounded-sm px-5 py-3 text-sm font-semibold transition-transform;
-    background: linear-gradient(135deg, var(--color-mint), #7fffe6);
-    color: #071219;
+    background: linear-gradient(135deg, var(--color-orange), var(--color-accent));
+    color: var(--color-offwhite);
+    box-shadow: 0 4px 14px rgba(234, 55, 0, 0.25);
 }
 
 .btn-primary:hover { transform: translateY(-1px); }
@@ -69,15 +63,22 @@ html, body { height: 100%; }
 .btn-ghost {
     @apply inline-flex items-center gap-2 rounded-sm px-5 py-3 text-sm font-semibold border;
     color: var(--color-offwhite);
-    border-color: color-mix(in oklab, var(--color-offwhite), transparent 70%);
+    border-color: var(--color-orange);
+    background: transparent;
+}
+
+.btn-ghost:hover {
+    background: var(--color-orange);
+    color: var(--color-offwhite);
+    border-color: var(--color-orange);
 }
 
 
 /* Card */
 .card {
     @apply rounded-2xl p-6;
-    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0));
-    border: 1px solid rgba(255,255,255,0.06);
+    background: var(--color-surface);
+    border: 2px solid var(--color-orange);
 }
 
 
@@ -177,8 +178,8 @@ html, body { height: 100%; }
 /* Accessibility & UX */
 .skip-link {
     @apply fixed top-0 left-0 z-50 px-4 py-2 text-sm font-medium transition-transform;
-    background: var(--color-mint);
-    color: var(--color-ink);
+    background: var(--color-orange);
+    color: var(--color-offwhite);
     transform: translateY(-100%);
 }
 
@@ -194,436 +195,8 @@ html, body { height: 100%; }
 a:focus-visible,
 button:focus-visible {
     @apply outline-2 outline-offset-2;
-    outline-color: var(--color-mint);
+    outline-color: var(--color-orange);
 }
 
-/* Theme Toggle */
-.theme-toggle {
-    position: fixed;
-    top: 1.5rem;
-    right: 1.5rem;
-    z-index: 1000;
-    padding: 0.75rem;
-    border-radius: 9999px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    background: var(--color-surface);
-    border: 1px solid rgba(255,255,255,0.15);
-    color: var(--color-offwhite);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    backdrop-filter: blur(8px);
-}
 
-.theme-toggle:hover {
-    transform: scale(1.1);
-    background: var(--color-mint);
-    color: var(--color-ink);
-    box-shadow: 0 8px 24px rgba(0,255,194,0.25);
-}
 
-.theme-toggle:focus-visible {
-    outline: 2px solid var(--color-mint);
-    outline-offset: 2px;
-}
-
-.theme-toggle svg {
-    width: 1.25rem;
-    height: 1.25rem;
-    transition: transform 0.3s ease;
-    display: block;
-}
-
-/* Light theme toggle adjustments */
-[data-theme="light"] .theme-toggle {
-    background: var(--color-surface);
-    border: 1px solid rgba(0,0,0,0.08);
-    color: var(--color-offwhite);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-}
-
-[data-theme="light"] .theme-toggle:hover {
-    background: var(--color-mint);
-    color: white;
-    box-shadow: 0 8px 24px rgba(5,150,105,0.25);
-}
-
-/* Light theme card adjustments */
-[data-theme="light"] .card {
-    background: linear-gradient(180deg, rgba(0,0,0,0.01), rgba(0,0,0,0));
-    border: 1px solid rgba(0,0,0,0.08);
-    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-}
-
-/* Light theme button adjustments */
-[data-theme="light"] .btn-primary {
-    background: linear-gradient(135deg, var(--color-mint), #065f46);
-    color: white;
-}
-
-[data-theme="light"] .btn-ghost {
-    color: var(--color-offwhite);
-    border-color: rgba(15,23,42,0.2);
-}
-
-[data-theme="light"] .btn-ghost:hover {
-    background: rgba(15,23,42,0.05);
-}
-
-/* Light theme border adjustments */
-[data-theme="light"] .border-mint {
-    border-color: var(--color-mint);
-}
-
-[data-theme="light"] footer {
-    border-color: rgba(0,0,0,0.08) !important;
-}
-
-/* Light theme focus states */
-[data-theme="light"] a:focus-visible,
-[data-theme="light"] button:focus-visible {
-    outline-color: var(--color-mint);
-}
-
-/* Light theme skip link */
-[data-theme="light"] .skip-link {
-    background: var(--color-mint);
-    color: white;
-}
-
-/* Contact Modal */
-.modal-overlay {
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
-    bottom: 0 !important;
-    z-index: 9999 !important;
-    background: rgba(0, 0, 0, 0.75) !important;
-    backdrop-filter: blur(8px);
-    display: flex !important;
-    align-items: center;
-    justify-content: center;
-    padding: 1rem;
-    animation: modalFadeIn 0.3s ease-out;
-}
-
-.modal-content {
-    background: var(--color-ink) !important;
-    border-radius: 1.5rem;
-    width: 100%;
-    max-width: 500px;
-    max-height: 85vh;
-    overflow-y: auto;
-    padding: 2.5rem;
-    border: 1px solid rgba(255,255,255,0.15);
-    box-shadow: 
-        0 25px 50px -12px rgba(0, 0, 0, 0.25),
-        0 0 0 1px rgba(255, 255, 255, 0.05);
-    animation: modalSlideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    position: relative;
-    z-index: 10000;
-}
-
-.modal-header {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    margin-bottom: 1.5rem;
-    gap: 1rem;
-}
-
-.modal-close {
-    padding: 0.75rem;
-    border-radius: 0.75rem;
-    border: none;
-    background: rgba(255,255,255,0.05);
-    color: var(--color-slate);
-    cursor: pointer;
-    transition: all 0.2s ease;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.modal-close:hover {
-    color: var(--color-offwhite);
-    background: rgba(255,255,255,0.1);
-    transform: scale(1.05);
-}
-
-.modal-close:focus-visible {
-    outline: 2px solid var(--color-mint);
-    outline-offset: 2px;
-}
-
-.modal-close svg {
-    width: 1.25rem;
-    height: 1.25rem;
-}
-
-.modal-description {
-    margin-bottom: 2rem;
-    padding-bottom: 1.5rem;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-    line-height: 1.6;
-    color: var(--color-slate);
-}
-
-/* Contact Form */
-.contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
-.form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-}
-
-.form-label {
-    font-weight: 600;
-    color: var(--color-offwhite);
-    font-size: 0.9rem;
-    letter-spacing: 0.025em;
-}
-
-.required {
-    color: var(--color-mint);
-    margin-left: 0.25rem;
-}
-
-.form-input,
-.form-textarea {
-    padding: 1rem 1.25rem;
-    border-radius: 0.75rem;
-    border: 1.5px solid rgba(255,255,255,0.1);
-    background: rgba(255,255,255,0.02);
-    color: var(--color-offwhite);
-    font-size: 1rem;
-    transition: all 0.3s ease;
-    font-family: inherit;
-}
-
-.form-input:focus,
-.form-textarea:focus {
-    outline: none;
-    border-color: var(--color-mint);
-    background: rgba(0,255,194,0.05);
-    box-shadow: 0 0 0 3px rgba(0,255,194,0.1);
-    transform: translateY(-1px);
-}
-
-.form-input.error,
-.form-textarea.error {
-    border-color: var(--color-accent);
-    background: rgba(255, 70, 85, 0.05);
-    box-shadow: 0 0 0 3px rgba(255, 70, 85, 0.1);
-}
-
-.form-textarea {
-    resize: vertical;
-    min-height: 120px;
-    line-height: 1.6;
-}
-
-.form-error {
-    color: var(--color-accent);
-    font-size: 0.875rem;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.form-error::before {
-    content: "⚠";
-    font-size: 1rem;
-}
-
-.submit-message {
-    padding: 1.25rem;
-    border-radius: 0.75rem;
-    font-weight: 500;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.75rem;
-}
-
-.submit-message.success {
-    background: rgba(34, 197, 94, 0.1);
-    color: #22c55e;
-    border: 1.5px solid rgba(34, 197, 94, 0.2);
-}
-
-.submit-message.success::before {
-    content: "✓";
-    font-size: 1.25rem;
-    font-weight: bold;
-}
-
-.submit-message.error {
-    background: rgba(255, 70, 85, 0.1);
-    color: var(--color-accent);
-    border: 1.5px solid rgba(255, 70, 85, 0.2);
-}
-
-.submit-message.error::before {
-    content: "✕";
-    font-size: 1.25rem;
-    font-weight: bold;
-}
-
-.form-actions {
-    display: flex;
-    gap: 1rem;
-    justify-content: flex-end;
-    padding-top: 2rem;
-    margin-top: 0.5rem;
-    border-top: 1px solid rgba(255,255,255,0.08);
-}
-
-.form-actions button {
-    min-width: 140px;
-    padding: 0.875rem 1.5rem;
-    font-weight: 600;
-    border-radius: 0.75rem;
-    transition: all 0.2s ease;
-}
-
-.form-actions button:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-    transform: none !important;
-}
-
-.form-actions .btn-ghost {
-    background: transparent;
-    border: 1.5px solid rgba(255,255,255,0.15);
-    color: var(--color-slate);
-}
-
-.form-actions .btn-ghost:hover:not(:disabled) {
-    background: rgba(255,255,255,0.05);
-    color: var(--color-offwhite);
-    border-color: rgba(255,255,255,0.25);
-}
-
-.form-actions .btn-primary:hover:not(:disabled) {
-    transform: translateY(-1px);
-    box-shadow: 0 8px 25px rgba(0,255,194,0.25);
-}
-
-.spinner {
-    width: 1rem;
-    height: 1rem;
-    margin-right: 0.5rem;
-    animation: spin 1s linear infinite;
-    display: inline-block;
-}
-
-/* Light theme modal adjustments */
-[data-theme="light"] .modal-overlay {
-    background: rgba(0, 0, 0, 0.6);
-}
-
-[data-theme="light"] .modal-content {
-    background: var(--color-ink);
-    border: 1px solid rgba(0,0,0,0.1);
-    box-shadow: 0 -8px 32px rgba(0,0,0,0.15);
-}
-
-[data-theme="light"] .modal-description {
-    border-color: rgba(0,0,0,0.1);
-}
-
-[data-theme="light"] .form-input,
-[data-theme="light"] .form-textarea {
-    border-color: rgba(0,0,0,0.2);
-    background: var(--color-surface);
-}
-
-[data-theme="light"] .form-input:focus,
-[data-theme="light"] .form-textarea:focus {
-    background: var(--color-ink);
-}
-
-[data-theme="light"] .form-actions {
-    border-color: rgba(0,0,0,0.1);
-}
-
-/* Modal animations */
-@keyframes modalFadeIn {
-    from { 
-        opacity: 0;
-    }
-    to { 
-        opacity: 1;
-    }
-}
-
-@keyframes modalSlideIn {
-    from { 
-        opacity: 0;
-        transform: translateY(1rem) scale(0.95);
-    }
-    to { 
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
-}
-
-@keyframes spin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
-
-/* Responsive adjustments */
-@media (min-width: 768px) {
-    .modal-content {
-        border-radius: 1rem;
-        margin: 2rem;
-        max-height: 80vh;
-    }
-    
-    .modal-overlay {
-        align-items: center;
-    }
-    
-    @keyframes modalSlideUp {
-        from { 
-            transform: translateY(2rem) scale(0.95);
-            opacity: 0;
-        }
-        to { 
-            transform: translateY(0) scale(1);
-            opacity: 1;
-        }
-    }
-}
-
-/* Reduced motion support */
-@media (prefers-reduced-motion: reduce) {
-    [data-animate] {
-        opacity: 1 !important;
-        transform: none !important;
-        transition: none !important;
-    }
-    
-    .btn-primary:hover,
-    .theme-toggle:hover {
-        transform: none;
-    }
-    
-    .modal-overlay,
-    .modal-content {
-        animation: none;
-    }
-    
-    .spinner {
-        animation: none;
-    }
-}
