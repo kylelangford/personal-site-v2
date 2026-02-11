@@ -38,6 +38,16 @@
 
 html, body { height: 100%; }
 
+/* Tech Grid Background */
+body {
+    background-color: var(--color-ink);
+    background-image:
+        linear-gradient(rgba(234, 55, 0, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(234, 55, 0, 0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+    background-position: center center;
+}
+
 
 .container {
     margin-inline: auto;
@@ -196,6 +206,225 @@ a:focus-visible,
 button:focus-visible {
     @apply outline-2 outline-offset-2;
     outline-color: var(--color-orange);
+}
+
+
+/* Sticky Stacking Cards */
+.stack-container {
+    position: relative;
+}
+
+.stack-card {
+    position: sticky;
+    top: 2rem;
+    transition: transform 0.1s ease-out, box-shadow 0.2s ease;
+}
+
+.stack-card:nth-child(1) { top: 2rem; z-index: 1; }
+.stack-card:nth-child(2) { top: 3rem; z-index: 2; }
+.stack-card:nth-child(3) { top: 4rem; z-index: 3; }
+.stack-card:nth-child(4) { top: 5rem; z-index: 4; }
+
+/* Add subtle shadow depth as cards stack */
+.stack-card:nth-child(2) .card { box-shadow: 0 -4px 20px rgba(0,0,0,0.4); }
+.stack-card:nth-child(3) .card { box-shadow: 0 -6px 25px rgba(0,0,0,0.5); }
+.stack-card:nth-child(4) .card { box-shadow: 0 -8px 30px rgba(0,0,0,0.6); }
+
+/* Reduced motion: disable sticky stacking */
+@media (prefers-reduced-motion: reduce) {
+    .stack-card {
+        position: relative;
+        top: 0 !important;
+    }
+}
+
+
+/* ========================================
+   VISUAL EFFECTS - Gradients & Glow
+   ======================================== */
+
+/* Text Decode Animation */
+.text-decode {
+    display: inline;
+    font-family: var(--font-display);
+}
+
+.text-decode-char {
+    display: inline-block;
+    min-width: 0.1em;
+}
+
+.text-decode-char.space {
+    min-width: 0.3em;
+}
+
+/* Blinking cursor */
+.text-cursor {
+    display: inline-block;
+    width: 3px;
+    height: 0.9em;
+    background: var(--color-orange);
+    margin-left: 2px;
+    vertical-align: baseline;
+    position: relative;
+    top: 0.1em;
+    animation: cursor-blink 0.6s steps(1) infinite;
+}
+
+@keyframes cursor-blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+/* Reduced motion - show text immediately */
+@media (prefers-reduced-motion: reduce) {
+    .text-cursor {
+        display: none;
+    }
+}
+
+/* Glowing Buttons */
+.btn-primary {
+    position: relative;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(135deg, var(--color-orange), #ff6b35, var(--color-orange));
+    border-radius: inherit;
+    z-index: -1;
+    opacity: 0;
+    filter: blur(8px);
+    transition: opacity 0.3s ease;
+}
+
+.btn-primary:hover::before {
+    opacity: 0.3;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(234, 55, 0, 0.2);
+}
+
+/* Card Hover */
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Disabled Card State */
+.card-disabled {
+    opacity: 0.5;
+    pointer-events: none;
+    border-color: var(--color-slate);
+}
+
+.card-disabled:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+.btn-disabled {
+    background: var(--color-slate);
+    cursor: not-allowed;
+    pointer-events: none;
+    box-shadow: none;
+}
+
+.btn-disabled:hover {
+    transform: none;
+}
+
+
+/* ========================================
+   VISUAL EFFECTS - Motion & Animation
+   ======================================== */
+
+/* Animated Background Orbs */
+.glow-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.08;
+    pointer-events: none;
+    will-change: transform;
+}
+
+.glow-orb-1 {
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, var(--color-orange) 0%, transparent 70%);
+    top: -150px;
+    right: -150px;
+    animation: float-1 25s ease-in-out infinite;
+}
+
+.glow-orb-2 {
+    width: 350px;
+    height: 350px;
+    background: radial-gradient(circle, #ff6b35 0%, transparent 70%);
+    bottom: -80px;
+    left: -80px;
+    animation: float-2 30s ease-in-out infinite;
+}
+
+.glow-orb-3 {
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, var(--color-orange) 0%, transparent 70%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: pulse-glow 15s ease-in-out infinite;
+}
+
+@keyframes float-1 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    25% { transform: translate(-30px, 40px) scale(1.05); }
+    50% { transform: translate(-60px, 20px) scale(1); }
+    75% { transform: translate(-30px, -20px) scale(0.95); }
+}
+
+@keyframes float-2 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(40px, -30px) scale(1.1); }
+    66% { transform: translate(20px, 30px) scale(0.9); }
+}
+
+@keyframes pulse-glow {
+    0%, 100% { opacity: 0.05; transform: translate(-50%, -50%) scale(1); }
+    50% { opacity: 0.1; transform: translate(-50%, -50%) scale(1.1); }
+}
+
+/* Hero section needs relative positioning for orbs */
+.hero-glow-container {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Reduced motion: disable animations */
+@media (prefers-reduced-motion: reduce) {
+    .gradient-text {
+        animation: none;
+        background-position: 0% center;
+    }
+
+    .glow-orb {
+        animation: none !important;
+    }
+
+    .card::before,
+    .btn-primary::before {
+        display: none;
+    }
 }
 
 
