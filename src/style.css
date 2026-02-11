@@ -108,6 +108,13 @@ body {
 /* Typography Scale */
 .heading-hero {
     @apply font-display text-4xl md:text-6xl leading-tight text-offwhite;
+    min-height: 5.625rem; /* Reserve space for 2-3 lines on mobile (45px line height × 2.5) */
+}
+
+@media (min-width: 768px) {
+    .heading-hero {
+        min-height: 9.375rem; /* Reserve space for 2 lines on desktop (75px line height × 2) */
+    }
 }
 
 .heading-section {

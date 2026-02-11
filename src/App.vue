@@ -134,27 +134,26 @@ onUnmounted(() => {
       <div class="container section-padding">
         <h2 id="featured-heading" class="heading-section mb-8" data-animate="fade-up">Featured Projects</h2>
 
-        <!-- Project 1: (Add)ictive Programming -->
-        <div class="mb-6" data-animate="fade-up" data-delay="100">
-          <div class="card shadow-soft">
-            <div class="flex flex-col md:flex-row gap-6 md:items-center">
-              <div class="flex-1">
-                <h3 class="heading-card">(Add)ictive Programming</h3>
-                <p class="content-spacing-sm text-body">
-                  A technical blog covering modern web development, AI integration, and candid conversations about mental health and working with ADD in the tech industry.
-                </p>
-                <div class="content-spacing flex flex-wrap gap-2">
-                  <span class="text-xs px-2 py-1 bg-white/5 rounded text-slate">Astro</span>
-                  <span class="text-xs px-2 py-1 bg-white/5 rounded text-slate">MDX</span>
-                  <span class="text-xs px-2 py-1 bg-white/5 rounded text-slate">Technical Writing</span>
+        <div class="stack-container flex flex-col gap-6 pb-24">
+          <!-- Project 1: (Add)ictive Programming -->
+          <div class="stack-card" data-animate="fade-up" data-delay="100">
+            <div class="card shadow-soft">
+              <div class="flex flex-col md:flex-row gap-6 md:items-center">
+                <div class="flex-1">
+                  <h3 class="heading-card">(Add)ictive Programming</h3>
+                  <p class="content-spacing-sm text-body">
+                    A technical blog covering modern web development, AI integration, and candid conversations about mental health and working with ADD in the tech industry.
+                  </p>
+                  <div class="content-spacing flex flex-wrap gap-2">
+                    <span class="text-xs px-2 py-1 bg-white/5 rounded text-slate">Astro</span>
+                    <span class="text-xs px-2 py-1 bg-white/5 rounded text-slate">MDX</span>
+                    <span class="text-xs px-2 py-1 bg-white/5 rounded text-slate">Technical Writing</span>
+                  </div>
                 </div>
+                <a href="http://addictiveprogramming.com/" target="_blank" rel="noopener noreferrer" class="btn-primary shrink-0">View Project</a>
               </div>
-              <a href="http://addictiveprogramming.com/" target="_blank" rel="noopener noreferrer" class="btn-primary shrink-0">View Project</a>
             </div>
           </div>
-        </div>
-
-        <div class="stack-container flex flex-col gap-6 pb-24">
           <!-- Project 2: Spend Analyzer -->
           <div class="stack-card" data-animate="fade-up" data-delay="100">
             <div class="card shadow-soft">
