@@ -141,14 +141,9 @@ onUnmounted(() => {
               <div class="flex flex-col md:flex-row gap-6 md:items-center">
                 <div class="flex-1">
                   <h3 class="heading-card">(Add)ictive Programming</h3>
-                  <p class="content-spacing-sm text-body">
+                  <p class="text-body">
                     A technical blog covering modern web development, AI integration, and candid conversations about mental health and working with ADD in the tech industry.
                   </p>
-                  <div class="content-spacing flex flex-wrap gap-2">
-                    <span class="text-xs px-2 py-1 bg-white/5 rounded text-slate">Astro</span>
-                    <span class="text-xs px-2 py-1 bg-white/5 rounded text-slate">MDX</span>
-                    <span class="text-xs px-2 py-1 bg-white/5 rounded text-slate">Technical Writing</span>
-                  </div>
                 </div>
                 <a href="http://addictiveprogramming.com/" target="_blank" rel="noopener noreferrer" class="btn-primary shrink-0">View Project</a>
               </div>
@@ -160,16 +155,11 @@ onUnmounted(() => {
               <div class="flex flex-col md:flex-row gap-6 md:items-center">
                 <div class="flex-1">
                   <h3 class="heading-card">Spend Analyzer</h3>
-                  <p class="content-spacing-sm text-body">
+                  <p class="text-body">
                     A micro SaaS tool that helps users understand their spending patterns. Upload transaction data, visualize trends, and identify opportunities to save.
                   </p>
-                  <div class="content-spacing flex flex-wrap gap-2">
-                    <span class="text-xs px-2 py-1 bg-white/5 rounded text-slate">Vue 3</span>
-                    <span class="text-xs px-2 py-1 bg-white/5 rounded text-slate">TypeScript</span>
-                    <span class="text-xs px-2 py-1 bg-white/5 rounded text-slate">AI</span>
-                  </div>
                 </div>
-                <span class="btn-primary btn-disabled shrink-0">Coming Soon</span>
+                <a href="https://finance-graphs.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-primary shrink-0">View Project</a>
               </div>
             </div>
           </div>
@@ -180,34 +170,39 @@ onUnmounted(() => {
               <div class="flex flex-col md:flex-row gap-6 md:items-center">
                 <div class="flex-1">
                   <h3 class="heading-card">Daily Planner</h3>
-                  <p class="content-spacing-sm text-body">
-                    A developer tool that analyzes JavaScript code for readability and maintainability. Get actionable insights to write cleaner, more understandable code.
+                  <p class="text-body">
+                    Tell the planner what your goals are and have it help you plan your day. A simple tool to turn intentions into actionable schedules.
                   </p>
-                  <div class="content-spacing flex flex-wrap gap-2">
-                    <span class="text-xs px-2 py-1 bg-white/5 rounded text-slate">Vue 3</span>
-                    <span class="text-xs px-2 py-1 bg-white/5 rounded text-slate">Typescript</span>
-                    <span class="text-xs px-2 py-1 bg-white/5 rounded text-slate">AI</span>
-                  </div>
                 </div>
                 <span class="btn-primary btn-disabled shrink-0">Coming Soon</span>
               </div>
             </div>
           </div>
 
-          <!-- Project 4: QR Holo -->
+          <!-- Project 4: Simple Invoicing -->
           <div class="stack-card" data-animate="fade-up" data-delay="200">
             <div class="card shadow-soft">
               <div class="flex flex-col md:flex-row gap-6 md:items-center">
                 <div class="flex-1">
-                  <h3 class="heading-card">QR Holo</h3>
-                  <p class="content-spacing-sm text-body">
+                  <h3 class="heading-card">Simple Invoicing</h3>
+                  <p class="text-body">
+                    For freelancers who need to track time and generate invoices without the complexity. Simple time tracking and professional invoice generation.
+                  </p>
+                </div>
+                <span class="btn-primary btn-disabled shrink-0">Coming Soon</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 5: Holographic QR Codes -->
+          <div class="stack-card" data-animate="fade-up" data-delay="250">
+            <div class="card shadow-soft">
+              <div class="flex flex-col md:flex-row gap-6 md:items-center">
+                <div class="flex-1">
+                  <h3 class="heading-card">Holographic QR Codes</h3>
+                  <p class="text-body">
                     Generate QR codes with holographic visual effects. A utility tool that makes functional QR codes visually distinctive and memorable.
                   </p>
-                  <div class="content-spacing flex flex-wrap gap-2">
-                    <span class="text-xs px-2 py-1 bg-white/5 rounded text-slate">Canvas API</span>
-                    <span class="text-xs px-2 py-1 bg-white/5 rounded text-slate">WebGL</span>
-                    <span class="text-xs px-2 py-1 bg-white/5 rounded text-slate">QR Generation</span>
-                  </div>
                 </div>
                 <span class="btn-primary btn-disabled shrink-0">Coming Soon</span>
               </div>
