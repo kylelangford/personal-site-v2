@@ -266,16 +266,19 @@ onUnmounted(() => {
     <section class="bg-ink" data-animate="fade-up" aria-labelledby="stack-heading">
       <div class="container section-padding-sm">
         <h2 id="stack-heading" class="heading-section text-center" data-animate="fade-up">Tech Stack</h2>
-        <div class="content-spacing flex flex-wrap justify-center gap-3 md:gap-4" data-animate="fade-up" data-delay="100">
-          <span class="px-4 py-2 bg-white/5 rounded-lg text-body">Vue</span>
-          <span class="px-4 py-2 bg-white/5 rounded-lg text-body">Svelte</span>
+        <div class="content-spacing flex flex-wrap justify-center gap-3 md:gap-4 max-w-3xl mx-auto" data-animate="fade-up" data-delay="100">
+          <span class="px-4 py-2 bg-white/5 rounded-lg text-body">Vue.js</span>
+          <span class="px-4 py-2 bg-white/5 rounded-lg text-body">Nuxt</span>
+          <span class="px-4 py-2 bg-white/5 rounded-lg text-body">React</span>
+          <span class="px-4 py-2 bg-white/5 rounded-lg text-body">Next.js</span>
           <span class="px-4 py-2 bg-white/5 rounded-lg text-body">TypeScript</span>
+          <span class="px-4 py-2 bg-white/5 rounded-lg text-body">Python</span>
           <span class="px-4 py-2 bg-white/5 rounded-lg text-body">Node.js</span>
           <span class="px-4 py-2 bg-white/5 rounded-lg text-body">PostgreSQL</span>
           <span class="px-4 py-2 bg-white/5 rounded-lg text-body">Tailwind</span>
           <span class="px-4 py-2 bg-white/5 rounded-lg text-body">Vercel</span>
           <span class="px-4 py-2 bg-white/5 rounded-lg text-body">OpenAI</span>
-          <span class="px-4 py-2 bg-white/5 rounded-lg text-body">Anthropic</span>
+          <span class="px-4 py-2 bg-white/5 rounded-lg text-body">Claude</span>
         </div>
       </div>
     </section>
