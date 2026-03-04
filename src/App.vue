@@ -118,8 +118,8 @@ onUnmounted(() => {
             <span class="text-decode">{{ displayText }}</span><span class="text-cursor" aria-hidden="true"></span>
           </h1>
           <p class="content-spacing text-lead lead-content">
-            We build web apps, micro SaaS products, and AI-powered tools for modern businesses.
-            From B2B dashboards to agentic workflows—production-ready software that scales.
+            We build web apps, micro services, and AI-powered tools for modern businesses.
+            From B2B dashboards to agentic workflows, production-ready software that scales.
           </p>
           <div class="actions-spacing flex items-center gap-4" role="group" aria-label="Primary actions">
             <a href="https://kylelangford.com/" target="_blank" rel="noopener noreferrer" class="btn-primary">Founded by Kyle Langford</a>
@@ -140,9 +140,9 @@ onUnmounted(() => {
             <div class="card shadow-soft">
               <div class="flex flex-col md:flex-row gap-6 md:items-center">
                 <div class="flex-1">
-                  <h3 class="heading-card">(Add)ictive Programming</h3>
+                  <h3 class="heading-card">(ADD)ictive Programming</h3>
                   <p class="text-body">
-                    A technical blog covering modern web development, AI integration, and candid conversations about mental health and working with ADD in the tech industry.
+                    A technical blog covering modern web development, AI, and candid conversations about mental health and working in the tech industry.
                   </p>
                 </div>
                 <a href="http://addictiveprogramming.com/" target="_blank" rel="noopener noreferrer" class="btn-primary shrink-0">View Project</a>
@@ -156,7 +156,7 @@ onUnmounted(() => {
                 <div class="flex-1">
                   <h3 class="heading-card">Spend Analyzer</h3>
                   <p class="text-body">
-                    A micro SaaS tool that helps users understand their spending patterns. Upload transaction data, visualize trends, and identify opportunities to save.
+                    An easy to use tool that helps users understand their spending patterns. Upload transaction data, visualize trends, and identify opportunities to save.
                   </p>
                 </div>
                 <a href="https://finance-graphs.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-primary shrink-0">View Project</a>
@@ -164,8 +164,23 @@ onUnmounted(() => {
             </div>
           </div>
 
-          <!-- Project 3: Daily Planner -->
+          <!-- Project 3: Linkpad -->
           <div class="stack-card" data-animate="fade-up" data-delay="150">
+            <div class="card shadow-soft">
+              <div class="flex flex-col md:flex-row gap-6 md:items-center">
+                <div class="flex-1">
+                  <h3 class="heading-card">Linkpad</h3>
+                  <p class="text-body">
+                    Send temporary notes with a simple, shareable link. No sign-up required—just write, share, and the note expires automatically.
+                  </p>
+                </div>
+                <a href="https://linkpad-delta.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-primary shrink-0">View Project</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 4: Daily Planner -->
+          <div class="stack-card" data-animate="fade-up" data-delay="200">
             <div class="card shadow-soft">
               <div class="flex flex-col md:flex-row gap-6 md:items-center">
                 <div class="flex-1">
@@ -179,8 +194,8 @@ onUnmounted(() => {
             </div>
           </div>
 
-          <!-- Project 4: Simple Invoicing -->
-          <div class="stack-card" data-animate="fade-up" data-delay="200">
+          <!-- Project 5: Simple Invoicing -->
+          <div class="stack-card" data-animate="fade-up" data-delay="250">
             <div class="card shadow-soft">
               <div class="flex flex-col md:flex-row gap-6 md:items-center">
                 <div class="flex-1">
@@ -194,8 +209,8 @@ onUnmounted(() => {
             </div>
           </div>
 
-          <!-- Project 5: Holographic QR Codes -->
-          <div class="stack-card" data-animate="fade-up" data-delay="250">
+          <!-- Project 6: Holographic QR Codes -->
+          <div class="stack-card" data-animate="fade-up" data-delay="300">
             <div class="card shadow-soft">
               <div class="flex flex-col md:flex-row gap-6 md:items-center">
                 <div class="flex-1">
