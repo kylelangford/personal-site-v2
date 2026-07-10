@@ -1,0 +1,45 @@
+# Precision Frontend Engineering
+
+> We build web apps, micro SaaS products, and AI-powered tools for modern businesses.
+
+## About
+
+Precision Frontend Engineering is a software development company specializing in production-ready web applications, B2B tools, and AI integration. Founded by Kyle Langford, a senior frontend engineer with 14+ years of experience.
+
+## Services
+
+- Web Applications: Full-stack apps with modern frameworks, APIs, and cloud infrastructure
+- Micro SaaS Products: Focused software products that solve specific business problems
+- B2B Tools & Dashboards: Internal tools, admin panels, and data-driven interfaces
+- Agentic Workflows: Autonomous AI agents that automate complex multi-step processes
+- AI Integration: LLM-powered features, embeddings, and intelligent web apps
+- Developer Tools: Workflows, tooling, and systems that improve developer experience
+
+## Tech Stack
+
+Vue, Svelte, TypeScript, Node.js, PostgreSQL, Tailwind, Vercel, OpenAI, Anthropic
+
+## Projects
+
+- Spend Analyzer: https://spend-analyzer.precisionfrontend.com
+  A micro SaaS tool for understanding spending patterns with CSV import and interactive charts.
+
+- ReadableJS: https://readableJS.precisionfrontend.com
+  A developer tool that analyzes JavaScript code for readability and maintainability.
+
+- QR Holo: https://holo-qr.vercel.app
+  Generate QR codes with holographic visual effects.
+
+- (Add)ictive Programming: https://addictiveprogramming.com
+  Technical blog covering web development, AI integration, and mental health in tech.
+
+## Contact
+
+- Email: kyle.langford@gmail.com
+- Website: https://precisionfrontend.com
+- Blog: https://kylelangford.com/blog
+- LinkedIn: https://linkedin.com/in/kylelangford
+
+## Location
+
+United States

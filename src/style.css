@@ -380,6 +380,17 @@ button:focus-visible {
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
 }
 
+/* Card as Link */
+.card-link {
+    display: block;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.card-link:hover {
+    border-color: var(--color-orange);
+}
+
 /* Disabled Card State */
 .card-disabled {
     opacity: 0.5;
