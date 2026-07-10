@@ -233,6 +233,67 @@ const allServices = [
   { title: 'Competitive Analysis', link: '/services/competitive-analysis', description: 'Benchmark against competitors' },
   { title: 'Tech Migration', link: '/services/tech-migration', description: 'Platform & stack upgrades' }
 ]
+
+// Results/metrics
+const results = [
+  { metric: '15+', label: 'Years Experience', description: 'Building web interfaces for startups, agencies, and growing companies' },
+  { metric: '100+', label: 'Projects Delivered', description: 'From quick fixes to full platform migrations' },
+  { metric: '24-48h', label: 'Quote Turnaround', description: 'Fast response with fixed pricing—no surprises' }
+]
+
+// Industries served
+const industries = [
+  'Healthcare Technology',
+  'Higher Education',
+  'Energy & Utilities',
+  'SaaS Platforms',
+  'Media & Publishing',
+  'E-commerce'
+]
+
+// Testimonials
+const testimonials = [
+  {
+    quote: 'Kyle was a thoughtful and reliable partner who understood both the technical and operational constraints of enterprise delivery.',
+    name: 'Jed H.',
+    title: 'Engineering Director'
+  },
+  {
+    quote: 'Kyle was great to work with. He took ideas from the marketing team and made them come to life.',
+    name: 'Michelle O.',
+    title: 'Marketing Manager'
+  },
+  {
+    quote: 'Kyle\'s depth of experience across various disciplines of design make him a powerful leader and well rounded professional.',
+    name: 'Joseph H.',
+    title: 'Senior Frontend Developer'
+  },
+  {
+    quote: 'Kyle is an excellent designer who brought creative ideas to bear on our projects.',
+    name: 'Tom W.',
+    title: 'Design Principal'
+  }
+]
+
+// How we work
+const workStyle = [
+  {
+    title: 'Direct Communication',
+    description: 'You talk to the person doing the work. No account managers, no game of telephone.'
+  },
+  {
+    title: 'Fixed Pricing',
+    description: 'You know the cost before we start. No hourly billing, no scope creep surprises.'
+  },
+  {
+    title: 'Fast Turnaround',
+    description: 'Most quotes within 48 hours. Most projects completed in days or weeks, not months.'
+  },
+  {
+    title: 'Enterprise Experience',
+    description: 'Process and reliability from agency work, without the agency overhead.'
+  }
+]
 </script>
 
 
@@ -467,28 +528,85 @@ const allServices = [
     </div>
   </section>
 
-  <!-- EXPERTISE -->
-  <section class="bg-ink" aria-labelledby="expertise-heading">
+  <!-- RESULTS -->
+  <section class="bg-ink" aria-labelledby="results-heading">
+    <div class="container section-padding">
+      <div class="grid md:grid-cols-3 gap-8 text-center">
+        <div
+          v-for="(result, index) in results"
+          :key="result.label"
+          :data-animate="'fade-up'"
+          :data-delay="100 + (index * 50)"
+        >
+          <div class="text-5xl md:text-6xl font-display text-orange mb-2">{{ result.metric }}</div>
+          <div class="text-offwhite font-semibold mb-2">{{ result.label }}</div>
+          <p class="text-body text-sm">{{ result.description }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INDUSTRIES -->
+  <section class="bg-ink" aria-labelledby="industries-heading">
     <div class="container section-padding-sm">
-      <h2 id="expertise-heading" class="heading-section text-center" data-animate="fade-up">
-        What We Work With
+      <h2 id="industries-heading" class="heading-section text-center" data-animate="fade-up">
+        Industries We Serve
       </h2>
-      <p class="content-spacing text-body text-center max-w-2xl mx-auto" data-animate="fade-up" data-delay="100">
-        15+ years across startups, agencies, and growing companies.
-      </p>
-      <div class="content-spacing flex flex-wrap justify-center gap-3 md:gap-4 max-w-4xl mx-auto" data-animate="fade-up" data-delay="150">
-        <span class="px-4 py-2 bg-white/5 rounded-lg text-body">React</span>
-        <span class="px-4 py-2 bg-white/5 rounded-lg text-body">Next.js</span>
-        <span class="px-4 py-2 bg-white/5 rounded-lg text-body">Vue.js</span>
-        <span class="px-4 py-2 bg-white/5 rounded-lg text-body">Nuxt</span>
-        <span class="px-4 py-2 bg-white/5 rounded-lg text-body">TypeScript</span>
-        <span class="px-4 py-2 bg-white/5 rounded-lg text-body">Node.js</span>
-        <span class="px-4 py-2 bg-white/5 rounded-lg text-body">WordPress</span>
-        <span class="px-4 py-2 bg-white/5 rounded-lg text-body">Drupal</span>
-        <span class="px-4 py-2 bg-white/5 rounded-lg text-body">Webflow</span>
-        <span class="px-4 py-2 bg-white/5 rounded-lg text-body">Shopify</span>
-        <span class="px-4 py-2 bg-white/5 rounded-lg text-body">AWS</span>
-        <span class="px-4 py-2 bg-white/5 rounded-lg text-body">Vercel</span>
+      <div class="content-spacing flex flex-wrap justify-center gap-3 md:gap-4 max-w-3xl mx-auto" data-animate="fade-up" data-delay="100">
+        <span
+          v-for="industry in industries"
+          :key="industry"
+          class="px-4 py-2 border border-orange/30 rounded-lg text-body text-sm"
+        >
+          {{ industry }}
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="bg-ink" aria-labelledby="testimonials-heading">
+    <div class="container section-padding">
+      <h2 id="testimonials-heading" class="heading-section text-center" data-animate="fade-up">
+        What Clients Say
+      </h2>
+      <div class="actions-spacing grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        <div
+          v-for="(testimonial, index) in testimonials"
+          :key="testimonial.name"
+          class="p-6 border border-orange/20 rounded-xl"
+          :data-animate="'fade-up'"
+          :data-delay="100 + (index * 50)"
+        >
+          <p class="text-body italic mb-4">"{{ testimonial.quote }}"</p>
+          <div class="flex items-center gap-3">
+            <div>
+              <p class="text-offwhite font-semibold text-sm">{{ testimonial.name }}</p>
+              <p class="text-slate text-xs">{{ testimonial.title }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW WE WORK -->
+  <section class="bg-ink" aria-labelledby="workstyle-heading">
+    <div class="container section-padding">
+      <h2 id="workstyle-heading" class="heading-section text-center" data-animate="fade-up">
+        Why Companies Choose Us
+      </h2>
+      <div class="actions-spacing grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+        <div
+          v-for="(item, index) in workStyle"
+          :key="item.title"
+          class="text-center"
+          :data-animate="'fade-up'"
+          :data-delay="100 + (index * 50)"
+        >
+          <h3 class="text-offwhite font-semibold mb-2">{{ item.title }}</h3>
+          <p class="text-body text-sm">{{ item.description }}</p>
+        </div>
       </div>
     </div>
   </section>
