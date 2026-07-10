@@ -1,6 +1,7 @@
 <script setup>
 import { onMounted, onUnmounted, ref, reactive } from 'vue'
 import { RouterLink } from 'vue-router'
+import Icon from '../components/Icon.vue'
 
 const year = new Date().getFullYear()
 const heroText = ref('Your Website Is Slowing You Down')
@@ -137,42 +138,42 @@ const problems = [
     title: 'Outdated Platform',
     risk: 'You\'re stuck',
     description: 'Drupal 7, old WordPress, or a framework nobody wants to touch. Every update is a risk. Every feature request takes forever.',
-    icon: '🔒',
+    icon: 'lock-closed',
     link: '/services/legacy-cms'
   },
   {
     title: 'Slow Page Loads',
     risk: 'You\'re losing customers',
     description: 'Your pages take 5+ seconds to load on mobile. Visitors bounce before they see your product. Google notices.',
-    icon: '🐌',
+    icon: 'clock',
     link: '/services/performance'
   },
   {
     title: 'Broken User Journeys',
     risk: 'You\'re wasting traffic',
     description: 'Dead links, confusing navigation, forms that don\'t work. Paid traffic hits a wall. Leads slip through cracks.',
-    icon: '🔗',
+    icon: 'link-slash',
     link: '/services/broken-links'
   },
   {
     title: 'Accessibility Issues',
     risk: 'You\'re exposed',
     description: 'WCAG violations are legal liability. Also: 15-20% of users have some form of disability. That\'s revenue you\'re missing.',
-    icon: '⚠️',
+    icon: 'exclamation-triangle',
     link: '/services/accessibility'
   },
   {
     title: 'No Clear Conversion Path',
     risk: 'You\'re invisible',
     description: 'Your traffic has nowhere obvious to go after the hero section. No clear next step means no conversions.',
-    icon: '📱',
+    icon: 'cursor-arrow-rays',
     link: '/services/conversion'
   },
   {
     title: 'Can\'t Move Fast',
     risk: 'You\'re falling behind',
     description: 'Simple changes require a developer. Content updates take days. Your competitors ship while you wait.',
-    icon: '⏳',
+    icon: 'bolt-slash',
     link: '/services/tech-migration'
   }
 ]
@@ -284,7 +285,9 @@ const allServices = [
           :data-delay="100 + (index * 50)"
           role="listitem"
         >
-          <div class="text-3xl mb-4" aria-hidden="true">{{ problem.icon }}</div>
+          <div class="mb-4 text-orange" aria-hidden="true">
+            <Icon :name="problem.icon" size="32" />
+          </div>
           <h3 class="heading-service">{{ problem.title }}</h3>
           <p class="text-orange text-sm font-medium mt-1">{{ problem.risk }}</p>
           <p class="content-spacing-sm text-body">{{ problem.description }}</p>
