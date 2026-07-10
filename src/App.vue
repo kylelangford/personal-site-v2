@@ -56,7 +56,7 @@ const services = [
               </div>
             </div>
           </div>
-          <a href="/#contact" class="btn-primary text-sm py-2 px-4">Free Audit</a>
+          <a href="/#contact" class="btn-primary text-sm py-2 px-4">Get a Quote</a>
         </div>
       </nav>
     </div>

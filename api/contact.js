@@ -9,37 +9,35 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { company, name, email, siteUrl, auditType, message } = req.body;
+    const { company, name, email, siteUrl, message } = req.body;
 
     // Validate required fields
-    if (!company || !name || !email || !siteUrl || !auditType) {
+    if (!company || !name || !email || !siteUrl || !message) {
       return res.status(400).json({ error: 'Missing required fields' });
     }
 
-    // Format the email
-    const auditTypeLabel = auditType === 'quick' ? 'Quick Audit (Free)' : 'Comprehensive Assessment';
-
     const emailHtml = `
-      <h2>New Audit Request</h2>
+      <h2>New Quote Request</h2>
       <p><strong>Company:</strong> ${company}</p>
       <p><strong>Name:</strong> ${name}</p>
       <p><strong>Email:</strong> ${email}</p>
       <p><strong>Website:</strong> <a href="${siteUrl}">${siteUrl}</a></p>
-      <p><strong>Audit Type:</strong> ${auditTypeLabel}</p>
-      ${message ? `<p><strong>Additional Context:</strong></p><p>${message}</p>` : ''}
+      <p><strong>Problem Description:</strong></p>
+      <p>${message.replace(/\n/g, '<br>')}</p>
       <hr>
       <p><em>Submitted via precisionfrontend.com</em></p>
     `;
 
     const emailText = `
-New Audit Request
+New Quote Request
 
 Company: ${company}
 Name: ${name}
 Email: ${email}
 Website: ${siteUrl}
-Audit Type: ${auditTypeLabel}
-${message ? `Additional Context: ${message}` : ''}
+
+Problem Description:
+${message}
 
 ---
 Submitted via precisionfrontend.com
@@ -50,7 +48,7 @@ Submitted via precisionfrontend.com
       from: 'Precision Frontend <noreply@precisionfrontend.com>',
       to: ['kyle.langford@gmail.com'],
       replyTo: email,
-      subject: `[Audit Request] ${company} - ${auditTypeLabel}`,
+      subject: `[Quote Request] ${company}`,
       html: emailHtml,
       text: emailText,
     });

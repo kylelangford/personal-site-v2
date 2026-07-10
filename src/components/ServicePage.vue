@@ -34,7 +34,7 @@ defineProps({
             {{ subtitle }}
           </p>
           <div class="actions-spacing">
-            <a href="/#contact" class="btn-primary">Get a Free Audit</a>
+            <a href="/#contact" class="btn-primary">Get a Free Quote</a>
           </div>
         </div>
       </div>
@@ -98,10 +98,10 @@ defineProps({
         <div class="card text-center max-w-2xl mx-auto">
           <h2 id="cta-heading" class="heading-card">Ready to Fix This?</h2>
           <p class="content-spacing text-body">
-            We'll audit your site and show you exactly what needs to change. Free, no strings attached.
+            Tell us what's broken. We'll send you a quote with fixed pricing—no obligation.
           </p>
           <div class="mt-8">
-            <a href="/#contact" class="btn-primary">Get Your Free Audit</a>
+            <a href="/#contact" class="btn-primary">Get a Free Quote</a>
           </div>
         </div>
       </div>

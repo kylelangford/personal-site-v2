@@ -16,7 +16,6 @@ const form = reactive({
   name: '',
   email: '',
   siteUrl: '',
-  auditType: 'quick',
   message: ''
 })
 
@@ -42,7 +41,6 @@ async function submitForm() {
       name: '',
       email: '',
       siteUrl: '',
-      auditType: 'quick',
       message: ''
     })
   } catch (err) {
@@ -182,23 +180,23 @@ const problems = [
 const processSteps = [
   {
     step: '01',
-    title: 'Quick Audit',
-    description: 'We review your site and send you a report within 48 hours. No fluff, just findings.'
+    title: 'Tell Us the Problem',
+    description: 'Describe what\'s broken, slow, or outdated. Include your site URL.'
   },
   {
     step: '02',
-    title: 'Strategy Call',
-    description: '30 minutes to walk through the findings and discuss what to fix first.'
+    title: 'Get a Quote',
+    description: 'We review your site and send a fixed-price quote within 24-48 hours.'
   },
   {
     step: '03',
-    title: 'Scope & Quote',
-    description: 'Clear proposal with fixed pricing. No hourly billing surprises.'
+    title: 'Quick Call',
+    description: 'Optional 15-minute call to clarify scope. Or just reply to the quote.'
   },
   {
     step: '04',
-    title: 'Ship It',
-    description: 'We fix the problems or rebuild what needs rebuilding. You get a site that works.'
+    title: 'We Fix It',
+    description: 'We do the work. You get a site that works. No hourly surprises.'
   }
 ]
 
@@ -251,14 +249,14 @@ const allServices = [
           <span class="text-decode">{{ displayText }}</span><span class="text-cursor" aria-hidden="true"></span>
         </h1>
         <p class="content-spacing text-lead lead-content">
-          Slow pages. Broken links. Outdated platforms. Your website has problems you can't see—but your customers can.
-          We find them and fix them.
+          Slow pages. Broken links. Outdated platforms. You know something's wrong—you just need someone to fix it.
+          Tell us the problem, we'll send you a quote.
         </p>
         <div class="actions-spacing flex flex-col sm:flex-row items-start sm:items-center gap-4" role="group" aria-label="Primary actions">
-          <a href="#contact" class="btn-primary">Get a Free Site Audit</a>
-          <a href="#problems" class="btn-ghost">What We Look For</a>
+          <a href="#contact" class="btn-primary">Get a Free Quote</a>
+          <a href="#problems" class="btn-ghost">Common Problems</a>
         </div>
-        <p class="mt-6 text-sm text-slate">No sales call required. Just your URL and we'll send you a report.</p>
+        <p class="mt-6 text-sm text-slate">No sales call required. Tell us what's broken and we'll quote it.</p>
       </div>
     </div>
   </section>
@@ -328,10 +326,10 @@ const allServices = [
     <div class="container section-padding">
       <div class="max-w-3xl">
         <h2 id="all-services-heading" class="heading-section" data-animate="fade-up">
-          What We Audit
+          What We Fix
         </h2>
         <p class="content-spacing text-lead" data-animate="fade-up" data-delay="100">
-          We look for specific problems with clear business impact.
+          Common problems we solve for growing companies.
         </p>
       </div>
 
@@ -356,53 +354,48 @@ const allServices = [
     <div class="container section-padding">
       <div class="max-w-3xl">
         <h2 id="services-heading" class="heading-section" data-animate="fade-up">
-          How We Help
+          How It Works
         </h2>
         <p class="content-spacing text-lead" data-animate="fade-up" data-delay="100">
-          Start with a free audit. Go deeper if you need to.
+          You tell us what's broken. We tell you what it costs to fix.
         </p>
       </div>
 
       <div class="actions-spacing grid md:grid-cols-2 gap-8">
-        <!-- Quick Audit - Free -->
+        <!-- Free Quote -->
         <div class="card card-featured" data-animate="fade-up" data-delay="150">
           <div class="flex items-center gap-3 mb-4">
             <span class="badge-free">Free</span>
-            <span class="text-slate text-sm">48-hour turnaround</span>
+            <span class="text-slate text-sm">24-48 hour response</span>
           </div>
-          <h3 class="heading-card">Site Audit</h3>
+          <h3 class="heading-card">Project Quote</h3>
           <p class="content-spacing-sm text-body">
-            We run your site through our diagnostic process and send you a clear report of what's broken,
-            what's slow, and what's hurting conversions.
+            Tell us what's wrong with your site. We'll review it and send you a clear quote with fixed pricing.
           </p>
           <ul class="content-spacing space-y-2 text-body">
             <li class="flex items-start gap-2">
               <span class="text-orange">✓</span>
-              Performance & Core Web Vitals
+              Describe your problem
             </li>
             <li class="flex items-start gap-2">
               <span class="text-orange">✓</span>
-              Mobile experience check
+              We review your site
             </li>
             <li class="flex items-start gap-2">
               <span class="text-orange">✓</span>
-              Broken links & 404s
+              Get a fixed-price quote
             </li>
             <li class="flex items-start gap-2">
               <span class="text-orange">✓</span>
-              Basic accessibility scan
+              No hourly surprises
             </li>
             <li class="flex items-start gap-2">
               <span class="text-orange">✓</span>
-              Tech stack assessment
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-orange">✓</span>
-              PDF report you can share with your team
+              No obligation
             </li>
           </ul>
           <div class="mt-8">
-            <a href="#contact" class="btn-primary w-full justify-center">Get Your Free Audit</a>
+            <a href="#contact" class="btn-primary w-full justify-center">Get a Free Quote</a>
           </div>
         </div>
 
@@ -410,36 +403,28 @@ const allServices = [
         <div class="card" data-animate="fade-up" data-delay="200">
           <div class="flex items-center gap-3 mb-4">
             <span class="badge-paid">Deep Dive</span>
-            <span class="text-slate text-sm">1-2 week engagement</span>
+            <span class="text-slate text-sm">For complex situations</span>
           </div>
-          <h3 class="heading-card">Full Assessment + Roadmap</h3>
+          <h3 class="heading-card">Full Site Assessment</h3>
           <p class="content-spacing-sm text-body">
-            Comprehensive technical review with prioritized recommendations and a clear plan to fix everything.
+            Not sure what's wrong? We'll diagnose everything and build a prioritized roadmap.
           </p>
           <ul class="content-spacing space-y-2 text-body">
             <li class="flex items-start gap-2">
               <span class="text-orange">✓</span>
-              Everything in the free audit
+              Comprehensive technical audit
             </li>
             <li class="flex items-start gap-2">
               <span class="text-orange">✓</span>
-              Full WCAG 2.1 accessibility audit
+              Performance & Core Web Vitals
             </li>
             <li class="flex items-start gap-2">
               <span class="text-orange">✓</span>
-              SEO technical review
+              Accessibility review
             </li>
             <li class="flex items-start gap-2">
               <span class="text-orange">✓</span>
-              Security headers & vulnerabilities
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-orange">✓</span>
-              Architecture & scalability review
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-orange">✓</span>
-              Prioritized roadmap with estimates
+              SEO technical analysis
             </li>
             <li class="flex items-start gap-2">
               <span class="text-orange">✓</span>
@@ -447,18 +432,9 @@ const allServices = [
             </li>
           </ul>
           <div class="mt-8">
-            <a href="#contact" class="btn-ghost w-full justify-center">Request Pricing</a>
+            <a href="#contact" class="btn-ghost w-full justify-center">Request Assessment</a>
           </div>
         </div>
-      </div>
-
-      <!-- Remediation callout -->
-      <div class="mt-12 p-8 border border-orange/20 rounded-xl text-center max-w-2xl mx-auto" data-animate="fade-up" data-delay="250">
-        <h3 class="heading-service">Need it fixed, not just diagnosed?</h3>
-        <p class="content-spacing-sm text-body">
-          We also do the work. Performance optimization, accessibility fixes, platform migrations, rebuilds.
-          Let's talk about what you need.
-        </p>
       </div>
     </div>
   </section>
@@ -523,10 +499,10 @@ const allServices = [
       <div class="max-w-2xl mx-auto">
         <div class="text-center mb-12">
           <h2 id="contact-heading" class="heading-section" data-animate="fade-up">
-            Get Your Free Audit
+            Get a Free Quote
           </h2>
           <p class="content-spacing text-body" data-animate="fade-up" data-delay="100">
-            Drop your URL below. We'll send you a report within 48 hours.
+            Tell us what's broken. We'll send you a quote within 24-48 hours.
           </p>
         </div>
 
@@ -535,7 +511,7 @@ const allServices = [
           <div class="text-5xl mb-4">✓</div>
           <h3 class="heading-card">Got It</h3>
           <p class="content-spacing text-body">
-            We'll review your site and send you a report within 48 hours.
+            We'll review your site and send you a quote within 24-48 hours.
           </p>
         </div>
 
@@ -592,39 +568,16 @@ const allServices = [
           </div>
 
           <div class="mt-6">
-            <label class="block text-sm font-medium text-offwhite mb-2">What do you need?</label>
-            <div class="flex flex-col sm:flex-row gap-4">
-              <label class="flex items-center gap-3 cursor-pointer">
-                <input
-                  type="radio"
-                  v-model="form.auditType"
-                  value="quick"
-                  class="form-radio"
-                />
-                <span class="text-body">Free Site Audit</span>
-              </label>
-              <label class="flex items-center gap-3 cursor-pointer">
-                <input
-                  type="radio"
-                  v-model="form.auditType"
-                  value="comprehensive"
-                  class="form-radio"
-                />
-                <span class="text-body">Full Assessment + Roadmap</span>
-              </label>
-            </div>
-          </div>
-
-          <div class="mt-6">
             <label for="message" class="block text-sm font-medium text-offwhite mb-2">
-              Anything specific you want us to look at? <span class="text-slate">(optional)</span>
+              What's the problem?
             </label>
             <textarea
               id="message"
               v-model="form.message"
-              rows="3"
+              rows="4"
+              required
               class="form-input"
-              placeholder="Our checkout flow feels slow, mobile is a mess, etc..."
+              placeholder="Our site is slow on mobile, we need to migrate off Drupal 7, the checkout form is broken..."
             ></textarea>
           </div>
 
@@ -639,7 +592,7 @@ const allServices = [
               :disabled="formStatus === 'submitting'"
             >
               <span v-if="formStatus === 'submitting'">Sending...</span>
-              <span v-else>Send My URL</span>
+              <span v-else>Get My Quote</span>
             </button>
           </div>
         </form>
