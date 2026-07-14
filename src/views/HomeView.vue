@@ -251,30 +251,6 @@ const industries = [
   'E-commerce'
 ]
 
-// Testimonials
-const testimonials = [
-  {
-    quote: 'Kyle was a thoughtful and reliable partner who understood both the technical and operational constraints of enterprise delivery.',
-    name: 'Jed H.',
-    title: 'Engineering Director'
-  },
-  {
-    quote: 'Kyle was great to work with. He took ideas from the marketing team and made them come to life.',
-    name: 'Michelle O.',
-    title: 'Marketing Manager'
-  },
-  {
-    quote: 'Kyle\'s depth of experience across various disciplines of design make him a powerful leader and well rounded professional.',
-    name: 'Joseph H.',
-    title: 'Senior Frontend Developer'
-  },
-  {
-    quote: 'Kyle is an excellent designer who brought creative ideas to bear on our projects.',
-    name: 'Tom W.',
-    title: 'Design Principal'
-  }
-]
-
 // How we work
 const workStyle = [
   {
@@ -560,32 +536,6 @@ const workStyle = [
         >
           {{ industry }}
         </span>
-      </div>
-    </div>
-  </section>
-
-  <!-- TESTIMONIALS -->
-  <section class="bg-ink" aria-labelledby="testimonials-heading">
-    <div class="container section-padding">
-      <h2 id="testimonials-heading" class="heading-section text-center" data-animate="fade-up">
-        What Clients Say
-      </h2>
-      <div class="actions-spacing grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-        <div
-          v-for="(testimonial, index) in testimonials"
-          :key="testimonial.name"
-          class="p-6 border border-orange/20 rounded-xl"
-          :data-animate="'fade-up'"
-          :data-delay="100 + (index * 50)"
-        >
-          <p class="text-body italic mb-4">"{{ testimonial.quote }}"</p>
-          <div class="flex items-center gap-3">
-            <div>
-              <p class="text-offwhite font-semibold text-sm">{{ testimonial.name }}</p>
-              <p class="text-slate text-xs">{{ testimonial.title }}</p>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </section>

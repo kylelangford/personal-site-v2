@@ -4,7 +4,7 @@
 
 ## About
 
-Precision Frontend Engineering is a software development company specializing in production-ready web applications, B2B tools, and AI integration. Founded by Kyle Langford, a senior frontend engineer with 14+ years of experience.
+Precision Frontend Engineering is a software development company specializing in production-ready web applications, B2B tools, and AI integration.
 
 ## Services
 

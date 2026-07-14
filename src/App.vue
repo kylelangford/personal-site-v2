@@ -74,11 +74,6 @@ const services = [
           <p class="font-semibold text-offwhite">Precision Frontend</p>
           <p class="text-sm">Web audits & development for growing companies</p>
         </div>
-        <div class="flex items-center gap-4">
-          <a href="https://kylelangford.com" target="_blank" rel="noopener noreferrer" class="text-slate hover:text-orange transition-colors text-sm">
-            Kyle Langford
-          </a>
-        </div>
       </div>
       <div class="mt-6 pt-6 border-t border-orange/10 text-sm text-center">
         <p>&copy; {{ year }} Precision Frontend. All rights reserved.</p>
