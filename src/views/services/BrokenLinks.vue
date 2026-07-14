@@ -32,6 +32,20 @@ const pageData = {
       description: 'We test every form on your site. Submissions, validations, error states, success confirmations. We make sure leads actually reach you.'
     }
   ],
+  approach: [
+    {
+      title: 'Design-to-Code Precision',
+      description: 'We communicate in design language—exact pixel values, gradient angles, specific rgba colors. We read from design specs and translate them accurately. Many devs approximate; we implement exactly.'
+    },
+    {
+      title: 'Component-Based CSS Architecture',
+      description: 'Clean structure with dedicated partials per component, consistent BEM naming, and centralized variables. This scales well and makes handoffs easy. We write CSS that other devs can maintain.'
+    },
+    {
+      title: 'Efficient Communication',
+      description: 'Terse, unambiguous instructions. No back-and-forth needed. We get it without endless clarification—saving everyone time.'
+    }
+  ],
   relatedServices: [
     { title: 'Local SEO', link: '/services/local-seo' },
     { title: 'Conversion', link: '/services/conversion' },

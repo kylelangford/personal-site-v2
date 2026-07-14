@@ -32,6 +32,20 @@ const pageData = {
       description: 'Targeted fixes for each failing metric. We get you into the "good" range where Google wants you.'
     }
   ],
+  approach: [
+    {
+      title: 'Design-to-Code Precision',
+      description: 'We communicate in design language—exact pixel values, gradient angles, specific rgba colors. We read from design specs and translate them accurately. Many devs approximate; we implement exactly.'
+    },
+    {
+      title: 'Component-Based CSS Architecture',
+      description: 'Clean structure with dedicated partials per component, consistent BEM naming, and centralized variables. This scales well and makes handoffs easy. We write CSS that other devs can maintain.'
+    },
+    {
+      title: 'Efficient Communication',
+      description: 'Terse, unambiguous instructions. No back-and-forth needed. We get it without endless clarification—saving everyone time.'
+    }
+  ],
   relatedServices: [
     { title: 'Conversion', link: '/services/conversion' },
     { title: 'Tech Migration', link: '/services/tech-migration' },

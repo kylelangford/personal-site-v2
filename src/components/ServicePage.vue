@@ -8,6 +8,7 @@ defineProps({
   businessCase: String,
   symptoms: Array,
   whatWeDo: Array,
+  approach: Array,
   relatedServices: Array
 })
 </script>
@@ -87,6 +88,23 @@ defineProps({
               <h3 class="heading-service">{{ item.title }}</h3>
               <p class="content-spacing-sm text-body">{{ item.description }}</p>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OUR APPROACH -->
+    <section v-if="approach?.length" class="bg-ink" aria-labelledby="approach-heading">
+      <div class="container section-padding">
+        <h2 id="approach-heading" class="heading-section">Our Approach</h2>
+        <div class="actions-spacing grid md:grid-cols-3 gap-6">
+          <div
+            v-for="(item, index) in approach"
+            :key="index"
+            class="card"
+          >
+            <h3 class="heading-service text-orange">{{ item.title }}</h3>
+            <p class="content-spacing-sm text-body">{{ item.description }}</p>
           </div>
         </div>
       </div>
