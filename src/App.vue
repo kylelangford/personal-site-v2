@@ -31,7 +31,7 @@ const services = [
   <header class="bg-ink/95 backdrop-blur-sm border-b border-orange/10 sticky top-0 z-50">
     <div class="container py-4">
       <nav class="flex items-center justify-between" aria-label="Main navigation">
-        <RouterLink to="/" class="font-display text-lg text-offwhite hover:text-orange transition-colors">
+        <RouterLink to="/" class="header-logo font-display text-lg text-offwhite hover:text-orange transition-all">
           Precision Frontend
         </RouterLink>
 
@@ -72,7 +72,7 @@ const services = [
       <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-4">
         <div>
           <p class="font-semibold text-offwhite">Precision Frontend</p>
-          <p class="text-sm">Frontend development done right</p>
+          <p class="text-sm">Web development done right</p>
         </div>
       </div>
       <div class="mt-6 pt-6 border-t border-orange/10 text-sm text-center">

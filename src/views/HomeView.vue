@@ -1,14 +1,111 @@
 <script setup>
-import { onMounted, onUnmounted, ref, reactive } from 'vue'
+import { onMounted, onUnmounted, ref, reactive, computed } from 'vue'
 import { RouterLink } from 'vue-router'
 import Icon from '../components/Icon.vue'
 
 const year = new Date().getFullYear()
-const heroText = ref('Frontend Development Done Right')
+const heroText = ref('Web Development Done Right')
 const displayText = ref('')
 const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%&*<>[]{}/'
 
 let observer = null
+
+// Intro animation state
+const introComplete = ref(false)
+const scrollY = ref(0)
+const activeSection = ref('intro')
+
+// Sections for lava lamp nav
+const sections = [
+  { id: 'intro', label: 'Top' },
+  { id: 'expertise', label: 'What We Do' },
+  { id: 'who', label: 'Good Fit' },
+  { id: 'services', label: 'How It Works' },
+  { id: 'contact', label: 'Contact' }
+]
+
+// Computed intro opacity based on scroll - faster fade for snappier feel
+const introOpacity = computed(() => {
+  const fadeStart = 0
+  const fadeEnd = 150
+  if (scrollY.value <= fadeStart) return 1
+  if (scrollY.value >= fadeEnd) return 0
+  return 1 - (scrollY.value - fadeStart) / (fadeEnd - fadeStart)
+})
+
+// Move up as you scroll
+const introTranslateY = computed(() => {
+  const moveStart = 0
+  const moveEnd = 200
+  if (scrollY.value <= moveStart) return 0
+  if (scrollY.value >= moveEnd) return -100
+  return -100 * (scrollY.value - moveStart) / (moveEnd - moveStart)
+})
+
+// Step number opacity based on scroll - returns opacity for each step
+const stepNumberOpacity = ref([0.15, 0.15, 0.15, 0.15])
+
+// Card expand state - both cards expand/collapse together
+const cardsExpanded = ref(false)
+
+function toggleCards() {
+  cardsExpanded.value = !cardsExpanded.value
+}
+
+function updateStepOpacities() {
+  const steps = document.querySelectorAll('.step-number')
+  steps.forEach((step, index) => {
+    const rect = step.getBoundingClientRect()
+    const windowHeight = window.innerHeight
+    const elementCenter = rect.top + rect.height / 2
+
+    // Start fading in when element is 80% down the viewport
+    // Fully opaque when element is at 40% of viewport
+    const fadeStart = windowHeight * 0.8
+    const fadeEnd = windowHeight * 0.4
+
+    if (elementCenter >= fadeStart) {
+      stepNumberOpacity.value[index] = 0.15
+    } else if (elementCenter <= fadeEnd) {
+      stepNumberOpacity.value[index] = 1
+    } else {
+      const progress = (fadeStart - elementCenter) / (fadeStart - fadeEnd)
+      stepNumberOpacity.value[index] = 0.15 + (0.85 * progress)
+    }
+  })
+}
+
+// Scroll handler
+function handleScroll() {
+  scrollY.value = window.scrollY
+
+  // Update active section based on scroll position
+  const sectionElements = sections.map(s => document.getElementById(s.id)).filter(Boolean)
+  for (let i = sectionElements.length - 1; i >= 0; i--) {
+    const rect = sectionElements[i].getBoundingClientRect()
+    if (rect.top <= window.innerHeight / 2) {
+      activeSection.value = sections[i].id
+      break
+    }
+  }
+
+  // Emit scroll event for header
+  if (scrollY.value > 200) {
+    document.body.classList.add('scrolled-past-intro')
+  } else {
+    document.body.classList.remove('scrolled-past-intro')
+  }
+
+  // Update step number opacities
+  updateStepOpacities()
+}
+
+function scrollToSection(id) {
+  const el = document.getElementById(id)
+  if (el) {
+    el.scrollIntoView({ behavior: 'smooth' })
+  }
+}
 
 // Contact form state
 const form = reactive({
@@ -58,22 +155,26 @@ function decodeText(finalText, duration = 2000) {
   let currentIndex = 0
   let iterationCount = 0
 
-  displayText.value = finalText.split('').map(char =>
-    char === ' ' ? ' ' : chars[Math.floor(Math.random() * chars.length)]
-  ).join('')
+  function buildText() {
+    return finalText.split('').map((char, index) => {
+      if (char === ' ') return ' '
+      if (index < currentIndex) {
+        return `<span class="decoded">${char}</span>`
+      }
+      return `<span class="decoding">${chars[Math.floor(Math.random() * chars.length)]}</span>`
+    }).join('')
+  }
+
+  displayText.value = buildText()
 
   const interval = setInterval(() => {
-    displayText.value = finalText.split('').map((char, index) => {
-      if (char === ' ') return ' '
-      if (index < currentIndex) return char
-      return chars[Math.floor(Math.random() * chars.length)]
-    }).join('')
-
     iterationCount++
     if (iterationCount >= iterations) {
       iterationCount = 0
       currentIndex++
     }
+
+    displayText.value = buildText()
 
     if (currentIndex > length) {
       clearInterval(interval)
@@ -85,12 +186,57 @@ function decodeText(finalText, duration = 2000) {
 onMounted(() => {
   document.documentElement.setAttribute('data-theme', 'dark')
 
+  // Prevent browser scroll restoration and start at top
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual'
+  }
+  if (!window.location.hash) {
+    window.scrollTo(0, 0)
+  }
+
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
+  // Add scroll listener
+  window.addEventListener('scroll', handleScroll, { passive: true })
+  handleScroll() // Initial call
+
+  // Check if this is first visit in session
+  const hasSeenIntro = sessionStorage.getItem('hasSeenIntro')
+
+  // Intro animation
   if (prefersReducedMotion) {
+    introComplete.value = true
     displayText.value = heroText.value
   } else {
-    setTimeout(() => decodeText(heroText.value, 2000), 300)
+    // Trigger intro animation after a brief delay
+    setTimeout(() => {
+      introComplete.value = true
+    }, 100)
+
+    // Auto-scroll to hero after 3 seconds (first visit only)
+    if (!hasSeenIntro) {
+      sessionStorage.setItem('hasSeenIntro', 'true')
+      setTimeout(() => {
+        window.scrollTo({
+          top: window.innerHeight,
+          behavior: 'smooth'
+        })
+      }, 3000)
+    }
+
+    // Start text decode when hero comes into view
+    const heroSection = document.querySelector('.hero-glow-container')
+    if (heroSection) {
+      const heroObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            decodeText(heroText.value, 2000)
+            heroObserver.disconnect()
+          }
+        })
+      }, { threshold: 0.3 })
+      heroObserver.observe(heroSection)
+    }
   }
 
   const animatedElements = document.querySelectorAll('[data-animate]')
@@ -124,6 +270,7 @@ onMounted(() => {
 })
 
 onUnmounted(() => {
+  window.removeEventListener('scroll', handleScroll)
   if (observer) {
     observer.disconnect()
     observer = null
@@ -186,7 +333,7 @@ const processSteps = [
   {
     step: '02',
     title: 'We Review',
-    description: 'We look at your requirements and put together a scope and estimate.'
+    description: 'We look at your requirements and put together a scope and quote.'
   },
   {
     step: '03',
@@ -274,6 +421,44 @@ const workStyle = [
 
 
 <template>
+  <!-- INTRO - Full screen centered logo -->
+  <section
+    id="intro"
+    class="intro-screen"
+    :style="{
+      opacity: introOpacity,
+      transform: `translateY(${introTranslateY}px)`
+    }"
+  >
+    <div class="intro-content" :class="{ 'intro-visible': introComplete }">
+      <span class="intro-logo font-display">Precision Frontend</span>
+      <div class="intro-scroll-hint">
+        <span class="text-slate text-sm">agency services</span>
+        <svg class="intro-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 5v14M5 12l7 7 7-7"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- Spacer to push content below intro -->
+  <div class="h-screen" aria-hidden="true"></div>
+
+  <!-- PAGE NAVIGATION -->
+  <nav class="page-nav" aria-label="Page sections">
+    <button
+      v-for="section in sections"
+      :key="section.id"
+      @click="scrollToSection(section.id)"
+      class="nav-dot"
+      :class="{ 'nav-dot-active': activeSection === section.id }"
+      :aria-label="section.label"
+    >
+      <span class="nav-dot-label">{{ section.label }}</span>
+      <span class="nav-dot-inner"></span>
+    </button>
+  </nav>
+
   <!-- HERO -->
   <section class="bg-ink hero-glow-container" aria-labelledby="hero-heading">
     <div class="glow-orb glow-orb-1" aria-hidden="true"></div>
@@ -283,7 +468,7 @@ const workStyle = [
     <div class="container py-24 md:py-32 relative z-10">
       <div class="hero-content">
         <h1 id="hero-heading" class="heading-hero">
-          <span class="text-decode">{{ displayText }}</span><span class="text-cursor" aria-hidden="true"></span>
+          <span class="text-decode" v-html="displayText"></span><span class="text-cursor" aria-hidden="true"></span>
         </h1>
         <p class="content-spacing text-lead lead-content">
           Pixel-perfect builds. Polished interactions. Clean, maintainable code.
@@ -306,7 +491,7 @@ const workStyle = [
           What We Do
         </h2>
         <p class="content-spacing text-lead" data-animate="fade-up" data-delay="100">
-          Frontend development with attention to detail. The kind of work you don't have to redo.
+          Web development with attention to detail. The kind of work you don't have to redo.
         </p>
       </div>
 
@@ -398,80 +583,134 @@ const workStyle = [
         </p>
       </div>
 
-      <div class="actions-spacing grid md:grid-cols-2 gap-8">
-        <!-- Free Quote -->
-        <div class="card card-featured" data-animate="fade-up" data-delay="150">
-          <div class="flex items-center gap-3 mb-4">
-            <span class="badge-free">Flexible Scopes</span>
-            <span class="text-slate text-sm">24-48 hour response</span>
-          </div>
-          <h3 class="heading-card">Project Quote</h3>
-          <p class="content-spacing-sm text-body">
-            Share your project details. We'll review and send a clear quote with fixed pricing.
-          </p>
-          <ul class="content-spacing space-y-2 text-body">
-            <li class="flex items-start gap-2">
-              <span class="text-orange">✓</span>
-              Describe your project
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-orange">✓</span>
-              We review your site
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-orange">✓</span>
-              Get a fixed-price quote
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-orange">✓</span>
-              No hourly surprises
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-orange">✓</span>
-              No obligation
-            </li>
-          </ul>
-          <div class="mt-8">
-            <a href="#contact" class="btn-primary w-full justify-center">Get in Touch</a>
-          </div>
-        </div>
+      <div class="actions-spacing flex flex-col md:flex-row gap-8 items-start">
+        <!-- Project Quote Card -->
+        <article
+          class="expandable-card flex-1"
+          :class="{ 'is-expanded': cardsExpanded }"
+        >
+          <div class="expandable-card-inner" @click="toggleCards">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="badge-free">Flexible Scopes</span>
+              <span class="text-slate text-sm">24-48 hour response</span>
+            </div>
+            <h3 class="heading-card">Project Quote</h3>
+            <p class="content-spacing-sm text-body">
+              Share your project details. We'll review and send a clear quote with fixed pricing.
+            </p>
+            <ul class="mt-4 space-y-1 text-sm text-slate">
+              <li class="flex items-center gap-2"><span class="text-orange">✓</span> Fixed-price quote</li>
+              <li class="flex items-center gap-2"><span class="text-orange">✓</span> Clear deliverables</li>
+              <li class="flex items-center gap-2"><span class="text-orange">✓</span> No obligation</li>
+            </ul>
 
-        <!-- Retained Services -->
-        <div class="card" data-animate="fade-up" data-delay="200">
-          <div class="flex items-center gap-3 mb-4">
-            <span class="badge-paid">Ongoing</span>
-            <span class="text-slate text-sm">For continuous support</span>
+            <div class="expandable-card-extra">
+              <div class="pt-6 mt-6 border-t border-orange/20 space-y-6">
+                <div>
+                  <h4 class="text-offwhite font-semibold mb-3">Typical Project Pricing</h4>
+                  <div class="space-y-3">
+                    <div class="flex justify-between items-baseline">
+                      <div>
+                        <span class="text-offwhite">Quick Fixes</span>
+                        <span class="text-slate text-sm ml-2">1–2 weeks</span>
+                      </div>
+                      <span class="text-orange font-semibold">$1,500 – $5k</span>
+                    </div>
+                    <p class="text-slate text-sm -mt-1">Bug fixes, performance tweaks, small updates</p>
+
+                    <div class="flex justify-between items-baseline">
+                      <div>
+                        <span class="text-offwhite">Feature Work</span>
+                        <span class="text-slate text-sm ml-2">2–4 weeks</span>
+                      </div>
+                      <span class="text-orange font-semibold">$5k – $15k</span>
+                    </div>
+                    <p class="text-slate text-sm -mt-1">Landing pages, interactive components, integrations</p>
+
+                    <div class="flex justify-between items-baseline">
+                      <div>
+                        <span class="text-offwhite">Full Builds</span>
+                        <span class="text-slate text-sm ml-2">4–8 weeks</span>
+                      </div>
+                      <span class="text-orange font-semibold">$15k – $40k</span>
+                    </div>
+                    <p class="text-slate text-sm -mt-1">Complete sites, redesigns, platform migrations</p>
+                  </div>
+                </div>
+                <a href="#contact" class="btn-primary inline-flex" @click.stop>Get a Quote</a>
+              </div>
+            </div>
+
+            <div class="expandable-card-toggle mt-6 text-orange text-sm font-medium">
+              <span v-if="cardsExpanded">Show Less ↑</span>
+              <span v-else>Learn More →</span>
+            </div>
           </div>
-          <h3 class="heading-card">Retained Services</h3>
-          <p class="content-spacing-sm text-body">
-            Need ongoing frontend support? Get dedicated hours with priority response times.
-          </p>
-          <ul class="content-spacing space-y-2 text-body">
-            <li class="flex items-start gap-2">
-              <span class="text-orange">✓</span>
-              Monthly hours at a fixed rate
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-orange">✓</span>
-              Priority response SLA
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-orange">✓</span>
-              Rollover unused hours
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-orange">✓</span>
-              Direct Slack access
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-orange">✓</span>
-              Flexible scope—use hours as needed
-            </li>
-          </ul>
-          <div class="mt-8">
-            <a href="#contact" class="btn-ghost w-full justify-center">Learn More</a>
+        </article>
+
+        <!-- Retained Services Card -->
+        <article
+          class="expandable-card flex-1"
+          :class="{ 'is-expanded': cardsExpanded }"
+        >
+          <div class="expandable-card-inner" @click="toggleCards">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="badge-paid">Ongoing</span>
+              <span class="text-slate text-sm">For continuous support</span>
+            </div>
+            <h3 class="heading-card">Retained Services</h3>
+            <p class="content-spacing-sm text-body">
+              Need ongoing frontend support? Get dedicated hours with priority response times.
+            </p>
+            <ul class="mt-4 space-y-1 text-sm text-slate">
+              <li class="flex items-center gap-2"><span class="text-orange">✓</span> Priority response SLA</li>
+              <li class="flex items-center gap-2"><span class="text-orange">✓</span> Direct Slack access</li>
+              <li class="flex items-center gap-2"><span class="text-orange">✓</span> Hours roll over</li>
+            </ul>
+
+            <div class="expandable-card-extra">
+              <div class="pt-6 mt-6 border-t border-orange/20 space-y-6">
+                <div>
+                  <h4 class="text-offwhite font-semibold mb-3">Retainer Options</h4>
+                  <div class="space-y-3">
+                    <div class="flex justify-between items-baseline">
+                      <div>
+                        <span class="text-offwhite">Starter</span>
+                        <span class="text-slate text-sm ml-2">~10 hrs/mo</span>
+                      </div>
+                      <span class="text-orange font-semibold">$2,500/mo</span>
+                    </div>
+                    <p class="text-slate text-sm -mt-1">Light support, bug fixes, small updates</p>
+
+                    <div class="flex justify-between items-baseline">
+                      <div>
+                        <span class="text-offwhite">Growth</span>
+                        <span class="text-slate text-sm ml-2">~20 hrs/mo</span>
+                      </div>
+                      <span class="text-orange font-semibold">$4,500/mo</span>
+                    </div>
+                    <p class="text-slate text-sm -mt-1">Regular features, ongoing improvements</p>
+
+                    <div class="flex justify-between items-baseline">
+                      <div>
+                        <span class="text-offwhite">Scale</span>
+                        <span class="text-slate text-sm ml-2">~30 hrs/mo</span>
+                      </div>
+                      <span class="text-orange font-semibold">$6,000/mo</span>
+                    </div>
+                    <p class="text-slate text-sm -mt-1">Dedicated capacity, priority everything</p>
+                  </div>
+                </div>
+                <a href="#contact" class="btn-primary inline-flex" @click.stop>Discuss Retainer</a>
+              </div>
+            </div>
+
+            <div class="expandable-card-toggle mt-6 text-orange text-sm font-medium">
+              <span v-if="cardsExpanded">Show Less ↑</span>
+              <span v-else>Learn More →</span>
+            </div>
           </div>
-        </div>
+        </article>
       </div>
     </div>
   </section>
@@ -492,11 +731,12 @@ const workStyle = [
         <div
           v-for="(step, index) in processSteps"
           :key="step.step"
-          class="text-center"
+          class="text-center step-column"
           :data-animate="'fade-up'"
           :data-delay="150 + (index * 50)"
+          :style="{ animationDelay: `${index * 2}s` }"
         >
-          <div class="text-5xl font-display text-orange/30 mb-2">{{ step.step }}</div>
+          <div class="text-5xl font-display text-orange mb-2">{{ step.step }}</div>
           <h3 class="heading-service">{{ step.title }}</h3>
           <p class="content-spacing-sm text-body text-sm">{{ step.description }}</p>
         </div>
@@ -543,14 +783,13 @@ const workStyle = [
   <!-- HOW WE WORK -->
   <section class="bg-ink" aria-labelledby="workstyle-heading">
     <div class="container section-padding">
-      <h2 id="workstyle-heading" class="heading-section text-center" data-animate="fade-up">
+      <h2 id="workstyle-heading" class="heading-section" data-animate="fade-up">
         How We Work
       </h2>
-      <div class="actions-spacing grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+      <div class="actions-spacing grid md:grid-cols-2 lg:grid-cols-4 gap-6">
         <div
           v-for="(item, index) in workStyle"
           :key="item.title"
-          class="text-center"
           :data-animate="'fade-up'"
           :data-delay="100 + (index * 50)"
         >
@@ -671,4 +910,5 @@ const workStyle = [
       </div>
     </div>
   </section>
-</template>
+
+  </template>

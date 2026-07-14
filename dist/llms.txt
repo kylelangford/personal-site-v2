@@ -1,10 +1,10 @@
 # Precision Frontend Engineering
 
-> Frontend development done right. Pixel-perfect builds, polished interactions, clean code.
+> Web development done right. Pixel-perfect builds, polished interactions, clean code.
 
 ## About
 
-Precision Frontend Engineering specializes in high-quality frontend development—design-to-code builds, interactive UI, animations, dashboards, CMS theming, and complex integrations.
+Precision Frontend Engineering specializes in high-quality web development—design-to-code builds, interactive UI, animations, dashboards, CMS theming, and complex integrations.
 
 ## Services
 
