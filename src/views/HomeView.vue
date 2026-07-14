@@ -4,7 +4,7 @@ import { RouterLink } from 'vue-router'
 import Icon from '../components/Icon.vue'
 
 const year = new Date().getFullYear()
-const heroText = ref('Your Website Is Slowing You Down')
+const heroText = ref('Frontend Development Done Right')
 const displayText = ref('')
 const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%&*<>[]{}/'
 
@@ -130,49 +130,49 @@ onUnmounted(() => {
   }
 })
 
-// Problem areas data
+// What we do well
 const problems = [
   {
-    title: 'Outdated Platform',
-    risk: 'You\'re stuck',
-    description: 'Drupal 7, old WordPress, or a framework nobody wants to touch. Every update is a risk. Every feature request takes forever.',
-    icon: 'lock-closed',
-    link: '/services/legacy-cms'
+    title: 'Design-to-Code',
+    risk: 'Pixel-perfect execution',
+    description: 'We read design specs and implement exactly—68px spacing, -30deg gradients, specific rgba values. No approximations.',
+    icon: 'swatch',
+    link: '/services/redesign'
   },
   {
-    title: 'Slow Page Loads',
-    risk: 'You\'re losing customers',
-    description: 'Your pages take 5+ seconds to load on mobile. Visitors bounce before they see your product. Google notices.',
-    icon: 'clock',
-    link: '/services/performance'
-  },
-  {
-    title: 'Broken User Journeys',
-    risk: 'You\'re wasting traffic',
-    description: 'Dead links, confusing navigation, forms that don\'t work. Paid traffic hits a wall. Leads slip through cracks.',
-    icon: 'link-slash',
-    link: '/services/broken-links'
-  },
-  {
-    title: 'Accessibility Issues',
-    risk: 'You\'re exposed',
-    description: 'WCAG violations are legal liability. Also: 15-20% of users have some form of disability. That\'s revenue you\'re missing.',
-    icon: 'exclamation-triangle',
-    link: '/services/accessibility'
-  },
-  {
-    title: 'No Clear Conversion Path',
-    risk: 'You\'re invisible',
-    description: 'Your traffic has nowhere obvious to go after the hero section. No clear next step means no conversions.',
+    title: 'Interactive UI',
+    risk: 'Complex made simple',
+    description: 'Forms with validation logic, dynamic filters, multi-step flows. Interactive elements that work smoothly and feel polished.',
     icon: 'cursor-arrow-rays',
     link: '/services/conversion'
   },
   {
-    title: 'Can\'t Move Fast',
-    risk: 'You\'re falling behind',
-    description: 'Simple changes require a developer. Content updates take days. Your competitors ship while you wait.',
-    icon: 'bolt-slash',
-    link: '/services/tech-migration'
+    title: 'Animation & Motion',
+    risk: 'Refined interactions',
+    description: 'Scroll effects, micro-interactions, state transitions. Animation that enhances UX without being distracting.',
+    icon: 'sparkles',
+    link: '/services/performance'
+  },
+  {
+    title: 'Dashboards & Data',
+    risk: 'Clear visualizations',
+    description: 'Admin panels, charts, reporting interfaces. Complex data presented in clean, usable interfaces.',
+    icon: 'chart-bar',
+    link: '/services/scaling'
+  },
+  {
+    title: 'CMS & Integrations',
+    risk: 'Connected systems',
+    description: 'Custom WordPress themes, headless CMS setups, third-party API integrations. Forms that talk to your tools.',
+    icon: 'puzzle-piece',
+    link: '/services/legacy-cms'
+  },
+  {
+    title: 'Tracking & Events',
+    risk: 'Measurable results',
+    description: 'Custom event tracking, goal conversions, analytics setup. Know what users actually do on your site.',
+    icon: 'chart-pie',
+    link: '/services/conversion'
   }
 ]
 
@@ -222,16 +222,16 @@ const idealClients = [
 
 // All services for the services section
 const allServices = [
-  { title: 'Legacy CMS Migration', link: '/services/legacy-cms', description: 'Drupal, old WordPress, custom PHP' },
-  { title: 'Performance Optimization', link: '/services/performance', description: 'Core Web Vitals, page speed' },
-  { title: 'Broken Link Audit', link: '/services/broken-links', description: '404s, dead ends, broken forms' },
-  { title: 'Local SEO', link: '/services/local-seo', description: 'Location pages, Google Business' },
-  { title: 'Accessibility', link: '/services/accessibility', description: 'WCAG compliance, legal risk' },
-  { title: 'Conversion Optimization', link: '/services/conversion', description: 'CTAs, user journeys, funnels' },
-  { title: 'Site Redesign', link: '/services/redesign', description: 'Modern design, fresh content' },
-  { title: 'Scaling Support', link: '/services/scaling', description: 'Growth-ready infrastructure' },
-  { title: 'Competitive Analysis', link: '/services/competitive-analysis', description: 'Benchmark against competitors' },
-  { title: 'Tech Migration', link: '/services/tech-migration', description: 'Platform & stack upgrades' }
+  { title: 'Site Building', link: '/services/redesign', description: 'Full builds from design to launch' },
+  { title: 'Interactive Elements', link: '/services/conversion', description: 'Forms, filters, dynamic UI' },
+  { title: 'Animation & Effects', link: '/services/performance', description: 'Micro-interactions, scroll effects' },
+  { title: 'Dashboards & Data', link: '/services/scaling', description: 'Admin panels, charts, reporting' },
+  { title: 'CMS Theming', link: '/services/legacy-cms', description: 'WordPress, headless, custom themes' },
+  { title: 'Form Integrations', link: '/services/broken-links', description: 'Logic, validation, third-party APIs' },
+  { title: 'Tracking & Analytics', link: '/services/conversion', description: 'Custom events, goal tracking' },
+  { title: 'Platform Migration', link: '/services/tech-migration', description: 'CMS moves, stack upgrades' },
+  { title: 'Performance Tuning', link: '/services/performance', description: 'Core Web Vitals, speed fixes' },
+  { title: 'Accessibility', link: '/services/accessibility', description: 'WCAG compliance, inclusive UX' }
 ]
 
 // Results/metrics
@@ -254,20 +254,20 @@ const industries = [
 // How we work
 const workStyle = [
   {
+    title: 'Pixel-Perfect Builds',
+    description: 'We read design specs and implement exactly—spacing, colors, gradients, effects. No approximations.'
+  },
+  {
+    title: 'Polish & Attention to Detail',
+    description: 'Smooth animations, thoughtful interactions, no visual bugs. Sites that feel refined.'
+  },
+  {
+    title: 'Clean, Maintainable Code',
+    description: 'Component-based architecture, consistent naming, well-structured CSS. Code other devs can work with.'
+  },
+  {
     title: 'Direct Communication',
-    description: 'You talk to the person doing the work. No account managers, no game of telephone.'
-  },
-  {
-    title: 'Fixed Pricing',
-    description: 'You know the cost before we start. No hourly billing, no scope creep surprises.'
-  },
-  {
-    title: 'Fast Turnaround',
-    description: 'Most quotes within 48 hours. Most projects completed in days or weeks, not months.'
-  },
-  {
-    title: 'Enterprise Experience',
-    description: 'Process and reliability from agency work, without the agency overhead.'
+    description: 'Efficient, clear updates. No back-and-forth or endless clarification needed.'
   }
 ]
 </script>
@@ -286,27 +286,27 @@ const workStyle = [
           <span class="text-decode">{{ displayText }}</span><span class="text-cursor" aria-hidden="true"></span>
         </h1>
         <p class="content-spacing text-lead lead-content">
-          Slow pages. Broken links. Outdated platforms. You know something's wrong—you just need someone to fix it.
-          Tell us the problem, we'll send you a quote.
+          Pixel-perfect builds. Polished interactions. Clean, maintainable code.
+          Whether it's a new site, complex forms, or interactive dashboards—we build it right.
         </p>
         <div class="actions-spacing flex flex-col sm:flex-row items-start sm:items-center gap-4" role="group" aria-label="Primary actions">
           <a href="#contact" class="btn-primary">Get a Free Quote</a>
-          <a href="#problems" class="btn-ghost">Common Problems</a>
+          <a href="#all-services" class="btn-ghost">What We Build</a>
         </div>
-        <p class="mt-6 text-sm text-slate">No sales call required. Tell us what's broken and we'll quote it.</p>
+        <p class="mt-6 text-sm text-slate">No sales call required. Tell us what you need and we'll quote it.</p>
       </div>
     </div>
   </section>
 
-  <!-- PROBLEMS -->
-  <section id="problems" class="bg-ink" aria-labelledby="problems-heading">
+  <!-- EXPERTISE -->
+  <section id="expertise" class="bg-ink" aria-labelledby="expertise-heading">
     <div class="container section-padding">
       <div class="max-w-3xl">
-        <h2 id="problems-heading" class="heading-section" data-animate="fade-up">
-          What's Actually Wrong
+        <h2 id="expertise-heading" class="heading-section" data-animate="fade-up">
+          What We Do Well
         </h2>
         <p class="content-spacing text-lead" data-animate="fade-up" data-delay="100">
-          Most growing companies have the same problems. They just don't know it yet.
+          Frontend development with attention to detail. The kind of work you don't have to redo.
         </p>
       </div>
 
@@ -363,10 +363,10 @@ const workStyle = [
     <div class="container section-padding">
       <div class="max-w-3xl">
         <h2 id="all-services-heading" class="heading-section" data-animate="fade-up">
-          What We Fix
+          What We Build
         </h2>
         <p class="content-spacing text-lead" data-animate="fade-up" data-delay="100">
-          Common problems we solve for growing companies.
+          From full site builds to interactive components and complex integrations.
         </p>
       </div>
 

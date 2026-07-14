@@ -1,19 +1,20 @@
 # Precision Frontend Engineering
 
-> We build web apps, micro SaaS products, and AI-powered tools for modern businesses.
+> Frontend development done right. Pixel-perfect builds, polished interactions, clean code.
 
 ## About
 
-Precision Frontend Engineering is a software development company specializing in production-ready web applications, B2B tools, and AI integration. Founded by Kyle Langford, a senior frontend engineer with 14+ years of experience.
+Precision Frontend Engineering specializes in high-quality frontend development—design-to-code builds, interactive UI, animations, dashboards, CMS theming, and complex integrations.
 
 ## Services
 
-- Web Applications: Full-stack apps with modern frameworks, APIs, and cloud infrastructure
-- Micro SaaS Products: Focused software products that solve specific business problems
-- B2B Tools & Dashboards: Internal tools, admin panels, and data-driven interfaces
-- Agentic Workflows: Autonomous AI agents that automate complex multi-step processes
-- AI Integration: LLM-powered features, embeddings, and intelligent web apps
-- Developer Tools: Workflows, tooling, and systems that improve developer experience
+- Site Building: Full builds from design to launch, pixel-perfect implementation
+- Interactive Elements: Forms, filters, dynamic UI, multi-step flows
+- Animation & Effects: Micro-interactions, scroll effects, state transitions
+- Dashboards & Data: Admin panels, charts, reporting interfaces
+- CMS Theming: WordPress, headless CMS, custom theme development
+- Form Integrations: Validation logic, third-party APIs, connected systems
+- Tracking & Analytics: Custom event tracking, goal conversions, analytics setup
 
 ## Tech Stack
 

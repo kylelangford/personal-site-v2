@@ -72,7 +72,7 @@ const services = [
       <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-4">
         <div>
           <p class="font-semibold text-offwhite">Precision Frontend</p>
-          <p class="text-sm">Web audits & development for growing companies</p>
+          <p class="text-sm">Frontend development done right</p>
         </div>
       </div>
       <div class="mt-6 pt-6 border-t border-orange/10 text-sm text-center">
