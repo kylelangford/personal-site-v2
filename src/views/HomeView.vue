@@ -180,23 +180,23 @@ const problems = [
 const processSteps = [
   {
     step: '01',
-    title: 'Tell Us the Problem',
-    description: 'Describe what\'s broken, slow, or outdated. Include your site URL.'
+    title: 'Share Your Project',
+    description: 'Tell us what you\'re working on—new build, updates, or improvements.'
   },
   {
     step: '02',
-    title: 'Get a Quote',
-    description: 'We review your site and send a fixed-price quote within 24-48 hours.'
+    title: 'We Review',
+    description: 'We look at your requirements and put together a scope and estimate.'
   },
   {
     step: '03',
-    title: 'Quick Call',
-    description: 'Optional 15-minute call to clarify scope. Or just reply to the quote.'
+    title: 'Quick Chat',
+    description: 'Optional call to align on details. Or just reply via email.'
   },
   {
     step: '04',
-    title: 'We Fix It',
-    description: 'We do the work. You get a site that works. No hourly surprises.'
+    title: 'We Build',
+    description: 'We get to work and deliver. Fixed pricing, no surprises.'
   }
 ]
 
@@ -290,10 +290,10 @@ const workStyle = [
           Whether it's a new site, complex forms, or interactive dashboards—we build it right.
         </p>
         <div class="actions-spacing flex flex-col sm:flex-row items-start sm:items-center gap-4" role="group" aria-label="Primary actions">
-          <a href="#contact" class="btn-primary">Get a Free Quote</a>
-          <a href="#all-services" class="btn-ghost">What We Build</a>
+          <a href="#contact" class="btn-primary">Get in Touch</a>
+          <a href="#expertise" class="btn-ghost">What We Do</a>
         </div>
-        <p class="mt-6 text-sm text-slate">No sales call required. Tell us what you need and we'll quote it.</p>
+        <p class="mt-6 text-sm text-slate">Tell us about your project. We'll let you know if we can help.</p>
       </div>
     </div>
   </section>
@@ -303,7 +303,7 @@ const workStyle = [
     <div class="container section-padding">
       <div class="max-w-3xl">
         <h2 id="expertise-heading" class="heading-section" data-animate="fade-up">
-          What We Do Well
+          What We Do
         </h2>
         <p class="content-spacing text-lead" data-animate="fade-up" data-delay="100">
           Frontend development with attention to detail. The kind of work you don't have to redo.
@@ -339,7 +339,7 @@ const workStyle = [
     <div class="container section-padding">
       <div class="max-w-3xl">
         <h2 id="who-heading" class="heading-section" data-animate="fade-up">
-          Who This Is For
+          Good Fit
         </h2>
       </div>
 
@@ -394,7 +394,7 @@ const workStyle = [
           How It Works
         </h2>
         <p class="content-spacing text-lead" data-animate="fade-up" data-delay="100">
-          You tell us what's broken. We tell you what it costs to fix.
+          Two ways to work together, depending on what you need.
         </p>
       </div>
 
@@ -402,17 +402,17 @@ const workStyle = [
         <!-- Free Quote -->
         <div class="card card-featured" data-animate="fade-up" data-delay="150">
           <div class="flex items-center gap-3 mb-4">
-            <span class="badge-free">Free</span>
+            <span class="badge-free">Flexible Scopes</span>
             <span class="text-slate text-sm">24-48 hour response</span>
           </div>
           <h3 class="heading-card">Project Quote</h3>
           <p class="content-spacing-sm text-body">
-            Tell us what's wrong with your site. We'll review it and send you a clear quote with fixed pricing.
+            Share your project details. We'll review and send a clear quote with fixed pricing.
           </p>
           <ul class="content-spacing space-y-2 text-body">
             <li class="flex items-start gap-2">
               <span class="text-orange">✓</span>
-              Describe your problem
+              Describe your project
             </li>
             <li class="flex items-start gap-2">
               <span class="text-orange">✓</span>
@@ -432,44 +432,44 @@ const workStyle = [
             </li>
           </ul>
           <div class="mt-8">
-            <a href="#contact" class="btn-primary w-full justify-center">Get a Free Quote</a>
+            <a href="#contact" class="btn-primary w-full justify-center">Get in Touch</a>
           </div>
         </div>
 
-        <!-- Full Assessment -->
+        <!-- Retained Services -->
         <div class="card" data-animate="fade-up" data-delay="200">
           <div class="flex items-center gap-3 mb-4">
-            <span class="badge-paid">Deep Dive</span>
-            <span class="text-slate text-sm">For complex situations</span>
+            <span class="badge-paid">Ongoing</span>
+            <span class="text-slate text-sm">For continuous support</span>
           </div>
-          <h3 class="heading-card">Full Site Assessment</h3>
+          <h3 class="heading-card">Retained Services</h3>
           <p class="content-spacing-sm text-body">
-            Not sure what's wrong? We'll diagnose everything and build a prioritized roadmap.
+            Need ongoing frontend support? Get dedicated hours with priority response times.
           </p>
           <ul class="content-spacing space-y-2 text-body">
             <li class="flex items-start gap-2">
               <span class="text-orange">✓</span>
-              Comprehensive technical audit
+              Monthly hours at a fixed rate
             </li>
             <li class="flex items-start gap-2">
               <span class="text-orange">✓</span>
-              Performance & Core Web Vitals
+              Priority response SLA
             </li>
             <li class="flex items-start gap-2">
               <span class="text-orange">✓</span>
-              Accessibility review
+              Rollover unused hours
             </li>
             <li class="flex items-start gap-2">
               <span class="text-orange">✓</span>
-              SEO technical analysis
+              Direct Slack access
             </li>
             <li class="flex items-start gap-2">
               <span class="text-orange">✓</span>
-              Strategy call to review findings
+              Flexible scope—use hours as needed
             </li>
           </ul>
           <div class="mt-8">
-            <a href="#contact" class="btn-ghost w-full justify-center">Request Assessment</a>
+            <a href="#contact" class="btn-ghost w-full justify-center">Learn More</a>
           </div>
         </div>
       </div>
@@ -484,7 +484,7 @@ const workStyle = [
           Simple Process
         </h2>
         <p class="content-spacing text-lead" data-animate="fade-up" data-delay="100">
-          No drawn-out discovery phases. No endless meetings. Here's how it works.
+          Straightforward from start to finish.
         </p>
       </div>
 
@@ -544,7 +544,7 @@ const workStyle = [
   <section class="bg-ink" aria-labelledby="workstyle-heading">
     <div class="container section-padding">
       <h2 id="workstyle-heading" class="heading-section text-center" data-animate="fade-up">
-        Why Companies Choose Us
+        How We Work
       </h2>
       <div class="actions-spacing grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
         <div
@@ -567,10 +567,10 @@ const workStyle = [
       <div class="max-w-2xl mx-auto">
         <div class="text-center mb-12">
           <h2 id="contact-heading" class="heading-section" data-animate="fade-up">
-            Get a Free Quote
+            Start a Conversation
           </h2>
           <p class="content-spacing text-body" data-animate="fade-up" data-delay="100">
-            Tell us what's broken. We'll send you a quote within 24-48 hours.
+            Tell us about your project. We typically respond within a day or two.
           </p>
         </div>
 
@@ -666,7 +666,7 @@ const workStyle = [
         </form>
 
         <p class="text-center text-sm text-slate mt-6" data-animate="fade-up" data-delay="150">
-          Prefer email? <a href="mailto:kyle@precisionfrontend.com" class="text-orange hover:underline">kyle@precisionfrontend.com</a>
+          Prefer email? <a href="mailto:business@precisionfrontend.com" class="text-orange hover:underline">business@precisionfrontend.com</a>
         </p>
       </div>
     </div>
