@@ -764,11 +764,13 @@ body.scrolled-past-intro .header-logo {
 .expandable-card-extra > div {
     overflow: hidden;
     opacity: 0;
-    transition: opacity 0.2s ease;
+    visibility: hidden;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
 }
 
 .expandable-card.is-expanded .expandable-card-extra > div {
     opacity: 1;
+    visibility: visible;
     transition-delay: 0.15s;
 }
 
@@ -784,7 +786,67 @@ body.scrolled-past-intro .header-logo {
 
     .expandable-card-extra > div {
         transition: none;
+    }
+
+    .expandable-card.is-expanded .expandable-card-extra > div {
         opacity: 1;
+        visibility: visible;
+    }
+}
+
+
+/* ========================================
+   PROCESS CARDS
+   ======================================== */
+
+/* Desktop: horizontal grid with right borders */
+.process-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.process-card {
+    padding: 2rem;
+    border-right: 3px solid rgba(234, 55, 0, 0.2);
+    opacity: 0.4;
+    animation: pulse-sequential 8s ease-in-out infinite;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.process-card:last-child {
+    border-right: none;
+}
+
+/* Mobile: horizontal snap carousel */
+@media (max-width: 768px) {
+    .process-cards {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        margin-inline: -1rem;
+        padding-inline: 1rem;
+    }
+
+    .process-cards::-webkit-scrollbar {
+        display: none;
+    }
+
+    .process-card {
+        flex: 0 0 85%;
+        scroll-snap-align: start;
+        border-right: none;
+        border-bottom: 1px solid rgba(234, 55, 0, 0.2);
+        padding: 1.5rem;
+    }
+
+    .process-card:last-child {
+        border-bottom: none;
     }
 }
 

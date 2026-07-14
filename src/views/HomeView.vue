@@ -718,7 +718,7 @@ const workStyle = [
   <!-- PROCESS -->
   <section id="process" class="bg-ink" aria-labelledby="process-heading">
     <div class="container section-padding">
-      <div class="text-center max-w-3xl mx-auto">
+      <div class="text-center max-w-3xl mx-auto mb-12">
         <h2 id="process-heading" class="heading-section" data-animate="fade-up">
           Simple Process
         </h2>
@@ -727,18 +727,18 @@ const workStyle = [
         </p>
       </div>
 
-      <div class="actions-spacing grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="process-cards">
         <div
           v-for="(step, index) in processSteps"
           :key="step.step"
-          class="text-center step-column"
-          :data-animate="'fade-up'"
-          :data-delay="150 + (index * 50)"
+          class="process-card"
           :style="{ animationDelay: `${index * 2}s` }"
         >
-          <div class="text-5xl font-display text-orange mb-2">{{ step.step }}</div>
-          <h3 class="heading-service">{{ step.title }}</h3>
-          <p class="content-spacing-sm text-body text-sm">{{ step.description }}</p>
+          <div class="text-6xl font-display text-orange">{{ step.step }}</div>
+          <div>
+            <h3 class="text-offwhite font-semibold text-xl mb-3">{{ step.title }}</h3>
+            <p class="text-body text-sm">{{ step.description }}</p>
+          </div>
         </div>
       </div>
     </div>
