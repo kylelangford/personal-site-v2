@@ -37,9 +37,7 @@
 
 
 html {
-    height: 100%;
     scroll-behavior: smooth;
-    overflow-x: hidden;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -49,14 +47,8 @@ html {
 }
 
 body {
-    height: 100%;
     overflow-x: hidden;
-    -webkit-overflow-scrolling: touch;
-}
-
-/* Prevent pull-to-refresh and overscroll on mobile */
-html, body {
-    overscroll-behavior: none;
+    overscroll-behavior-y: contain;
 }
 
 /* Fix iOS Safari input zoom */
@@ -90,8 +82,8 @@ body {
     }
 }
 
-/* Prevent content from breaking out */
-section {
+/* Prevent content from breaking out - exclude fixed position elements */
+section:not(.intro-screen) {
     overflow-x: clip;
 }
 
