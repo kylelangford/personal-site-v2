@@ -649,7 +649,7 @@ const workStyle = [
         <div
           v-for="(client, index) in idealClients"
           :key="client.title"
-          class="p-6 border border-orange/20 rounded-xl"
+          class="p-6"
           :data-animate="'fade-up'"
           :data-delay="100 + (index * 50)"
         >
@@ -677,7 +677,7 @@ const workStyle = [
           v-for="(service, index) in allServices"
           :key="service.title"
           :to="service.link"
-          class="p-4 border border-orange/20 rounded-lg hover:border-orange/50 transition-colors group"
+          class="p-4 rounded-lg gradient-border group"
           :data-animate="'fade-up'"
           :data-delay="100 + (index * 30)"
         >
@@ -701,27 +701,27 @@ const workStyle = [
       </div>
 
       <div class="actions-spacing grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-        <div class="p-4 md:p-6 border border-orange/20 rounded-xl min-h-[180px] sm:min-h-[200px] md:min-h-0" data-animate="fade-up" data-delay="100">
+        <div class="p-4 md:p-6 gradient-border-left min-h-[180px] sm:min-h-[200px] md:min-h-0" data-animate="fade-up" data-delay="100">
           <p class="text-orange text-2xl font-display mb-2">01</p>
           <p class="text-offwhite font-semibold text-sm sm:text-base">Clearly explains what you offer</p>
         </div>
-        <div class="p-4 md:p-6 border border-orange/20 rounded-xl min-h-[180px] sm:min-h-[200px] md:min-h-0" data-animate="fade-up" data-delay="150">
+        <div class="p-4 md:p-6 gradient-border-left min-h-[180px] sm:min-h-[200px] md:min-h-0" data-animate="fade-up" data-delay="150">
           <p class="text-orange text-2xl font-display mb-2">02</p>
           <p class="text-offwhite font-semibold text-sm sm:text-base">Shows credible evidence</p>
         </div>
-        <div class="p-4 md:p-6 border border-orange/20 rounded-xl min-h-[180px] sm:min-h-[200px] md:min-h-0" data-animate="fade-up" data-delay="200">
+        <div class="p-4 md:p-6 gradient-border-left min-h-[180px] sm:min-h-[200px] md:min-h-0" data-animate="fade-up" data-delay="200">
           <p class="text-orange text-2xl font-display mb-2">03</p>
           <p class="text-offwhite font-semibold text-sm sm:text-base">Works properly on phones</p>
         </div>
-        <div class="p-4 md:p-6 border border-orange/20 rounded-xl min-h-[180px] sm:min-h-[200px] md:min-h-0" data-animate="fade-up" data-delay="250">
+        <div class="p-4 md:p-6 gradient-border-left min-h-[180px] sm:min-h-[200px] md:min-h-0" data-animate="fade-up" data-delay="250">
           <p class="text-orange text-2xl font-display mb-2">04</p>
           <p class="text-offwhite font-semibold text-sm sm:text-base">Loads quickly</p>
         </div>
-        <div class="p-4 md:p-6 border border-orange/20 rounded-xl min-h-[180px] sm:min-h-[200px] md:min-h-0" data-animate="fade-up" data-delay="300">
+        <div class="p-4 md:p-6 gradient-border-left min-h-[180px] sm:min-h-[200px] md:min-h-0" data-animate="fade-up" data-delay="300">
           <p class="text-orange text-2xl font-display mb-2">05</p>
           <p class="text-offwhite font-semibold text-sm sm:text-base">Makes the next action obvious</p>
         </div>
-        <div class="p-4 md:p-6 border border-orange/20 rounded-xl min-h-[180px] sm:min-h-[200px] md:min-h-0" data-animate="fade-up" data-delay="350">
+        <div class="p-4 md:p-6 gradient-border-left min-h-[180px] sm:min-h-[200px] md:min-h-0" data-animate="fade-up" data-delay="350">
           <p class="text-orange text-2xl font-display mb-2">06</p>
           <p class="text-offwhite font-semibold text-sm sm:text-base">Appears in search and AI results</p>
         </div>
@@ -763,7 +763,7 @@ const workStyle = [
             </ul>
 
             <div class="expandable-card-extra">
-              <div class="pt-6 mt-6 border-t border-orange/20 space-y-6">
+              <div class="pt-6 mt-6 border-t border-orange/60 space-y-6">
                 <div>
                   <h4 class="text-offwhite font-semibold mb-3">Typical Project Pricing</h4>
                   <div class="space-y-3">
@@ -824,7 +824,7 @@ const workStyle = [
             </ul>
 
             <div class="expandable-card-extra">
-              <div class="pt-6 mt-6 border-t border-orange/20 space-y-6">
+              <div class="pt-6 mt-6 border-t border-orange/60 space-y-6">
                 <div>
                   <h4 class="text-offwhite font-semibold mb-3">Retainer Options</h4>
                   <div class="space-y-3">
@@ -892,7 +892,7 @@ const workStyle = [
         >
           <button
             @click="openPackage(service)"
-            class="w-full flex items-center justify-between p-4 border border-orange/60 rounded-lg hover:border-orange transition-colors text-left"
+            class="w-full flex items-center justify-between p-4 rounded-lg gradient-border text-left"
           >
             <span class="text-offwhite font-semibold">{{ service.title }}</span>
             <svg class="w-5 h-5 text-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1045,7 +1045,7 @@ const workStyle = [
         <span
           v-for="industry in industries"
           :key="industry"
-          class="px-4 py-2 border border-orange/30 rounded-lg text-body text-sm text-center"
+          class="px-4 py-2 rounded-lg gradient-border text-body text-sm text-center"
         >
           {{ industry }}
         </span>

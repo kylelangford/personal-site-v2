@@ -78,7 +78,8 @@ body {
 
 @media (min-width: 768px) {
     .container {
-        padding-inline: 2rem;
+        padding-left: 2rem;
+        padding-right: 4rem; /* Extra space for page nav */
     }
 }
 
@@ -100,13 +101,13 @@ section:not(.intro-screen) {
     box-shadow: 0 4px 14px rgba(234, 55, 0, 0.25);
 }
 
-.btn-primary:hover { transform: translateY(-1px); }
 
 .btn-ghost {
     @apply inline-flex items-center gap-2 rounded-sm px-5 py-3 text-sm font-semibold border;
     color: var(--color-offwhite);
-    border-color: var(--color-orange);
+    border-color: rgba(234, 55, 0, 0.6);
     background: transparent;
+    transition: border-color 0.2s ease, background 0.2s ease;
 }
 
 .btn-ghost:hover {
@@ -169,11 +170,78 @@ section:not(.intro-screen) {
 }
 
 
-/* Card */
+/* Card with gradient border */
 .card {
     @apply rounded-2xl p-6;
     background: var(--color-surface);
-    border: 2px solid var(--color-orange);
+    position: relative;
+    z-index: 0;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 2px;
+    background: linear-gradient(135deg, rgba(234, 55, 0, 0.6), rgba(255, 107, 53, 0.3));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    z-index: -1;
+    transition: background 0.3s ease;
+}
+
+.card:hover::before {
+    background: linear-gradient(315deg, var(--color-orange), #ff6b35);
+}
+
+/* Gradient border utility - for inline elements */
+.gradient-border {
+    position: relative;
+    z-index: 0;
+}
+
+.gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 2px;
+    background: linear-gradient(135deg, rgba(234, 55, 0, 0.6), rgba(255, 107, 53, 0.3));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    z-index: -1;
+    transition: background 0.3s ease;
+}
+
+.gradient-border:hover::before {
+    background: linear-gradient(315deg, var(--color-orange), #ff6b35);
+}
+
+/* Left border gradient variant */
+.gradient-border-left {
+    position: relative;
+    z-index: 0;
+}
+
+.gradient-border-left::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(180deg, rgba(234, 55, 0, 0.6), rgba(255, 107, 53, 0.3));
+    z-index: -1;
+    transition: background 0.3s ease;
+}
+
+.gradient-border-left:hover::before {
+    background: linear-gradient(0deg, var(--color-orange), #ff6b35);
 }
 
 
@@ -397,7 +465,7 @@ button:focus-visible {
 /* Glowing Buttons */
 .btn-primary {
     position: relative;
-    transition: transform 0.2s ease, box-shadow 0.3s ease;
+    transition: box-shadow 0.3s ease;
 }
 
 .btn-primary::before {
@@ -417,18 +485,7 @@ button:focus-visible {
 }
 
 .btn-primary:hover {
-    transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(234, 55, 0, 0.2);
-}
-
-/* Card Hover */
-.card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
 }
 
 /* Card as Link */
@@ -756,14 +813,29 @@ body.scrolled-past-intro .header-logo {
 
 .expandable-card {
     background: var(--color-surface);
-    border: 2px solid var(--color-orange);
     border-radius: 1rem;
     cursor: pointer;
-    transition: transform 0.2s ease;
+    position: relative;
+    z-index: 0;
 }
 
-.expandable-card:hover {
-    transform: translateY(-2px);
+.expandable-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 2px;
+    background: linear-gradient(135deg, rgba(234, 55, 0, 0.6), rgba(255, 107, 53, 0.3));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    z-index: -1;
+    transition: background 0.3s ease;
+}
+
+.expandable-card:hover::before {
+    background: linear-gradient(315deg, var(--color-orange), #ff6b35);
 }
 
 /* Badge hover effect - outline to filled */
@@ -771,22 +843,15 @@ body.scrolled-past-intro .header-logo {
 .expandable-card .badge-paid {
     background: transparent;
     color: var(--color-orange);
-    border: 1px solid var(--color-orange);
-    transition: background 0.2s ease, color 0.2s ease;
+    border: 1px solid rgba(234, 55, 0, 0.6);
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 
 .expandable-card:hover .badge-free,
 .expandable-card:hover .badge-paid {
     background: var(--color-orange);
     color: var(--color-offwhite);
-}
-
-.expandable-card.is-expanded {
-    transform: none;
-}
-
-.expandable-card.is-expanded:hover {
-    transform: none;
+    border-color: var(--color-orange);
 }
 
 .expandable-card-inner {
