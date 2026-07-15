@@ -518,7 +518,7 @@ const workStyle = [
           <a href="#contact" class="btn-primary w-full sm:w-auto justify-center">Get in Touch</a>
           <a href="#expertise" class="btn-ghost w-full sm:w-auto justify-center">What We Do</a>
         </div>
-        <p class="mt-6 text-sm text-slate">A senior technical partner, not a full-service agency.</p>
+        <p class="mt-6 text-sm text-slate">A senior technical partner, a different way to work.</p>
       </div>
     </div>
   </section>
@@ -531,7 +531,7 @@ const workStyle = [
           What We Do
         </h2>
         <p class="content-spacing text-lead" data-animate="fade-up" data-delay="100">
-          Convert the traffic you already have. Connect your marketing tools. Make your team faster.
+          Convert the traffic you already have. Connect your marketing tools. Grow your audience. Improve operations.
         </p>
       </div>
 
@@ -664,7 +664,7 @@ const workStyle = [
         </p>
       </div>
 
-      <div class="actions-spacing flex overflow-x-auto snap-x snap-mandatory md:overflow-visible md:flex-row gap-4 md:gap-8 items-start pb-4 md:pb-0 -mx-5 px-5 md:mx-0 md:px-0 scrollbar-hide">
+      <div class="actions-spacing flex overflow-x-auto snap-x snap-mandatory md:overflow-visible md:flex-row gap-4 md:gap-8 items-start pt-2 pb-4 md:pt-0 md:pb-0 -mx-5 px-5 md:mx-0 md:px-0 scrollbar-hide">
         <!-- Project Work Card -->
         <article
           class="expandable-card flex-none w-[85vw] md:w-auto md:flex-1 snap-center"
@@ -805,7 +805,7 @@ const workStyle = [
         </p>
       </div>
 
-      <div class="actions-spacing flex overflow-x-auto snap-x snap-mandatory sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 pb-4 sm:pb-0 -mx-5 px-5 sm:mx-0 sm:px-0 scrollbar-hide">
+      <div class="actions-spacing flex overflow-x-auto snap-x snap-mandatory sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 pt-2 pb-4 sm:pt-0 sm:pb-0 -mx-5 px-5 sm:mx-0 sm:px-0 scrollbar-hide">
         <article
           v-for="(service, index) in productizedServices"
           :key="service.title"

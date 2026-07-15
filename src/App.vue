@@ -56,7 +56,9 @@ const services = [
               </div>
             </div>
           </div>
-          <a href="/#contact" class="btn-primary text-sm py-2 px-4 hidden sm:inline-flex">Get a Quote</a>
+          <span class="hidden sm:block">
+            <a href="/#contact" class="btn-primary text-sm py-2 px-4">Get a Quote</a>
+          </span>
         </div>
       </nav>
     </div>
