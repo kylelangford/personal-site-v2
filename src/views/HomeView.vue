@@ -20,8 +20,8 @@ const sections = [
   { id: 'intro', label: 'Top' },
   { id: 'expertise', label: 'What We Do' },
   { id: 'who', label: 'Good Fit' },
-  { id: 'packages', label: 'Packages' },
   { id: 'services', label: 'How It Works' },
+  { id: 'packages', label: 'Packages' },
   { id: 'contact', label: 'Contact' }
 ]
 
@@ -443,7 +443,7 @@ const productizedServices = [
 const workStyle = [
   {
     title: 'Senior Expertise',
-    description: 'You work directly with a senior developer, not a rotating team of juniors. 15+ years of solving hard problems.'
+    description: 'You work directly with a senior developer, not a sales team. 15+ years of solving hard problems.'
   },
   {
     title: 'Single Point of Accountability',
@@ -652,42 +652,6 @@ const workStyle = [
     </div>
   </section>
 
-  <!-- PRODUCTIZED SERVICES -->
-  <section id="packages" class="bg-ink" aria-labelledby="packages-heading">
-    <div class="container section-padding">
-      <div class="max-w-3xl">
-        <h2 id="packages-heading" class="heading-section" data-animate="fade-up">
-          Fixed-Price Packages
-        </h2>
-        <p class="content-spacing text-lead" data-animate="fade-up" data-delay="100">
-          Clear scope. Clear price. No surprises.
-        </p>
-      </div>
-
-      <div class="actions-spacing flex overflow-x-auto snap-x snap-mandatory sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 pb-4 sm:pb-0 -mx-5 px-5 sm:mx-0 sm:px-0 scrollbar-hide">
-        <article
-          v-for="(service, index) in productizedServices"
-          :key="service.title"
-          class="card flex flex-col flex-none w-[85vw] sm:w-auto snap-center"
-          :data-animate="'fade-up'"
-          :data-delay="100 + (index * 50)"
-        >
-          <div class="flex justify-between items-start mb-4">
-            <h3 class="heading-service">{{ service.title }}</h3>
-            <span class="text-orange font-display text-xl whitespace-nowrap ml-4">{{ service.price }}</span>
-          </div>
-          <p class="text-body text-sm mb-4">{{ service.description }}</p>
-          <ul class="mt-auto space-y-1 text-sm text-slate">
-            <li v-for="item in service.deliverables" :key="item" class="flex items-center gap-2">
-              <span class="text-orange">✓</span> {{ item }}
-            </li>
-          </ul>
-          <a href="#contact" class="btn-ghost w-full justify-center mt-6">Get Started</a>
-        </article>
-      </div>
-    </div>
-  </section>
-
   <!-- SERVICES -->
   <section id="services" class="bg-ink" aria-labelledby="services-heading">
     <div class="container section-padding">
@@ -824,6 +788,39 @@ const workStyle = [
               <span v-else>View Pricing →</span>
             </div>
           </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTIZED SERVICES -->
+  <section id="packages" class="bg-ink" aria-labelledby="packages-heading">
+    <div class="container section-padding">
+      <div class="max-w-3xl">
+        <h2 id="packages-heading" class="heading-section" data-animate="fade-up">
+          Fixed-Price Packages
+        </h2>
+        <p class="content-spacing text-lead" data-animate="fade-up" data-delay="100">
+          Clear scope, fixed pricing. Contact for details.
+        </p>
+      </div>
+
+      <div class="actions-spacing flex overflow-x-auto snap-x snap-mandatory sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 pb-4 sm:pb-0 -mx-5 px-5 sm:mx-0 sm:px-0 scrollbar-hide">
+        <article
+          v-for="(service, index) in productizedServices"
+          :key="service.title"
+          class="card flex flex-col flex-none w-[85vw] sm:w-auto snap-center"
+          :data-animate="'fade-up'"
+          :data-delay="100 + (index * 50)"
+        >
+          <h3 class="heading-service mb-4">{{ service.title }}</h3>
+          <p class="text-body text-sm mb-4">{{ service.description }}</p>
+          <ul class="mt-auto space-y-1 text-sm text-slate">
+            <li v-for="item in service.deliverables" :key="item" class="flex items-center gap-2">
+              <span class="text-orange">✓</span> {{ item }}
+            </li>
+          </ul>
+          <a href="#contact" class="btn-ghost w-full justify-center mt-6">Get Pricing</a>
         </article>
       </div>
     </div>
