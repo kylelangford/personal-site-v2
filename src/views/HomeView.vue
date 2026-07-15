@@ -20,6 +20,7 @@ const sections = [
   { id: 'intro', label: 'Top' },
   { id: 'expertise', label: 'What We Do' },
   { id: 'who', label: 'Good Fit' },
+  { id: 'packages', label: 'Packages' },
   { id: 'services', label: 'How It Works' },
   { id: 'contact', label: 'Contact' }
 ]
@@ -398,6 +399,46 @@ const industries = [
   'E-commerce'
 ]
 
+// Productized services
+const productizedServices = [
+  {
+    title: 'Website Audit',
+    price: '$2,500',
+    description: 'Performance, accessibility, SEO, and architecture review with prioritized recommendations.',
+    deliverables: ['Technical audit report', 'Prioritized action items', '30-min review call']
+  },
+  {
+    title: 'Core Web Vitals Fix',
+    price: '$3,500',
+    description: 'Guaranteed performance improvements. We fix what\'s slowing your site down.',
+    deliverables: ['Performance optimization', 'Before/after metrics', 'LCP, CLS, INP improvements']
+  },
+  {
+    title: 'Accessibility Compliance',
+    price: '$5,000',
+    description: 'WCAG AA audit and fixes. Make your site work for everyone.',
+    deliverables: ['Full WCAG audit', 'Priority fixes implemented', 'Compliance documentation']
+  },
+  {
+    title: 'Analytics Setup',
+    price: '$2,000',
+    description: 'GA4, custom events, and conversion tracking done right.',
+    deliverables: ['GA4 configuration', 'Custom event tracking', 'Conversion goals setup']
+  },
+  {
+    title: 'Landing Page',
+    price: '$5,000',
+    description: 'Design-to-code, single page, mobile-optimized. Ready to convert.',
+    deliverables: ['Responsive build', 'Form integration', 'Analytics tracking']
+  },
+  {
+    title: 'CMS Migration',
+    price: 'From $15k',
+    description: 'WordPress or Drupal rebuild with content migration. Modern stack, clean code.',
+    deliverables: ['Platform migration', 'Content transfer', 'Redirects & SEO preservation']
+  }
+]
+
 // How we work
 const workStyle = [
   {
@@ -607,6 +648,42 @@ const workStyle = [
           <p class="text-orange text-2xl font-display mb-2">06</p>
           <p class="text-offwhite font-semibold text-sm sm:text-base">Appears in search and AI results</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTIZED SERVICES -->
+  <section id="packages" class="bg-ink" aria-labelledby="packages-heading">
+    <div class="container section-padding">
+      <div class="max-w-3xl">
+        <h2 id="packages-heading" class="heading-section" data-animate="fade-up">
+          Fixed-Price Packages
+        </h2>
+        <p class="content-spacing text-lead" data-animate="fade-up" data-delay="100">
+          Clear scope. Clear price. No surprises.
+        </p>
+      </div>
+
+      <div class="actions-spacing flex overflow-x-auto snap-x snap-mandatory sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 pb-4 sm:pb-0 -mx-5 px-5 sm:mx-0 sm:px-0 scrollbar-hide">
+        <article
+          v-for="(service, index) in productizedServices"
+          :key="service.title"
+          class="card flex flex-col flex-none w-[85vw] sm:w-auto snap-center"
+          :data-animate="'fade-up'"
+          :data-delay="100 + (index * 50)"
+        >
+          <div class="flex justify-between items-start mb-4">
+            <h3 class="heading-service">{{ service.title }}</h3>
+            <span class="text-orange font-display text-xl whitespace-nowrap ml-4">{{ service.price }}</span>
+          </div>
+          <p class="text-body text-sm mb-4">{{ service.description }}</p>
+          <ul class="mt-auto space-y-1 text-sm text-slate">
+            <li v-for="item in service.deliverables" :key="item" class="flex items-center gap-2">
+              <span class="text-orange">✓</span> {{ item }}
+            </li>
+          </ul>
+          <a href="#contact" class="btn-ghost w-full justify-center mt-6">Get Started</a>
+        </article>
       </div>
     </div>
   </section>
