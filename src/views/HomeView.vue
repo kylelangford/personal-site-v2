@@ -53,6 +53,56 @@ function toggleCards() {
   cardsExpanded.value = !cardsExpanded.value
 }
 
+// Package slide-over state (mobile)
+const selectedPackage = ref(null)
+const packagePanelRef = ref(null)
+let touchStartX = 0
+let touchCurrentX = 0
+
+// Process cards active state (mobile)
+const activeProcessIndex = ref(0)
+const processCardsRef = ref(null)
+let processObserver = null
+
+function openPackage(pkg) {
+  selectedPackage.value = pkg
+  document.body.style.overflow = 'hidden'
+}
+
+function closePackage() {
+  selectedPackage.value = null
+  document.body.style.overflow = ''
+}
+
+function handlePackageTouchStart(e) {
+  touchStartX = e.touches[0].clientX
+  touchCurrentX = touchStartX
+}
+
+function handlePackageTouchMove(e) {
+  touchCurrentX = e.touches[0].clientX
+  const diff = touchStartX - touchCurrentX
+
+  // Only allow swiping left (to close)
+  if (diff > 0 && packagePanelRef.value) {
+    packagePanelRef.value.style.transform = `translateX(-${diff}px)`
+  }
+}
+
+function handlePackageTouchEnd() {
+  const diff = touchStartX - touchCurrentX
+
+  // If swiped more than 100px left, close the panel
+  if (diff > 100) {
+    closePackage()
+  }
+
+  // Reset position if not closing
+  if (packagePanelRef.value) {
+    packagePanelRef.value.style.transform = ''
+  }
+}
+
 function updateStepOpacities() {
   const steps = document.querySelectorAll('.step-number')
   steps.forEach((step, index) => {
@@ -268,6 +318,27 @@ onMounted(() => {
   }, observerOptions)
 
   animatedElements.forEach(el => observer.observe(el))
+
+  // Process cards active state observer (mobile)
+  const isMobile = window.matchMedia('(max-width: 768px)').matches
+  if (isMobile && processCardsRef.value) {
+    const cards = processCardsRef.value.querySelectorAll('.process-card')
+    processObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const index = Array.from(cards).indexOf(entry.target)
+          if (index !== -1) {
+            activeProcessIndex.value = index
+          }
+        }
+      })
+    }, {
+      root: processCardsRef.value,
+      threshold: 0.6
+    })
+
+    cards.forEach(card => processObserver.observe(card))
+  }
 })
 
 onUnmounted(() => {
@@ -276,6 +347,12 @@ onUnmounted(() => {
     observer.disconnect()
     observer = null
   }
+  if (processObserver) {
+    processObserver.disconnect()
+    processObserver = null
+  }
+  // Cleanup body overflow if panel was open
+  document.body.style.overflow = ''
 })
 
 // What we do well
@@ -805,11 +882,83 @@ const workStyle = [
         </p>
       </div>
 
-      <div class="actions-spacing flex overflow-x-auto snap-x snap-mandatory sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 pt-2 pb-4 sm:pt-0 sm:pb-0 -mx-5 px-5 sm:mx-0 sm:px-0 scrollbar-hide">
+      <!-- Mobile: Title list -->
+      <ul class="actions-spacing sm:hidden space-y-2" role="list">
+        <li
+          v-for="(service, index) in productizedServices"
+          :key="service.title"
+          :data-animate="'fade-up'"
+          :data-delay="100 + (index * 30)"
+        >
+          <button
+            @click="openPackage(service)"
+            class="w-full flex items-center justify-between p-4 border border-orange/60 rounded-lg hover:border-orange transition-colors text-left"
+          >
+            <span class="text-offwhite font-semibold">{{ service.title }}</span>
+            <svg class="w-5 h-5 text-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+        </li>
+      </ul>
+
+      <!-- Mobile: Slide-over panel -->
+      <Teleport to="body">
+        <Transition name="package-panel">
+          <div
+            v-if="selectedPackage"
+            class="package-overlay sm:hidden"
+            @click="closePackage"
+          >
+            <div
+              ref="packagePanelRef"
+              class="package-panel"
+              @click.stop
+              @touchstart="handlePackageTouchStart"
+              @touchmove="handlePackageTouchMove"
+              @touchend="handlePackageTouchEnd"
+            >
+              <div class="package-panel-header">
+                <button @click="closePackage" class="package-close-btn">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                  </svg>
+                  <span class="text-sm">Back</span>
+                </button>
+                <span class="text-slate text-xs">Swipe left to close</span>
+              </div>
+
+              <div class="package-panel-content">
+                <h3 class="heading-card mb-4">{{ selectedPackage.title }}</h3>
+                <p class="text-body mb-6">{{ selectedPackage.description }}</p>
+
+                <h4 class="text-offwhite text-sm font-semibold mb-3">What's Included</h4>
+                <ul class="space-y-2 mb-8">
+                  <li
+                    v-for="item in selectedPackage.deliverables"
+                    :key="item"
+                    class="flex items-center gap-3 text-slate"
+                  >
+                    <span class="text-orange">✓</span>
+                    {{ item }}
+                  </li>
+                </ul>
+
+                <a href="#contact" @click="closePackage" class="btn-primary w-full justify-center">
+                  Get Pricing
+                </a>
+              </div>
+            </div>
+          </div>
+        </Transition>
+      </Teleport>
+
+      <!-- Desktop: Card grid -->
+      <div class="actions-spacing hidden sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
         <article
           v-for="(service, index) in productizedServices"
           :key="service.title"
-          class="card flex flex-col flex-none w-[85vw] sm:w-auto snap-center"
+          class="card flex flex-col"
           :data-animate="'fade-up'"
           :data-delay="100 + (index * 50)"
         >
@@ -838,11 +987,12 @@ const workStyle = [
         </p>
       </div>
 
-      <div class="process-cards">
+      <div ref="processCardsRef" class="process-cards">
         <div
           v-for="(step, index) in processSteps"
           :key="step.step"
           class="process-card"
+          :class="{ 'is-active': activeProcessIndex === index }"
           :style="{ animationDelay: `${index * 2}s` }"
         >
           <div class="text-6xl font-display text-orange">{{ step.step }}</div>
@@ -851,6 +1001,16 @@ const workStyle = [
             <p class="text-body text-sm">{{ step.description }}</p>
           </div>
         </div>
+      </div>
+
+      <!-- Mobile dot indicators -->
+      <div class="flex justify-center gap-2 mt-6 sm:hidden">
+        <span
+          v-for="(step, index) in processSteps"
+          :key="'dot-' + index"
+          class="w-2 h-2 rounded-full transition-colors"
+          :class="activeProcessIndex === index ? 'bg-orange' : 'bg-orange/30'"
+        ></span>
       </div>
     </div>
   </section>

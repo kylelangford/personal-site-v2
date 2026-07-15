@@ -39,6 +39,7 @@
 html {
     height: 100%;
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -47,7 +48,23 @@ html {
     }
 }
 
-body { height: 100%; }
+body {
+    height: 100%;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Prevent pull-to-refresh and overscroll on mobile */
+html, body {
+    overscroll-behavior: none;
+}
+
+/* Fix iOS Safari input zoom */
+@media (max-width: 768px) {
+    input, select, textarea {
+        font-size: 16px !important;
+    }
+}
 
 /* Tech Grid Background */
 body {
@@ -64,12 +81,18 @@ body {
     margin-inline: auto;
     padding-inline: 1.25rem;
     max-width: var(--container-max);
+    width: 100%;
 }
 
 @media (min-width: 768px) {
     .container {
         padding-inline: 2rem;
     }
+}
+
+/* Prevent content from breaking out */
+section {
+    overflow-x: clip;
 }
 
 
@@ -517,6 +540,28 @@ button:focus-visible {
     overflow: hidden;
 }
 
+/* Reduce glow orbs on mobile to prevent overflow */
+@media (max-width: 768px) {
+    .glow-orb-1 {
+        width: 250px;
+        height: 250px;
+        top: -50px;
+        right: -50px;
+    }
+
+    .glow-orb-2 {
+        width: 180px;
+        height: 180px;
+        bottom: -40px;
+        left: -40px;
+    }
+
+    .glow-orb-3 {
+        width: 150px;
+        height: 150px;
+    }
+}
+
 /* Reduced motion: disable animations */
 @media (prefers-reduced-motion: reduce) {
     .gradient-text {
@@ -846,6 +891,7 @@ body.scrolled-past-intro .header-logo {
         -ms-overflow-style: none;
         margin-inline: -1.25rem;
         padding-inline: 1.25rem;
+        touch-action: pan-x;
     }
 
     .process-cards::-webkit-scrollbar {
@@ -854,14 +900,151 @@ body.scrolled-past-intro .header-logo {
 
     .process-card {
         flex: 0 0 85%;
-        scroll-snap-align: start;
+        scroll-snap-align: center;
         border-right: none;
-        border-bottom: 1px solid rgba(234, 55, 0, 0.2);
+        border-bottom: none;
         padding: 1.5rem;
+        min-height: auto;
+        opacity: 0.4;
+        transition: opacity 0.3s ease;
+        animation: none;
+    }
+
+    .process-card.is-active {
+        opacity: 1;
     }
 
     .process-card:last-child {
-        border-bottom: none;
+        margin-right: 1.25rem;
+    }
+}
+
+
+/* ========================================
+   MOBILE SCROLL FIXES
+   ======================================== */
+
+/* Lock main scroll axis */
+main {
+    overflow-x: hidden;
+}
+
+/* Contain horizontal carousels */
+.snap-carousel-wrapper {
+    overflow: hidden;
+}
+
+/* Mobile snap carousels - ensure proper scroll containment */
+@media (max-width: 768px) {
+    .flex.overflow-x-auto.snap-x {
+        touch-action: pan-x;
+        overscroll-behavior-x: contain;
+    }
+}
+
+/* Touch-friendly tap targets */
+@media (max-width: 768px) {
+    .btn-primary,
+    .btn-ghost {
+        min-height: 44px;
+        min-width: 44px;
+    }
+}
+
+
+/* ========================================
+   PACKAGE SLIDE-OVER PANEL (Mobile)
+   ======================================== */
+
+.package-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 100;
+}
+
+.package-panel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    max-width: 100vw;
+    background: var(--color-ink);
+    border-right: 1px solid rgba(234, 55, 0, 0.2);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    will-change: transform;
+}
+
+.package-panel-header {
+    position: sticky;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.25rem;
+    background: var(--color-ink);
+    border-bottom: 1px solid rgba(234, 55, 0, 0.2);
+    z-index: 10;
+}
+
+.package-close-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-orange);
+    background: none;
+    border: none;
+    padding: 0.5rem;
+    margin: -0.5rem;
+    cursor: pointer;
+}
+
+.package-panel-content {
+    padding: 1.5rem 1.25rem 2rem;
+}
+
+/* Slide-in animation */
+.package-panel-enter-active {
+    transition: opacity 0.3s ease;
+}
+
+.package-panel-enter-active .package-panel {
+    transition: transform 0.3s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.package-panel-leave-active {
+    transition: opacity 0.25s ease;
+}
+
+.package-panel-leave-active .package-panel {
+    transition: transform 0.25s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.package-panel-enter-from {
+    opacity: 0;
+}
+
+.package-panel-enter-from .package-panel {
+    transform: translateX(-100%);
+}
+
+.package-panel-leave-to {
+    opacity: 0;
+}
+
+.package-panel-leave-to .package-panel {
+    transform: translateX(-100%);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .package-panel-enter-active,
+    .package-panel-leave-active,
+    .package-panel-enter-active .package-panel,
+    .package-panel-leave-active .package-panel {
+        transition: none;
     }
 }
 
