@@ -958,7 +958,7 @@ const workStyle = [
         <article
           v-for="(service, index) in productizedServices"
           :key="service.title"
-          class="card flex flex-col"
+          class="card flex flex-col group"
           :data-animate="'fade-up'"
           :data-delay="100 + (index * 50)"
         >
@@ -969,7 +969,7 @@ const workStyle = [
               <span class="text-orange">✓</span> {{ item }}
             </li>
           </ul>
-          <a href="#contact" class="btn-ghost w-full justify-center mt-6">Get Pricing</a>
+          <a href="#contact" class="btn-ghost w-full justify-center mt-6 group-hover:bg-orange group-hover:text-offwhite group-hover:border-orange">Get Pricing</a>
         </article>
       </div>
     </div>
