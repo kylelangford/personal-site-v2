@@ -62,8 +62,14 @@ body {
 
 .container {
     margin-inline: auto;
-    padding-inline: 1rem;
+    padding-inline: 1.25rem;
     max-width: var(--container-max);
+}
+
+@media (min-width: 768px) {
+    .container {
+        padding-inline: 2rem;
+    }
 }
 
 
@@ -820,6 +826,15 @@ body.scrolled-past-intro .header-logo {
     border-right: none;
 }
 
+/* Scrollbar hide utility */
+.scrollbar-hide {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
 /* Mobile: horizontal snap carousel */
 @media (max-width: 768px) {
     .process-cards {
@@ -829,8 +844,8 @@ body.scrolled-past-intro .header-logo {
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none;
         -ms-overflow-style: none;
-        margin-inline: -1rem;
-        padding-inline: 1rem;
+        margin-inline: -1.25rem;
+        padding-inline: 1.25rem;
     }
 
     .process-cards::-webkit-scrollbar {

@@ -4,7 +4,7 @@ import { RouterLink } from 'vue-router'
 import Icon from '../components/Icon.vue'
 
 const year = new Date().getFullYear()
-const heroText = ref('Web Development Done Right')
+const heroText = ref('Web Development Done&nbsp;Right')
 const displayText = ref('')
 const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%&*<>[]{}/'
 
@@ -280,46 +280,46 @@ onUnmounted(() => {
 // What we do well
 const problems = [
   {
-    title: 'Design-to-Code',
-    risk: 'Pixel-perfect execution',
-    description: 'We read design specs and implement exactly—68px spacing, -30deg gradients, specific rgba values. No approximations.',
+    title: 'Component Systems',
+    risk: 'Design to code',
+    description: 'Translating detailed designs into reusable, maintainable components. Much harder to replace with a template or AI.',
     icon: 'swatch',
     link: '/services/redesign'
   },
   {
-    title: 'Interactive UI',
-    risk: 'Complex made simple',
-    description: 'Forms with validation logic, dynamic filters, multi-step flows. Interactive elements that work smoothly and feel polished.',
-    icon: 'cursor-arrow-rays',
-    link: '/services/conversion'
-  },
-  {
-    title: 'Animation & Motion',
-    risk: 'Refined interactions',
-    description: 'Scroll effects, micro-interactions, state transitions. Animation that enhances UX without being distracting.',
-    icon: 'sparkles',
-    link: '/services/performance'
-  },
-  {
-    title: 'Dashboards & Data',
-    risk: 'Clear visualizations',
-    description: 'Admin panels, charts, reporting interfaces. Complex data presented in clean, usable interfaces.',
-    icon: 'chart-bar',
-    link: '/services/scaling'
-  },
-  {
-    title: 'CMS & Integrations',
-    risk: 'Connected systems',
-    description: 'Custom WordPress themes, headless CMS setups, third-party API integrations. Forms that talk to your tools.',
+    title: 'Enterprise CMS',
+    risk: 'WordPress, Drupal, AEM',
+    description: 'Implementation across enterprise CMS platforms. Custom themes, headless setups, complex content models.',
     icon: 'puzzle-piece',
     link: '/services/legacy-cms'
   },
   {
-    title: 'Tracking & Events',
-    risk: 'Measurable results',
-    description: 'Custom event tracking, goal conversions, analytics setup. Know what users actually do on your site.',
+    title: 'Site Rebuilds',
+    risk: 'Modernization',
+    description: 'Rebuilding outdated or poorly maintained sites. Your Drupal 7 or old WordPress is hurting your team.',
+    icon: 'cursor-arrow-rays',
+    link: '/services/tech-migration'
+  },
+  {
+    title: 'Integrations',
+    risk: 'Connected systems',
+    description: 'CRM, analytics, forms and marketing-platform integrations. Troubleshooting the ones that broke.',
+    icon: 'chart-bar',
+    link: '/services/broken-links'
+  },
+  {
+    title: 'Performance & A11y',
+    risk: 'Core Web Vitals',
+    description: 'Accessibility, performance and Core Web Vitals. Google recommends them for search and UX—ongoing technical work.',
+    icon: 'sparkles',
+    link: '/services/performance'
+  },
+  {
+    title: 'Technical Ownership',
+    risk: 'Continuity',
+    description: 'Supporting teams after the original developer disappears. Internal marketing teams that lack senior dev help.',
     icon: 'chart-pie',
-    link: '/services/conversion'
+    link: '/services/scaling'
   }
 ]
 
@@ -338,7 +338,7 @@ const processSteps = [
   {
     step: '03',
     title: 'Quick Chat',
-    description: 'Optional call to align on details. Or just reply via email.'
+    description: '(Not) optional call to align on details. Or just reply via email. 50% down, 50% on completion.'
   },
   {
     step: '04',
@@ -351,19 +351,19 @@ const processSteps = [
 const idealClients = [
   {
     title: 'Growing Companies',
-    description: 'You\'ve outgrown your original website. What worked at 10 employees doesn\'t work at 100.'
+    description: 'Your website isn\'t converting like it should. You need it to build credibility and drive leads.'
   },
   {
     title: 'Funded Startups',
-    description: 'You raised a round and need to level up your web presence. Fast.'
+    description: 'You have your app to take care of—let us handle your website.'
   },
   {
     title: 'Marketing Teams',
-    description: 'You\'re driving traffic but your site isn\'t converting. Development is a bottleneck.'
+    description: 'Support and implementation—supercharge your marketing effort.'
   },
   {
     title: 'Regional Leaders',
-    description: 'You dominate your market but your website looks like 2015. Time to catch up.'
+    description: 'You dominate your market but your website doesn\'t reflect it. Time to match your credibility online.'
   }
 ]
 
@@ -401,20 +401,20 @@ const industries = [
 // How we work
 const workStyle = [
   {
-    title: 'Pixel-Perfect Builds',
-    description: 'We read design specs and implement exactly—spacing, colors, gradients, effects. No approximations.'
+    title: 'Senior Expertise',
+    description: 'You work directly with a senior developer, not a rotating team of juniors. 15+ years of solving hard problems.'
   },
   {
-    title: 'Polish & Attention to Detail',
-    description: 'Smooth animations, thoughtful interactions, no visual bugs. Sites that feel refined.'
+    title: 'Single Point of Accountability',
+    description: 'One person owns your project from start to finish. No handoffs, no "that\'s not my department."'
   },
   {
-    title: 'Clean, Maintainable Code',
-    description: 'Component-based architecture, consistent naming, well-structured CSS. Code other devs can work with.'
+    title: 'Complex Implementation',
+    description: 'The work templates and AI can\'t do—enterprise CMS, tricky integrations, sites that actually need engineering.'
   },
   {
-    title: 'Direct Communication',
-    description: 'Efficient, clear updates. No back-and-forth or endless clarification needed.'
+    title: 'No Fluff',
+    description: 'We don\'t upsell branding, SEO, or paid media. Just senior frontend work, done right.'
   }
 ]
 </script>
@@ -433,7 +433,7 @@ const workStyle = [
     <div class="intro-content" :class="{ 'intro-visible': introComplete }">
       <span class="intro-logo font-display">Precision Frontend</span>
       <div class="intro-scroll-hint">
-        <span class="text-slate text-sm">agency services</span>
+        <span class="text-slate text-sm">Growing companies need more out of their website</span>
         <svg class="intro-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M12 5v14M5 12l7 7 7-7"/>
         </svg>
@@ -471,14 +471,13 @@ const workStyle = [
           <span class="text-decode" v-html="displayText"></span><span class="text-cursor" aria-hidden="true"></span>
         </h1>
         <p class="content-spacing text-lead lead-content">
-          Pixel-perfect builds. Polished interactions. Clean, maintainable code.
-          Whether it's a new site, complex forms, or interactive dashboards—we build it right.
+          Senior technical implementation that improves credibility, conversions, and marketing operations—not just another website.
         </p>
         <div class="actions-spacing flex flex-col sm:flex-row items-start sm:items-center gap-4" role="group" aria-label="Primary actions">
-          <a href="#contact" class="btn-primary">Get in Touch</a>
-          <a href="#expertise" class="btn-ghost">What We Do</a>
+          <a href="#contact" class="btn-primary w-full sm:w-auto justify-center">Get in Touch</a>
+          <a href="#expertise" class="btn-ghost w-full sm:w-auto justify-center">What We Do</a>
         </div>
-        <p class="mt-6 text-sm text-slate">Tell us about your project. We'll let you know if we can help.</p>
+        <p class="mt-6 text-sm text-slate">A senior technical partner, not a full-service agency.</p>
       </div>
     </div>
   </section>
@@ -491,7 +490,7 @@ const workStyle = [
           What We Do
         </h2>
         <p class="content-spacing text-lead" data-animate="fade-up" data-delay="100">
-          Web development with attention to detail. The kind of work you don't have to redo.
+          Convert the traffic you already have. Connect your marketing tools. Make your team faster.
         </p>
       </div>
 
@@ -571,36 +570,77 @@ const workStyle = [
     </div>
   </section>
 
+  <!-- WHAT MATTERS -->
+  <section class="bg-ink" aria-labelledby="matters-heading">
+    <div class="container section-padding">
+      <div class="max-w-3xl">
+        <h2 id="matters-heading" class="heading-section" data-animate="fade-up">
+          What Actually Matters
+        </h2>
+        <p class="content-spacing text-lead" data-animate="fade-up" data-delay="100">
+          You don't need a $50k custom website. You need one that works.
+        </p>
+      </div>
+
+      <div class="actions-spacing grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+        <div class="p-4 md:p-6 border border-orange/20 rounded-xl min-h-[180px] sm:min-h-[200px] md:min-h-0" data-animate="fade-up" data-delay="100">
+          <p class="text-orange text-2xl font-display mb-2">01</p>
+          <p class="text-offwhite font-semibold text-sm sm:text-base">Clearly explains what you offer</p>
+        </div>
+        <div class="p-4 md:p-6 border border-orange/20 rounded-xl min-h-[180px] sm:min-h-[200px] md:min-h-0" data-animate="fade-up" data-delay="150">
+          <p class="text-orange text-2xl font-display mb-2">02</p>
+          <p class="text-offwhite font-semibold text-sm sm:text-base">Shows credible evidence</p>
+        </div>
+        <div class="p-4 md:p-6 border border-orange/20 rounded-xl min-h-[180px] sm:min-h-[200px] md:min-h-0" data-animate="fade-up" data-delay="200">
+          <p class="text-orange text-2xl font-display mb-2">03</p>
+          <p class="text-offwhite font-semibold text-sm sm:text-base">Works properly on phones</p>
+        </div>
+        <div class="p-4 md:p-6 border border-orange/20 rounded-xl min-h-[180px] sm:min-h-[200px] md:min-h-0" data-animate="fade-up" data-delay="250">
+          <p class="text-orange text-2xl font-display mb-2">04</p>
+          <p class="text-offwhite font-semibold text-sm sm:text-base">Loads quickly</p>
+        </div>
+        <div class="p-4 md:p-6 border border-orange/20 rounded-xl min-h-[180px] sm:min-h-[200px] md:min-h-0" data-animate="fade-up" data-delay="300">
+          <p class="text-orange text-2xl font-display mb-2">05</p>
+          <p class="text-offwhite font-semibold text-sm sm:text-base">Makes the next action obvious</p>
+        </div>
+        <div class="p-4 md:p-6 border border-orange/20 rounded-xl min-h-[180px] sm:min-h-[200px] md:min-h-0" data-animate="fade-up" data-delay="350">
+          <p class="text-orange text-2xl font-display mb-2">06</p>
+          <p class="text-offwhite font-semibold text-sm sm:text-base">Appears in search and AI results</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- SERVICES -->
   <section id="services" class="bg-ink" aria-labelledby="services-heading">
     <div class="container section-padding">
       <div class="max-w-3xl">
         <h2 id="services-heading" class="heading-section" data-animate="fade-up">
-          How It Works
+          How We Work
         </h2>
         <p class="content-spacing text-lead" data-animate="fade-up" data-delay="100">
           Two ways to work together, depending on what you need.
         </p>
       </div>
 
-      <div class="actions-spacing flex flex-col md:flex-row gap-8 items-start">
-        <!-- Project Quote Card -->
+      <div class="actions-spacing flex overflow-x-auto snap-x snap-mandatory md:overflow-visible md:flex-row gap-4 md:gap-8 items-start pb-4 md:pb-0 -mx-5 px-5 md:mx-0 md:px-0 scrollbar-hide">
+        <!-- Project Work Card -->
         <article
-          class="expandable-card flex-1"
+          class="expandable-card flex-none w-[85vw] md:w-auto md:flex-1 snap-center"
           :class="{ 'is-expanded': cardsExpanded }"
         >
           <div class="expandable-card-inner" @click="toggleCards">
             <div class="flex items-center gap-3 mb-4">
-              <span class="badge-free">Flexible Scopes</span>
+              <span class="badge-free">Fixed Price</span>
               <span class="text-slate text-sm">24-48 hour response</span>
             </div>
-            <h3 class="heading-card">Project Quote</h3>
+            <h3 class="heading-card">Project Work</h3>
             <p class="content-spacing-sm text-body">
-              Share your project details. We'll review and send a clear quote with fixed pricing.
+              Audits, implementation, and modernization. Senior technical work with clear deliverables and fixed pricing.
             </p>
             <ul class="mt-4 space-y-1 text-sm text-slate">
               <li class="flex items-center gap-2"><span class="text-orange">✓</span> Fixed-price quote</li>
-              <li class="flex items-center gap-2"><span class="text-orange">✓</span> Clear deliverables</li>
+              <li class="flex items-center gap-2"><span class="text-orange">✓</span> 50% down, 50% completion</li>
               <li class="flex items-center gap-2"><span class="text-orange">✓</span> No obligation</li>
             </ul>
 
@@ -611,56 +651,53 @@ const workStyle = [
                   <div class="space-y-3">
                     <div class="flex justify-between items-baseline">
                       <div>
-                        <span class="text-offwhite">Quick Fixes</span>
-                        <span class="text-slate text-sm ml-2">1–2 weeks</span>
+                        <span class="text-offwhite">Audits & Planning</span>
                       </div>
-                      <span class="text-orange font-semibold">$1,500 – $5k</span>
+                      <span class="text-orange font-semibold">$2,500 – $5k</span>
                     </div>
-                    <p class="text-slate text-sm -mt-1">Bug fixes, performance tweaks, small updates</p>
+                    <p class="text-slate text-sm -mt-1">Architecture reviews, accessibility audits, performance analysis, roadmaps</p>
 
                     <div class="flex justify-between items-baseline">
                       <div>
                         <span class="text-offwhite">Feature Work</span>
-                        <span class="text-slate text-sm ml-2">2–4 weeks</span>
                       </div>
                       <span class="text-orange font-semibold">$5k – $15k</span>
                     </div>
-                    <p class="text-slate text-sm -mt-1">Landing pages, interactive components, integrations</p>
+                    <p class="text-slate text-sm -mt-1">Component libraries, integrations, landing pages, CMS work</p>
 
                     <div class="flex justify-between items-baseline">
                       <div>
                         <span class="text-offwhite">Full Builds</span>
-                        <span class="text-slate text-sm ml-2">4–8 weeks</span>
                       </div>
                       <span class="text-orange font-semibold">$15k – $40k</span>
                     </div>
-                    <p class="text-slate text-sm -mt-1">Complete sites, redesigns, platform migrations</p>
+                    <p class="text-slate text-sm -mt-1">Complete sites, WordPress/Drupal rebuilds, platform migrations</p>
                   </div>
                 </div>
-                <a href="#contact" class="btn-primary inline-flex" @click.stop>Get a Quote</a>
+                <a href="#contact" class="btn-primary w-full sm:w-auto justify-center" @click.stop>Get a Quote</a>
               </div>
             </div>
 
             <div class="expandable-card-toggle mt-6 text-orange text-sm font-medium">
               <span v-if="cardsExpanded">Show Less ↑</span>
-              <span v-else>Learn More →</span>
+              <span v-else>View Pricing →</span>
             </div>
           </div>
         </article>
 
         <!-- Retained Services Card -->
         <article
-          class="expandable-card flex-1"
+          class="expandable-card flex-none w-[85vw] md:w-auto md:flex-1 snap-center"
           :class="{ 'is-expanded': cardsExpanded }"
         >
           <div class="expandable-card-inner" @click="toggleCards">
             <div class="flex items-center gap-3 mb-4">
-              <span class="badge-paid">Ongoing</span>
-              <span class="text-slate text-sm">For continuous support</span>
+              <span class="badge-paid">Monthly</span>
+              <span class="text-slate text-sm">Ongoing partnership</span>
             </div>
             <h3 class="heading-card">Retained Services</h3>
             <p class="content-spacing-sm text-body">
-              Need ongoing frontend support? Get dedicated hours with priority response times.
+              Roadmaps and ongoing web support. Make your marketing team faster with dedicated senior capacity.
             </p>
             <ul class="mt-4 space-y-1 text-sm text-slate">
               <li class="flex items-center gap-2"><span class="text-orange">✓</span> Priority response SLA</li>
@@ -680,7 +717,7 @@ const workStyle = [
                       </div>
                       <span class="text-orange font-semibold">$2,500/mo</span>
                     </div>
-                    <p class="text-slate text-sm -mt-1">Light support, bug fixes, small updates</p>
+                    <p class="text-slate text-sm -mt-1">Maintenance, bug fixes, small updates</p>
 
                     <div class="flex justify-between items-baseline">
                       <div>
@@ -689,7 +726,7 @@ const workStyle = [
                       </div>
                       <span class="text-orange font-semibold">$4,500/mo</span>
                     </div>
-                    <p class="text-slate text-sm -mt-1">Regular features, ongoing improvements</p>
+                    <p class="text-slate text-sm -mt-1">Landing pages, analytics, ongoing improvements</p>
 
                     <div class="flex justify-between items-baseline">
                       <div>
@@ -701,13 +738,13 @@ const workStyle = [
                     <p class="text-slate text-sm -mt-1">Dedicated capacity, priority everything</p>
                   </div>
                 </div>
-                <a href="#contact" class="btn-primary inline-flex" @click.stop>Discuss Retainer</a>
+                <a href="#contact" class="btn-primary w-full sm:w-auto justify-center" @click.stop>Discuss Retainer</a>
               </div>
             </div>
 
             <div class="expandable-card-toggle mt-6 text-orange text-sm font-medium">
               <span v-if="cardsExpanded">Show Less ↑</span>
-              <span v-else>Learn More →</span>
+              <span v-else>View Pricing →</span>
             </div>
           </div>
         </article>
@@ -747,10 +784,12 @@ const workStyle = [
   <!-- RESULTS -->
   <section class="bg-ink" aria-labelledby="results-heading">
     <div class="container section-padding">
-      <div class="grid md:grid-cols-3 gap-8 text-center">
+      <div class="grid md:grid-cols-3 gap-8 md:text-center">
         <div
           v-for="(result, index) in results"
           :key="result.label"
+          :class="index % 2 === 0 ? 'text-left' : 'text-right'"
+          class="py-8 md:py-0 md:!text-center"
           :data-animate="'fade-up'"
           :data-delay="100 + (index * 50)"
         >
@@ -768,11 +807,11 @@ const workStyle = [
       <h2 id="industries-heading" class="heading-section text-center" data-animate="fade-up">
         Industries We Serve
       </h2>
-      <div class="content-spacing flex flex-wrap justify-center gap-3 md:gap-4 max-w-3xl mx-auto" data-animate="fade-up" data-delay="100">
+      <div class="content-spacing grid grid-cols-2 md:flex md:flex-wrap md:justify-center gap-3 md:gap-4 max-w-3xl mx-auto" data-animate="fade-up" data-delay="100">
         <span
           v-for="industry in industries"
           :key="industry"
-          class="px-4 py-2 border border-orange/30 rounded-lg text-body text-sm"
+          class="px-4 py-2 border border-orange/30 rounded-lg text-body text-sm text-center"
         >
           {{ industry }}
         </span>
@@ -784,7 +823,7 @@ const workStyle = [
   <section class="bg-ink" aria-labelledby="workstyle-heading">
     <div class="container section-padding">
       <h2 id="workstyle-heading" class="heading-section" data-animate="fade-up">
-        How We Work
+        Our Approach
       </h2>
       <div class="actions-spacing grid md:grid-cols-2 lg:grid-cols-4 gap-6">
         <div

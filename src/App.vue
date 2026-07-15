@@ -56,7 +56,7 @@ const services = [
               </div>
             </div>
           </div>
-          <a href="/#contact" class="btn-primary text-sm py-2 px-4">Get a Quote</a>
+          <a href="/#contact" class="btn-primary text-sm py-2 px-4 hidden sm:inline-flex">Get a Quote</a>
         </div>
       </nav>
     </div>
@@ -72,7 +72,7 @@ const services = [
       <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-4">
         <div>
           <p class="font-semibold text-offwhite">Precision Frontend</p>
-          <p class="text-sm">Web development done right</p>
+          <p class="text-sm">Web development done right · Boston, MA</p>
         </div>
       </div>
       <div class="mt-6 pt-6 border-t border-orange/10 text-sm text-center">
