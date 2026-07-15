@@ -194,7 +194,7 @@ section:not(.intro-screen) {
 }
 
 .card::before {
-    background: linear-gradient(135deg, rgba(234, 55, 0, 0.6), rgba(255, 107, 53, 0.3));
+    background: linear-gradient(135deg, rgba(234, 55, 0, 0.6), rgba(255, 107, 53, 0.6));
     opacity: 1;
 }
 
@@ -233,7 +233,7 @@ section:not(.intro-screen) {
 }
 
 .gradient-border::before {
-    background: linear-gradient(135deg, rgba(234, 55, 0, 0.6), rgba(255, 107, 53, 0.3));
+    background: linear-gradient(135deg, rgba(234, 55, 0, 0.6), rgba(255, 107, 53, 0.6));
     opacity: 1;
 }
 
@@ -269,7 +269,7 @@ section:not(.intro-screen) {
 }
 
 .gradient-border-left::before {
-    background: linear-gradient(180deg, rgba(234, 55, 0, 0.6), rgba(255, 107, 53, 0.3));
+    background: linear-gradient(180deg, rgba(234, 55, 0, 0.6), rgba(255, 107, 53, 0.6));
     opacity: 1;
 }
 
@@ -877,7 +877,7 @@ body.scrolled-past-intro .header-logo {
 }
 
 .expandable-card::before {
-    background: linear-gradient(135deg, rgba(234, 55, 0, 0.6), rgba(255, 107, 53, 0.3));
+    background: linear-gradient(135deg, rgba(234, 55, 0, 0.6), rgba(255, 107, 53, 0.6));
     opacity: 1;
 }
 
