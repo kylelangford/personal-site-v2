@@ -4,7 +4,7 @@ import { RouterLink } from 'vue-router'
 import Icon from '../components/Icon.vue'
 
 const year = new Date().getFullYear()
-const heroText = ref('Web Development Done&nbsp;Right')
+const heroText = ref('Web Development Done Right')
 const displayText = ref('')
 const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%&*<>[]{}/'
 
@@ -14,6 +14,8 @@ let observer = null
 const introComplete = ref(false)
 const scrollY = ref(0)
 const activeSection = ref('intro')
+const hasSnappedToHero = ref(false)
+let isSnapping = false
 
 // Sections for lava lamp nav
 const sections = [
@@ -129,6 +131,28 @@ function updateStepOpacities() {
 // Scroll handler
 function handleScroll() {
   scrollY.value = window.scrollY
+
+  // Snap to hero when leaving intro area (scroll threshold between 50-150px)
+  const snapThreshold = 100
+  const heroSnapPoint = window.innerHeight - (window.innerHeight * 0.25) // Hero at 3/4 up
+
+  if (!hasSnappedToHero.value && !isSnapping && scrollY.value > snapThreshold && scrollY.value < window.innerHeight * 0.5) {
+    isSnapping = true
+    hasSnappedToHero.value = true
+    window.scrollTo({
+      top: heroSnapPoint,
+      behavior: 'smooth'
+    })
+    // Reset snapping flag after animation
+    setTimeout(() => {
+      isSnapping = false
+    }, 500)
+  }
+
+  // Reset snap state when back at top
+  if (scrollY.value < 20) {
+    hasSnappedToHero.value = false
+  }
 
   // Update active section based on scroll position
   const sectionElements = sections.map(s => document.getElementById(s.id)).filter(Boolean)
@@ -741,7 +765,7 @@ const workStyle = [
         </p>
       </div>
 
-      <div class="actions-spacing flex overflow-x-auto snap-x snap-mandatory md:overflow-visible md:flex-row gap-4 md:gap-8 items-start pt-2 pb-4 md:pt-0 md:pb-0 -mx-5 px-5 md:mx-0 md:px-0 scrollbar-hide">
+      <div class="actions-spacing services-carousel flex overflow-x-auto snap-x snap-mandatory md:overflow-visible md:flex-row gap-4 md:gap-8 items-start pt-2 pb-4 md:pt-0 md:pb-0 -mx-5 px-5 md:mx-0 md:px-0 scrollbar-hide">
         <!-- Project Work Card -->
         <article
           class="expandable-card flex-none w-[85vw] md:w-auto md:flex-1 snap-center"
@@ -767,27 +791,27 @@ const workStyle = [
                 <div>
                   <h4 class="text-offwhite font-semibold mb-3">Typical Project Pricing</h4>
                   <div class="space-y-3">
-                    <div class="flex justify-between items-baseline">
+                    <div class="flex flex-wrap justify-between items-baseline gap-x-2">
                       <div>
                         <span class="text-offwhite">Audits & Planning</span>
                       </div>
-                      <span class="text-orange font-semibold">$2,500 – $5k</span>
+                      <span class="text-orange font-semibold whitespace-nowrap">$2,500 – $5k</span>
                     </div>
                     <p class="text-slate text-sm -mt-1">Architecture reviews, accessibility audits, performance analysis, roadmaps</p>
 
-                    <div class="flex justify-between items-baseline">
+                    <div class="flex flex-wrap justify-between items-baseline gap-x-2">
                       <div>
                         <span class="text-offwhite">Feature Work</span>
                       </div>
-                      <span class="text-orange font-semibold">$5k – $15k</span>
+                      <span class="text-orange font-semibold whitespace-nowrap">$5k – $15k</span>
                     </div>
                     <p class="text-slate text-sm -mt-1">Component libraries, integrations, landing pages, CMS work</p>
 
-                    <div class="flex justify-between items-baseline">
+                    <div class="flex flex-wrap justify-between items-baseline gap-x-2">
                       <div>
                         <span class="text-offwhite">Full Builds</span>
                       </div>
-                      <span class="text-orange font-semibold">$15k – $40k</span>
+                      <span class="text-orange font-semibold whitespace-nowrap">$15k – $40k</span>
                     </div>
                     <p class="text-slate text-sm -mt-1">Complete sites, WordPress/Drupal rebuilds, platform migrations</p>
                   </div>
@@ -828,30 +852,30 @@ const workStyle = [
                 <div>
                   <h4 class="text-offwhite font-semibold mb-3">Retainer Options</h4>
                   <div class="space-y-3">
-                    <div class="flex justify-between items-baseline">
+                    <div class="flex flex-wrap justify-between items-baseline gap-x-2">
                       <div>
                         <span class="text-offwhite">Starter</span>
                         <span class="text-slate text-sm ml-2">~10 hrs/mo</span>
                       </div>
-                      <span class="text-orange font-semibold">$2,500/mo</span>
+                      <span class="text-orange font-semibold whitespace-nowrap">$2,500/mo</span>
                     </div>
                     <p class="text-slate text-sm -mt-1">Maintenance, bug fixes, small updates</p>
 
-                    <div class="flex justify-between items-baseline">
+                    <div class="flex flex-wrap justify-between items-baseline gap-x-2">
                       <div>
                         <span class="text-offwhite">Growth</span>
                         <span class="text-slate text-sm ml-2">~20 hrs/mo</span>
                       </div>
-                      <span class="text-orange font-semibold">$4,500/mo</span>
+                      <span class="text-orange font-semibold whitespace-nowrap">$4,500/mo</span>
                     </div>
                     <p class="text-slate text-sm -mt-1">Landing pages, analytics, ongoing improvements</p>
 
-                    <div class="flex justify-between items-baseline">
+                    <div class="flex flex-wrap justify-between items-baseline gap-x-2">
                       <div>
                         <span class="text-offwhite">Scale</span>
                         <span class="text-slate text-sm ml-2">~30 hrs/mo</span>
                       </div>
-                      <span class="text-orange font-semibold">$6,000/mo</span>
+                      <span class="text-orange font-semibold whitespace-nowrap">$6,000/mo</span>
                     </div>
                     <p class="text-slate text-sm -mt-1">Dedicated capacity, priority everything</p>
                   </div>

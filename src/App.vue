@@ -43,7 +43,7 @@ const services = [
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
               </svg>
             </button>
-            <div class="absolute top-full left-0 mt-2 w-56 bg-ink border border-orange/20 rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+            <div class="absolute top-full left-0 mt-2 w-56 bg-black border border-orange/20 rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
               <div class="p-2">
                 <RouterLink
                   v-for="service in services"

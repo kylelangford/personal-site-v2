@@ -314,12 +314,13 @@ section:not(.intro-screen) {
 /* Typography Scale */
 .heading-hero {
     @apply font-display text-4xl md:text-6xl leading-tight text-offwhite;
-    min-height: 5.625rem; /* Reserve space for 2-3 lines on mobile (45px line height × 2.5) */
+    height: 5.5rem; /* Fixed height for mobile - 2 lines */
+    text-wrap: balance; /* Prevents orphaned words like "Right" alone on a line */
 }
 
 @media (min-width: 768px) {
     .heading-hero {
-        min-height: 9.375rem; /* Reserve space for 2 lines on desktop (75px line height × 2) */
+        height: 4.75rem; /* Fixed height for desktop - single line */
     }
 }
 
@@ -687,6 +688,13 @@ button:focus-visible {
     background: transparent;
     z-index: 100;
     pointer-events: none;
+    padding-bottom: 15vh; /* Shift content up from true center */
+}
+
+@media (min-width: 768px) {
+    .intro-screen {
+        padding-bottom: 0;
+    }
 }
 
 .intro-content {
@@ -711,7 +719,7 @@ button:focus-visible {
 }
 
 .intro-scroll-hint {
-    margin-top: 2rem;
+    margin-top: 0.5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -850,6 +858,18 @@ body.scrolled-past-intro .header-logo {
 
 
 /* ========================================
+   SERVICES CAROUSEL (How We Work)
+   ======================================== */
+
+@media (max-width: 768px) {
+    .services-carousel {
+        touch-action: pan-x;
+        overscroll-behavior-x: contain;
+    }
+}
+
+
+/* ========================================
    EXPANDABLE CARDS
    ======================================== */
 
@@ -859,6 +879,7 @@ body.scrolled-past-intro .header-logo {
     cursor: pointer;
     position: relative;
     z-index: 0;
+    overflow: hidden;
 }
 
 .expandable-card::before,
@@ -912,6 +933,8 @@ body.scrolled-past-intro .header-logo {
 
 .expandable-card-inner {
     padding: 1.5rem;
+    max-width: 100%;
+    overflow: hidden;
 }
 
 /* Extra content - hidden by default with height transition */
