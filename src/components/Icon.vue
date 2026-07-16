@@ -54,6 +54,16 @@ defineProps({
     <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
   </svg>
 
+  <!-- Arrow Down -->
+  <svg v-else-if="name === 'arrow-down'" :width="size" :height="size" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M12 5v14M5 12l7 7 7-7" />
+  </svg>
+
+  <!-- Chevron Right -->
+  <svg v-else-if="name === 'chevron-right'" :width="size" :height="size" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+  </svg>
+
   <!-- Chevron Left -->
   <svg v-else-if="name === 'chevron-left'" :width="size" :height="size" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
     <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />

@@ -10,6 +10,7 @@
     /* Colors - WCAG AA Compliant */
     --color-offwhite: #FFFFFF;
     --color-orange: #EA3700;
+    --color-orange-light: #ff6b35;
     --color-accent: #EA3700;
     --color-slate: #A0A0A0;
     --color-ink: #000000;
@@ -27,6 +28,7 @@
 [data-theme="dark"] {
     --color-ink: #000000; /* Pure black background - highest contrast */
     --color-orange: #EA3700; /* Bright orange primary */
+    --color-orange-light: #ff6b35; /* Lighter orange for gradients */
     --color-accent: #EA3700; /* Same orange for consistency */
     --color-slate: #A0A0A0; /* Light gray - WCAG AA on black (contrast ratio 7.98:1) */
     --color-code: #000000; /* Pure black for code backgrounds */
@@ -95,10 +97,32 @@ section:not(.intro-screen) {
 
 /* Button */
 .btn-primary {
-    @apply inline-flex items-center gap-2 rounded-sm px-5 py-3 text-sm font-semibold transition-transform;
-    background: linear-gradient(135deg, var(--color-orange), var(--color-accent));
+    @apply inline-flex items-center gap-2 rounded-sm px-5 py-3 text-sm font-semibold;
+    background: linear-gradient(135deg, var(--color-orange), var(--color-orange-light));
     color: var(--color-offwhite);
     box-shadow: 0 4px 14px rgba(234, 55, 0, 0.25);
+    position: relative;
+    transition: box-shadow 0.3s ease;
+}
+
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(135deg, var(--color-orange), var(--color-orange-light), var(--color-orange));
+    border-radius: inherit;
+    z-index: -1;
+    opacity: 0;
+    filter: blur(8px);
+    transition: opacity 0.3s ease;
+}
+
+.btn-primary:hover::before {
+    opacity: 0.3;
+}
+
+.btn-primary:hover {
+    box-shadow: 0 6px 20px rgba(234, 55, 0, 0.2);
 }
 
 
@@ -166,7 +190,7 @@ section:not(.intro-screen) {
     left: 0;
     right: 0;
     height: 3px;
-    background: linear-gradient(90deg, var(--color-orange), #ff6b35);
+    background: linear-gradient(90deg, var(--color-orange), var(--color-orange-light));
 }
 
 
@@ -199,7 +223,7 @@ section:not(.intro-screen) {
 }
 
 .card::after {
-    background: linear-gradient(315deg, var(--color-orange), #ff6b35);
+    background: linear-gradient(315deg, var(--color-orange), var(--color-orange-light));
     opacity: 0;
 }
 
@@ -238,7 +262,7 @@ section:not(.intro-screen) {
 }
 
 .gradient-border::after {
-    background: linear-gradient(315deg, var(--color-orange), #ff6b35);
+    background: linear-gradient(315deg, var(--color-orange), var(--color-orange-light));
     opacity: 0;
 }
 
@@ -274,7 +298,7 @@ section:not(.intro-screen) {
 }
 
 .gradient-border-left::after {
-    background: linear-gradient(0deg, var(--color-orange), #ff6b35);
+    background: linear-gradient(0deg, var(--color-orange), var(--color-orange-light));
     opacity: 0;
 }
 
@@ -333,7 +357,7 @@ section:not(.intro-screen) {
 }
 
 .heading-service {
-    @apply text-offwhite font-semibold;
+    @apply text-lg text-offwhite font-semibold;
 }
 
 .text-lead {
@@ -411,9 +435,7 @@ section:not(.intro-screen) {
     transform: translateY(0);
 }
 
-.sr-only {
-    @apply sr-only;
-}
+/* .sr-only - use Tailwind's built-in sr-only utility class directly */
 
 /* Focus management */
 a:focus-visible,
@@ -505,32 +527,6 @@ button:focus-visible {
     }
 }
 
-/* Glowing Buttons */
-.btn-primary {
-    position: relative;
-    transition: box-shadow 0.3s ease;
-}
-
-.btn-primary::before {
-    content: '';
-    position: absolute;
-    inset: -2px;
-    background: linear-gradient(135deg, var(--color-orange), #ff6b35, var(--color-orange));
-    border-radius: inherit;
-    z-index: -1;
-    opacity: 0;
-    filter: blur(8px);
-    transition: opacity 0.3s ease;
-}
-
-.btn-primary:hover::before {
-    opacity: 0.3;
-}
-
-.btn-primary:hover {
-    box-shadow: 0 6px 20px rgba(234, 55, 0, 0.2);
-}
-
 /* Card as Link */
 .card-link {
     display: block;
@@ -592,7 +588,7 @@ button:focus-visible {
 .glow-orb-2 {
     width: 350px;
     height: 350px;
-    background: radial-gradient(circle, #ff6b35 0%, transparent 70%);
+    background: radial-gradient(circle, var(--color-orange-light) 0%, transparent 70%);
     bottom: -80px;
     left: -80px;
     animation: float-2 30s ease-in-out infinite;
@@ -903,7 +899,7 @@ body.scrolled-past-intro .header-logo {
 }
 
 .expandable-card::after {
-    background: linear-gradient(315deg, var(--color-orange), #ff6b35);
+    background: linear-gradient(315deg, var(--color-orange), var(--color-orange-light));
     opacity: 0;
 }
 

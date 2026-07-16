@@ -576,9 +576,7 @@ const workStyle = [
       <span class="intro-logo font-display">Precision Frontend</span>
       <div class="intro-scroll-hint">
         <span class="text-slate text-sm">Growing companies need more out of their website</span>
-        <svg class="intro-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M12 5v14M5 12l7 7 7-7"/>
-        </svg>
+        <Icon name="arrow-down" size="20" class="intro-arrow" />
       </div>
     </div>
   </section>
@@ -636,27 +634,26 @@ const workStyle = [
         </p>
       </div>
 
-      <div class="actions-spacing grid-cards-3" role="list">
-        <RouterLink
+      <ul class="actions-spacing grid-cards-3">
+        <li
           v-for="(problem, index) in problems"
           :key="problem.title"
-          :to="problem.link"
-          class="card card-link"
-          :data-animate="'fade-up'"
+          data-animate="fade-up"
           :data-delay="100 + (index * 50)"
-          role="listitem"
         >
-          <div class="mb-4 text-orange" aria-hidden="true">
-            <Icon :name="problem.icon" size="32" />
-          </div>
-          <h3 class="heading-service">{{ problem.title }}</h3>
-          <p class="text-orange text-sm font-medium mt-1">{{ problem.risk }}</p>
-          <p class="content-spacing-sm text-body">{{ problem.description }}</p>
-          <span class="mt-4 inline-flex items-center text-orange text-sm font-medium">
-            Learn more →
-          </span>
-        </RouterLink>
-      </div>
+          <RouterLink :to="problem.link" class="card card-link h-full">
+            <div class="mb-4 text-orange" aria-hidden="true">
+              <Icon :name="problem.icon" size="32" />
+            </div>
+            <h3 class="heading-service">{{ problem.title }}</h3>
+            <p class="text-orange text-sm font-medium mt-1">{{ problem.risk }}</p>
+            <p class="content-spacing-sm text-body">{{ problem.description }}</p>
+            <span class="mt-4 inline-flex items-center text-orange text-sm font-medium">
+              Learn more →
+            </span>
+          </RouterLink>
+        </li>
+      </ul>
     </div>
   </section>
 
@@ -674,7 +671,7 @@ const workStyle = [
           v-for="(client, index) in idealClients"
           :key="client.title"
           class="p-6"
-          :data-animate="'fade-up'"
+          data-animate="fade-up"
           :data-delay="100 + (index * 50)"
         >
           <h3 class="heading-service">{{ client.title }}</h3>
@@ -702,7 +699,7 @@ const workStyle = [
           :key="service.title"
           :to="service.link"
           class="p-4 rounded-lg gradient-border group"
-          :data-animate="'fade-up'"
+          data-animate="fade-up"
           :data-delay="100 + (index * 30)"
         >
           <h3 class="text-offwhite text-sm font-semibold group-hover:text-orange transition-colors">{{ service.title }}</h3>
@@ -781,9 +778,9 @@ const workStyle = [
               Audits, implementation, and modernization. Senior technical work with clear deliverables and fixed pricing.
             </p>
             <ul class="mt-4 space-y-1 text-sm text-slate">
-              <li class="flex items-center gap-2"><span class="text-orange">✓</span> Fixed-price quote</li>
-              <li class="flex items-center gap-2"><span class="text-orange">✓</span> 50% down, 50% completion</li>
-              <li class="flex items-center gap-2"><span class="text-orange">✓</span> No obligation</li>
+              <li class="flex items-center gap-2"><Icon name="check" size="16" class="text-orange flex-shrink-0" /> Fixed-price quote</li>
+              <li class="flex items-center gap-2"><Icon name="check" size="16" class="text-orange flex-shrink-0" /> 50% down, 50% completion</li>
+              <li class="flex items-center gap-2"><Icon name="check" size="16" class="text-orange flex-shrink-0" /> No obligation</li>
             </ul>
 
             <div class="expandable-card-extra">
@@ -842,9 +839,9 @@ const workStyle = [
               Roadmaps and ongoing web support. Make your marketing team faster with dedicated senior capacity.
             </p>
             <ul class="mt-4 space-y-1 text-sm text-slate">
-              <li class="flex items-center gap-2"><span class="text-orange">✓</span> Priority response SLA</li>
-              <li class="flex items-center gap-2"><span class="text-orange">✓</span> Direct Slack access</li>
-              <li class="flex items-center gap-2"><span class="text-orange">✓</span> Hours roll over</li>
+              <li class="flex items-center gap-2"><Icon name="check" size="16" class="text-orange flex-shrink-0" /> Priority response SLA</li>
+              <li class="flex items-center gap-2"><Icon name="check" size="16" class="text-orange flex-shrink-0" /> Direct Slack access</li>
+              <li class="flex items-center gap-2"><Icon name="check" size="16" class="text-orange flex-shrink-0" /> Hours roll over</li>
             </ul>
 
             <div class="expandable-card-extra">
@@ -911,7 +908,7 @@ const workStyle = [
         <li
           v-for="(service, index) in productizedServices"
           :key="service.title"
-          :data-animate="'fade-up'"
+          data-animate="fade-up"
           :data-delay="100 + (index * 30)"
         >
           <button
@@ -919,9 +916,7 @@ const workStyle = [
             class="w-full flex items-center justify-between p-4 rounded-lg gradient-border text-left"
           >
             <span class="text-offwhite font-semibold">{{ service.title }}</span>
-            <svg class="w-5 h-5 text-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-            </svg>
+            <Icon name="chevron-right" size="20" class="text-orange" />
           </button>
         </li>
       </ul>
@@ -944,9 +939,7 @@ const workStyle = [
             >
               <div class="package-panel-header">
                 <button @click="closePackage" class="package-close-btn">
-                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-                  </svg>
+                  <Icon name="chevron-left" size="24" />
                   <span class="text-sm">Back</span>
                 </button>
                 <span class="text-slate text-xs">Swipe left to close</span>
@@ -963,7 +956,7 @@ const workStyle = [
                     :key="item"
                     class="flex items-center gap-3 text-slate"
                   >
-                    <span class="text-orange">✓</span>
+                    <Icon name="check" size="16" class="text-orange flex-shrink-0" />
                     {{ item }}
                   </li>
                 </ul>
@@ -983,14 +976,14 @@ const workStyle = [
           v-for="(service, index) in productizedServices"
           :key="service.title"
           class="card flex flex-col group"
-          :data-animate="'fade-up'"
+          data-animate="fade-up"
           :data-delay="100 + (index * 50)"
         >
           <h3 class="heading-service mb-4">{{ service.title }}</h3>
           <p class="text-body text-sm mb-4">{{ service.description }}</p>
           <ul class="mt-auto space-y-1 text-sm text-slate">
             <li v-for="item in service.deliverables" :key="item" class="flex items-center gap-2">
-              <span class="text-orange">✓</span> {{ item }}
+              <Icon name="check" size="16" class="text-orange flex-shrink-0" /> {{ item }}
             </li>
           </ul>
           <a href="#contact" class="btn-ghost w-full justify-center mt-6 group-hover:bg-orange group-hover:text-offwhite group-hover:border-orange">Get Pricing</a>
@@ -1048,7 +1041,7 @@ const workStyle = [
           :key="result.label"
           :class="index % 2 === 0 ? 'text-left' : 'text-right'"
           class="py-8 md:py-0 md:!text-center"
-          :data-animate="'fade-up'"
+          data-animate="fade-up"
           :data-delay="100 + (index * 50)"
         >
           <div class="text-5xl md:text-6xl font-display text-orange mb-2">{{ result.metric }}</div>
@@ -1087,7 +1080,7 @@ const workStyle = [
         <div
           v-for="(item, index) in workStyle"
           :key="item.title"
-          :data-animate="'fade-up'"
+          data-animate="fade-up"
           :data-delay="100 + (index * 50)"
         >
           <h3 class="text-offwhite font-semibold mb-2">{{ item.title }}</h3>
