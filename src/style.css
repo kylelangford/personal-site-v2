@@ -337,14 +337,20 @@ section:not(.intro-screen) {
 
 /* Typography Scale */
 .heading-hero {
-    @apply font-display text-4xl md:text-6xl leading-tight text-offwhite;
-    height: 5.5rem; /* Fixed height for mobile - 2 lines */
-    text-wrap: balance; /* Prevents orphaned words like "Right" alone on a line */
+    @apply font-display text-offwhite;
+    font-size: 2.25rem; /* 36px mobile */
+    line-height: 45px;
+    height: 90px; /* 2 lines × 45px */
+    max-width: 14ch; /* Force two lines by limiting width */
+    text-wrap: balance;
 }
 
 @media (min-width: 768px) {
     .heading-hero {
-        height: 4.75rem; /* Fixed height for desktop - single line */
+        font-size: 3.75rem; /* 60px desktop */
+        line-height: 75px;
+        height: 225px; /* 3 lines × 75px */
+        max-width: 18ch;
     }
 }
 

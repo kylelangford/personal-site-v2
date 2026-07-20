@@ -613,9 +613,8 @@ const workStyle = [
         <p class="content-spacing text-lead lead-content">
           Senior technical implementation that improves credibility, conversions, and marketing operations—not just another website.
         </p>
-        <div class="actions-spacing flex flex-col sm:flex-row items-start sm:items-center gap-4" role="group" aria-label="Primary actions">
-          <a href="#contact" class="btn-primary w-full sm:w-auto justify-center">Get in Touch</a>
-          <a href="#expertise" class="btn-ghost w-full sm:w-auto justify-center">What We Do</a>
+        <div class="actions-spacing">
+          <a href="#expertise" class="btn-ghost">What We Do</a>
         </div>
         <p class="mt-6 text-sm text-slate">A senior technical partner, a different way to work.</p>
       </div>

@@ -112,9 +112,9 @@ defineProps({
   <section class="bg-ink" aria-labelledby="cta-heading">
     <div class="container section-padding">
       <div class="card text-center max-w-2xl mx-auto">
-        <h2 id="cta-heading" class="heading-card">Ready to Fix This?</h2>
+        <h2 id="cta-heading" class="heading-card">Ready to Learn More?</h2>
         <p class="content-spacing text-body">
-          Tell us what's broken. We'll send you a quote with fixed pricing—no obligation.
+          Tell us what you need. We'll send you a quote with fixed pricing—no obligation.
         </p>
         <div class="mt-8">
           <a href="/#contact" class="btn-primary">Get a Free Quote</a>
