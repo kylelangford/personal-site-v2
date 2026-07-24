@@ -485,29 +485,6 @@ button:focus-visible {
    VISUAL EFFECTS - Gradients & Glow
    ======================================== */
 
-/* Text Decode Animation */
-.text-decode {
-    display: inline;
-    font-family: var(--font-display);
-}
-
-.text-decode .decoded {
-    opacity: 1;
-}
-
-.text-decode .decoding {
-    opacity: 0.6;
-}
-
-.text-decode-char {
-    display: inline-block;
-    min-width: 0.1em;
-}
-
-.text-decode-char.space {
-    min-width: 0.3em;
-}
-
 /* Blinking cursor */
 .text-cursor {
     display: inline-block;

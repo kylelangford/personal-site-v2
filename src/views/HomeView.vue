@@ -4,9 +4,7 @@ import { RouterLink } from 'vue-router'
 import Icon from '../components/Icon.vue'
 
 const year = new Date().getFullYear()
-const heroText = ref('Web Development Done Right')
-const displayText = ref('')
-const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%&*<>[]{}/'
+const heroText = 'Web Development Done Right'
 
 let observer = null
 
@@ -221,42 +219,6 @@ async function submitForm() {
   }
 }
 
-// Text decode animation
-function decodeText(finalText, duration = 2000) {
-  const length = finalText.length
-  const iterations = 3
-  const intervalTime = duration / (length * iterations)
-
-  let currentIndex = 0
-  let iterationCount = 0
-
-  function buildText() {
-    return finalText.split('').map((char, index) => {
-      if (char === ' ') return ' '
-      if (index < currentIndex) {
-        return `<span class="decoded">${char}</span>`
-      }
-      return `<span class="decoding">${chars[Math.floor(Math.random() * chars.length)]}</span>`
-    }).join('')
-  }
-
-  displayText.value = buildText()
-
-  const interval = setInterval(() => {
-    iterationCount++
-    if (iterationCount >= iterations) {
-      iterationCount = 0
-      currentIndex++
-    }
-
-    displayText.value = buildText()
-
-    if (currentIndex > length) {
-      clearInterval(interval)
-      displayText.value = finalText
-    }
-  }, intervalTime)
-}
 
 onMounted(() => {
   document.documentElement.setAttribute('data-theme', 'dark')
@@ -281,7 +243,6 @@ onMounted(() => {
   // Intro animation
   if (prefersReducedMotion) {
     introComplete.value = true
-    displayText.value = heroText.value
   } else {
     // Trigger intro animation after a brief delay
     setTimeout(() => {
@@ -297,20 +258,6 @@ onMounted(() => {
           behavior: 'smooth'
         })
       }, 3000)
-    }
-
-    // Start text decode when hero comes into view
-    const heroSection = document.querySelector('.hero-glow-container')
-    if (heroSection) {
-      const heroObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            decodeText(heroText.value, 2000)
-            heroObserver.disconnect()
-          }
-        })
-      }, { threshold: 0.3 })
-      heroObserver.observe(heroSection)
     }
   }
 
@@ -608,7 +555,7 @@ const workStyle = [
     <div class="container py-24 md:py-32 relative z-10">
       <div class="hero-content">
         <h1 id="hero-heading" class="heading-hero">
-          <span class="text-decode" v-html="displayText"></span><span class="text-cursor" aria-hidden="true"></span>
+          {{ heroText }}<span class="text-cursor" aria-hidden="true"></span>
         </h1>
         <p class="content-spacing text-lead lead-content">
           Senior technical implementation that improves credibility, conversions, and marketing operations—not just another website.
