@@ -16,6 +16,7 @@ const introComplete = ref(false)
 // Sections for navigation
 const sections = [
   { id: 'intro', label: 'Top' },
+  { id: 'tools', label: 'Tools' },
   { id: 'work', label: 'Work' },
   { id: 'pricing', label: 'Pricing' },
   { id: 'contact', label: 'Contact' }
