@@ -687,6 +687,7 @@ button:focus-visible {
 .intro-content.intro-visible {
     opacity: 1;
     transform: translateY(0);
+    pointer-events: auto;
 }
 
 .intro-logo {
@@ -695,6 +696,19 @@ button:focus-visible {
     letter-spacing: 0.1em;
     text-transform: uppercase;
     display: block;
+}
+
+.intro-headline {
+    font-size: clamp(2rem, 6vw, 4rem);
+    color: var(--color-offwhite);
+    line-height: 1.1;
+    margin: 0;
+}
+
+.intro-subline {
+    font-size: clamp(0.875rem, 2vw, 1.125rem);
+    margin-top: 1.5rem;
+    line-height: 1.6;
 }
 
 .intro-scroll-hint {

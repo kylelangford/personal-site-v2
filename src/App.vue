@@ -74,7 +74,12 @@ const services = [
       <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-4">
         <div>
           <p class="font-semibold text-offwhite">Precision Frontend</p>
-          <p class="text-sm">Web development done right · Boston, MA</p>
+          <p class="text-sm">Interactive tools for marketing teams · Boston, MA</p>
+        </div>
+        <div class="text-sm">
+          <a href="https://kylelangford.com" target="_blank" rel="noopener" class="text-orange hover:underline">
+            Full portfolio & case studies →
+          </a>
         </div>
       </div>
       <div class="mt-6 pt-6 border-t border-orange/10 text-sm text-center">
