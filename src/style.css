@@ -3,21 +3,33 @@
 
 /* Brand tokens: High Contrast Orange */
 @theme {
-    /* Typography */
+    /* Typography - Golden Ratio Scale (√1.618 ≈ 1.272) */
+    /* Base: 16px × 1.272^n */
+    /* 13px → 14px → 16px → 20px → 26px → 33px → 42px → 68px */
     --font-display: "Space Grotesk", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
     --font-sans: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
 
+    /* Type scale based on golden ratio */
+    --text-xs: 0.8125rem;   /* 13px */
+    --text-sm: 0.875rem;    /* 14px */
+    --text-base: 1rem;      /* 16px */
+    --text-lg: 1.25rem;     /* 20px */
+    --text-xl: 1.625rem;    /* 26px */
+    --text-2xl: 2.0625rem;  /* 33px */
+    --text-3xl: 2.625rem;   /* 42px */
+    --text-hero: 4.25rem;   /* 68px */
+
     /* Colors - WCAG AA Compliant */
     --color-offwhite: #FFFFFF;
-    --color-orange: #EA3700;
-    --color-orange-light: #ff6b35;
-    --color-accent: #EA3700;
+    --color-orange: #D63000;        /* Darker orange - 4.9:1 white on orange, 4.3:1 on black */
+    --color-orange-light: #E85A30; /* Adjusted lighter orange for gradients */
+    --color-accent: #D63000;
     --color-slate: #A0A0A0;
     --color-ink: #000000;
     --color-surface: #000000;
 
     /* Tailwind color mappings */
-    --color-orange-DEFAULT: #EA3700;
+    --color-orange-DEFAULT: #D63000;
 
     /* Layout */
     --container-max: 1200px;
@@ -27,10 +39,10 @@
 :root,
 [data-theme="dark"] {
     --color-ink: #000000; /* Pure black background - highest contrast */
-    --color-orange: #EA3700; /* Bright orange primary */
-    --color-orange-light: #ff6b35; /* Lighter orange for gradients */
-    --color-accent: #EA3700; /* Same orange for consistency */
-    --color-slate: #A0A0A0; /* Light gray - WCAG AA on black (contrast ratio 7.98:1) */
+    --color-orange: #D63000; /* Darker orange - WCAG AA compliant */
+    --color-orange-light: #E85A30; /* Lighter orange for gradients */
+    --color-accent: #D63000; /* Same orange for consistency */
+    --color-slate: #A0A0A0; /* Light gray - WCAG AA on black (8:1) */
     --color-code: #000000; /* Pure black for code backgrounds */
     --color-offwhite: #FFFFFF; /* Pure white text - highest contrast */
     --color-surface: #000000; /* Pure black surface - no muddy colors */
@@ -60,14 +72,17 @@ body {
     }
 }
 
-/* Tech Grid Background */
+/* Black gradient background with grid */
 body {
     background-color: var(--color-ink);
     background-image:
-        linear-gradient(rgba(234, 55, 0, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(234, 55, 0, 0.03) 1px, transparent 1px);
-    background-size: 60px 60px;
-    background-position: center center;
+        linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        radial-gradient(ellipse 80% 50% at 50% 0%, rgba(30, 30, 30, 1) 0%, transparent 50%),
+        radial-gradient(ellipse 60% 40% at 100% 100%, rgba(25, 25, 25, 1) 0%, transparent 40%);
+    background-size: 60px 60px, 60px 60px, 100% 100%, 100% 100%;
+    background-position: center center, center center, center top, right bottom;
+    background-attachment: fixed;
 }
 
 
@@ -335,47 +350,52 @@ section:not(.intro-screen) {
     25%, 100% { opacity: 0.4; }
 }
 
-/* Typography Scale */
+/* Typography Scale - Golden Ratio (√1.618 ≈ 1.272) */
 .heading-hero {
     @apply font-display text-offwhite;
-    font-size: 2.25rem; /* 36px mobile */
-    line-height: 45px;
-    height: 90px; /* 2 lines × 45px */
-    max-width: 14ch; /* Force two lines by limiting width */
+    font-size: var(--text-3xl); /* 42px mobile */
+    line-height: 1.15;
     text-wrap: balance;
 }
 
 @media (min-width: 768px) {
     .heading-hero {
-        font-size: 3.75rem; /* 60px desktop */
-        line-height: 75px;
-        height: 225px; /* 3 lines × 75px */
-        max-width: 18ch;
+        font-size: var(--text-hero); /* 68px desktop */
+        line-height: 1.1;
     }
 }
 
 .heading-section {
-    @apply font-display text-3xl text-offwhite;
+    @apply font-display text-offwhite;
+    font-size: var(--text-2xl); /* 33px */
+    line-height: 1.2;
 }
 
 .heading-card {
-    @apply font-display text-2xl text-offwhite;
+    @apply font-display text-offwhite;
+    font-size: var(--text-xl); /* 26px */
+    line-height: 1.25;
 }
 
 .heading-service {
-    @apply text-lg text-offwhite font-semibold;
+    @apply text-offwhite font-semibold;
+    font-size: var(--text-lg); /* 20px */
 }
 
 .text-lead {
-    @apply text-lg text-slate;
+    font-size: var(--text-lg); /* 20px */
+    color: var(--color-slate);
+    line-height: 1.6;
 }
 
 .text-body {
     @apply text-slate;
+    font-size: var(--text-base); /* 16px */
 }
 
 .text-small {
-    @apply text-sm text-slate;
+    font-size: var(--text-sm); /* 14px */
+    color: var(--color-slate);
 }
 
 
@@ -652,6 +672,129 @@ button:focus-visible {
 
 
 /* ========================================
+   GEOMETRIC PARALLAX SHAPES
+   ======================================== */
+
+.geo-layer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.geo-shape {
+    position: absolute;
+    will-change: transform;
+}
+
+/* Large diagonal stripe - top left corner */
+.geo-diagonal-1 {
+    width: 120vw;
+    height: 30vh;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(214, 48, 0, 0.08) 20%,
+        rgba(214, 48, 0, 0.14) 50%,
+        rgba(214, 48, 0, 0.08) 80%,
+        transparent 100%
+    );
+    top: 5vh;
+    left: -30vw;
+    mix-blend-mode: screen;
+}
+
+/* Medium diagonal stripe - bottom right, opposite angle */
+.geo-diagonal-2 {
+    width: 90vw;
+    height: 20vh;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(232, 90, 48, 0.1) 30%,
+        rgba(232, 90, 48, 0.16) 50%,
+        rgba(232, 90, 48, 0.1) 70%,
+        transparent 100%
+    );
+    bottom: 15vh;
+    right: -20vw;
+    mix-blend-mode: overlay;
+}
+
+/* Angular triangle shape - top right corner */
+.geo-triangle-1 {
+    width: 0;
+    height: 0;
+    border-left: 35vw solid transparent;
+    border-right: 35vw solid transparent;
+    border-bottom: 45vh solid rgba(214, 48, 0, 0.07);
+    top: -20vh;
+    right: -15vw;
+    mix-blend-mode: screen;
+}
+
+/* Small accent square - bottom left */
+.geo-accent {
+    width: 18vw;
+    height: 18vw;
+    max-width: 220px;
+    max-height: 220px;
+    background: linear-gradient(
+        135deg,
+        rgba(214, 48, 0, 0.12),
+        rgba(232, 90, 48, 0.06)
+    );
+    bottom: 35vh;
+    left: -5vw;
+    mix-blend-mode: overlay;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .geo-diagonal-1 {
+        height: 25vh;
+    }
+
+    .geo-diagonal-2 {
+        height: 18vh;
+        top: 50vh;
+    }
+
+    .geo-triangle-1 {
+        border-left: 30vw solid transparent;
+        border-right: 30vw solid transparent;
+        border-bottom: 35vh solid rgba(214, 48, 0, 0.05);
+    }
+
+    .geo-accent {
+        width: 25vw;
+        height: 25vw;
+        bottom: 15vh;
+    }
+}
+
+/* Depth blur - farther elements are softer */
+.geo-depth-far {
+    filter: blur(8px);
+}
+
+.geo-depth-mid {
+    filter: blur(3px);
+}
+
+/* Reduced motion - disable parallax transforms */
+@media (prefers-reduced-motion: reduce) {
+    .geo-shape {
+        transform: none !important;
+    }
+}
+
+
+/* ========================================
    INTRO SCREEN
    ======================================== */
 
@@ -690,23 +833,15 @@ button:focus-visible {
     pointer-events: auto;
 }
 
-.intro-logo {
-    font-size: clamp(1.25rem, 3vw, 1.75rem);
-    color: var(--color-offwhite);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    display: block;
-}
-
 .intro-headline {
-    font-size: clamp(2rem, 6vw, 4rem);
+    font-size: clamp(var(--text-3xl), 6vw, var(--text-hero)); /* 42px → 68px */
     color: var(--color-offwhite);
     line-height: 1.1;
     margin: 0;
 }
 
 .intro-subline {
-    font-size: clamp(0.875rem, 2vw, 1.125rem);
+    font-size: clamp(var(--text-sm), 2vw, var(--text-lg)); /* 14px → 20px */
     margin-top: 1.5rem;
     line-height: 1.6;
 }
@@ -722,7 +857,7 @@ button:focus-visible {
 }
 
 .intro-scroll-hint span {
-    font-size: 0.75rem;
+    font-size: var(--text-xs); /* 13px */
     letter-spacing: 0.05em;
 }
 
@@ -784,7 +919,7 @@ body.scrolled-past-intro .header-logo {
 }
 
 .nav-dot-label {
-    font-size: 0.75rem;
+    font-size: var(--text-xs); /* 13px */
     color: var(--color-offwhite);
     opacity: 0;
     transform: translateY(6px);

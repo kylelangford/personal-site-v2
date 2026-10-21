@@ -38,6 +38,24 @@ const introTranslateY = computed(() => {
   return -100 * (scrollY.value - moveStart) / (moveEnd - moveStart)
 })
 
+// Parallax transforms - faster = closer, slower = farther
+const parallax1 = computed(() => scrollY.value * 0.5)   // closest, fastest
+const parallax2 = computed(() => scrollY.value * -0.15) // far, slow
+const parallax3 = computed(() => scrollY.value * 0.35)  // mid-distance
+const parallax4 = computed(() => scrollY.value * -0.08) // farthest, slowest
+
+// Scale grows slightly as you scroll for depth effect
+const scale1 = computed(() => 1 + (scrollY.value * 0.0002))  // closest grows most
+const scale2 = computed(() => 1 + (scrollY.value * 0.00005)) // far, barely grows
+const scale3 = computed(() => 1 + (scrollY.value * 0.00015)) // mid
+const scale4 = computed(() => 1)                              // static, farthest
+
+// Opacity fades in as you scroll - closer fades in faster
+const geoOpacity1 = computed(() => Math.min(1, scrollY.value / 300))  // closest, fastest fade
+const geoOpacity2 = computed(() => Math.min(1, scrollY.value / 600))  // far, slow fade
+const geoOpacity3 = computed(() => Math.min(1, scrollY.value / 400))  // mid
+const geoOpacity4 = computed(() => Math.min(1, scrollY.value / 800))  // farthest, slowest
+
 // Scroll handler
 function handleScroll() {
   scrollY.value = window.scrollY
@@ -209,7 +227,7 @@ const toolTypes = [
 
 // What ships with every tool
 const included = [
-  { title: 'Event Tracking', description: 'GA4 events wired in — every step, every conversion, every drop-off' },
+  { title: 'Event Tracking', description: 'GA4 events wired in. Every step, every conversion, every drop-off.' },
   { title: 'Embed-Ready', description: 'Script tag or component that drops into your existing site' },
   { title: 'Mobile-First', description: 'Responsive by default, tested across devices' },
   { title: 'Accessible', description: 'WCAG-compliant, keyboard-navigable' }
@@ -217,8 +235,8 @@ const included = [
 
 // Add-ons
 const addOns = [
-  { title: 'Admin Interface', description: 'Your team manages data — pricing, rules, content — without code' },
-  { title: 'Platform Integration', description: 'CRM, email, or backend API — the tool talks to your systems' },
+  { title: 'Admin Interface', description: 'Your team manages pricing, rules, and content without touching code' },
+  { title: 'Platform Integration', description: 'Connects to your CRM, email platform, or backend API' },
   { title: 'Data Pipeline', description: 'Complex source data transformed into optimized JSON' }
 ]
 
@@ -290,13 +308,6 @@ const processSteps = [
   { step: '04', title: 'You Launch', description: 'Embed script, CMS integration, or standalone. Events firing from day one.' }
 ]
 
-// Stats
-const stats = [
-  { metric: '15+', label: 'Years Experience', description: 'Building interactive web tools' },
-  { metric: '100+', label: 'Projects Delivered', description: 'Calculators, dashboards, data tools' },
-  { metric: '24-48h', label: 'Quote Turnaround', description: 'Fixed scope, fixed price' }
-]
-
 // Why work with us
 const reasons = [
   { title: 'Senior Dev, Direct', description: 'You work with me directly. No sales team, no handoffs, no account managers.' },
@@ -307,6 +318,30 @@ const reasons = [
 </script>
 
 <template>
+  <!-- GEOMETRIC PARALLAX SHAPES - layered for depth -->
+  <div class="geo-layer" aria-hidden="true">
+    <!-- Farthest layer - slowest, blurred, fades last -->
+    <div
+      class="geo-shape geo-accent geo-depth-far"
+      :style="{ transform: `translateY(${parallax4}px) rotate(-25deg) scale(${scale4})`, opacity: geoOpacity4 }"
+    ></div>
+    <!-- Far layer - slow, slight blur -->
+    <div
+      class="geo-shape geo-diagonal-2 geo-depth-mid"
+      :style="{ transform: `translateY(${parallax2}px) rotate(8deg) scale(${scale2})`, opacity: geoOpacity2 }"
+    ></div>
+    <!-- Mid layer -->
+    <div
+      class="geo-shape geo-triangle-1"
+      :style="{ transform: `translateY(${parallax3}px) rotate(5deg) scale(${scale3})`, opacity: geoOpacity3 }"
+    ></div>
+    <!-- Closest layer - fastest, sharp, fades first -->
+    <div
+      class="geo-shape geo-diagonal-1"
+      :style="{ transform: `translateY(${parallax1}px) rotate(-12deg) scale(${scale1})`, opacity: geoOpacity1 }"
+    ></div>
+  </div>
+
   <!-- INTRO -->
   <section
     id="intro"
@@ -322,8 +357,8 @@ const reasons = [
         <span class="text-orange">That Convert</span>
       </h1>
       <p class="intro-subline text-slate">
-        Calculators, configurators, quote builders, eligibility forms—<br />
-        embedded in your site with tracking included.
+        Calculators, configurators, quote builders, eligibility forms.<br />
+        Embedded in your site with tracking included.
       </p>
       <div class="intro-scroll-hint mt-8">
         <a href="#work" class="text-orange text-sm font-medium hover:underline">See the work</a>
@@ -361,7 +396,7 @@ const reasons = [
           Interactive Tools That Convert
         </h1>
         <p class="content-spacing text-lead lead-content">
-          Custom calculators, configurators, and data-driven widgets — built with Vue, embedded in your platform, with tracking and admin included.
+          Custom calculators, configurators, and data-driven widgets. Built with Vue, embedded in your platform, with tracking and admin included.
         </p>
         <div class="actions-spacing">
           <a href="#work" class="btn-ghost">See Examples</a>
@@ -380,7 +415,7 @@ const reasons = [
           What We Build
         </h2>
         <p class="content-spacing text-lead" data-animate="fade-up" data-delay="100">
-          Tools that help your customers make decisions — and capture the conversion.
+          Tools that help your customers make decisions and capture the conversion.
         </p>
       </div>
 
@@ -584,24 +619,6 @@ const reasons = [
           <div class="text-5xl font-display text-orange mb-4">{{ step.step }}</div>
           <h3 class="text-offwhite font-semibold mb-2">{{ step.title }}</h3>
           <p class="text-slate text-sm">{{ step.description }}</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- STATS -->
-  <section class="bg-ink" aria-labelledby="stats-heading">
-    <div class="container section-padding">
-      <div class="grid md:grid-cols-3 gap-8 text-center">
-        <div
-          v-for="(stat, index) in stats"
-          :key="stat.label"
-          data-animate="fade-up"
-          :data-delay="100 + (index * 50)"
-        >
-          <div class="text-5xl md:text-6xl font-display text-orange mb-2">{{ stat.metric }}</div>
-          <div class="text-offwhite font-semibold mb-2">{{ stat.label }}</div>
-          <p class="text-slate text-sm">{{ stat.description }}</p>
         </div>
       </div>
     </div>
