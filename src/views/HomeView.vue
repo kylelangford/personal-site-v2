@@ -604,7 +604,7 @@ const reasons = [
   <!-- PROCESS -->
   <section class="bg-ink" aria-labelledby="process-heading">
     <div class="container section-padding">
-      <div class="text-center max-w-3xl mx-auto mb-12">
+      <div class="max-w-3xl mb-12">
         <h2 id="process-heading" class="heading-section" data-animate="fade-up">
           How It Works
         </h2>

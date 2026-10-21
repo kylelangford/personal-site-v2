@@ -352,7 +352,7 @@ section:not(.intro-screen) {
 
 /* Typography Scale - Golden Ratio (√1.618 ≈ 1.272) */
 .heading-hero {
-    @apply font-display text-offwhite;
+    @apply font-display text-offwhite font-bold;
     font-size: var(--text-3xl); /* 42px mobile */
     line-height: 1.15;
     text-wrap: balance;
@@ -366,19 +366,19 @@ section:not(.intro-screen) {
 }
 
 .heading-section {
-    @apply font-display text-offwhite;
+    @apply font-display text-offwhite font-bold;
     font-size: var(--text-2xl); /* 33px */
     line-height: 1.2;
 }
 
 .heading-card {
-    @apply font-display text-offwhite;
+    @apply font-display text-offwhite font-semibold;
     font-size: var(--text-xl); /* 26px */
     line-height: 1.25;
 }
 
 .heading-service {
-    @apply text-offwhite font-semibold;
+    @apply text-offwhite font-bold;
     font-size: var(--text-lg); /* 20px */
 }
 
@@ -835,6 +835,7 @@ button:focus-visible {
 
 .intro-headline {
     font-size: clamp(var(--text-3xl), 6vw, var(--text-hero)); /* 42px → 68px */
+    font-weight: 700;
     color: var(--color-offwhite);
     line-height: 1.1;
     margin: 0;
