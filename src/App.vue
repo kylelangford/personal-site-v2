@@ -43,22 +43,22 @@ const services = [
     <div class="container py-4">
       <nav class="flex items-center justify-between" aria-label="Main navigation">
         <RouterLink to="/" class="header-logo flex items-center gap-2 text-offwhite hover:text-orange transition-all">
-          <!-- P Logo - visible initially, fades out on scroll -->
-          <svg
-            class="h-7 w-auto text-orange transition-all duration-300"
-            :class="scrolled ? 'opacity-0 w-0 overflow-hidden' : 'opacity-100'"
-            viewBox="0 0 40 56"
-            fill="currentColor"
-          >
-            <path fill-rule="evenodd" d="M2 56 L10 56 L18 18 L18 8 L8 8 L8 0 L32 0 C40 0 42 6 40 14 L38 22 C36 30 30 34 22 34 L16 34 L10 56 Z M20 8 L16 26 L20 26 C26 26 29 24 30 18 L31 14 C32 8 28 8 24 8 Z"/>
-          </svg>
-          <!-- Text - hidden initially, revealed on scroll -->
+          <!-- Text - visible initially, fades out on scroll -->
           <span
             class="font-display text-lg transition-all duration-300"
-            :class="scrolled ? 'opacity-100' : 'opacity-0 w-0 overflow-hidden'"
+            :class="scrolled ? 'opacity-0 w-0 overflow-hidden' : 'opacity-100'"
           >
             Precision Frontend
           </span>
+          <!-- P Logo - hidden initially, revealed on scroll -->
+          <svg
+            class="h-7 w-auto text-orange transition-all duration-300"
+            :class="scrolled ? 'opacity-100' : 'opacity-0 w-0 overflow-hidden'"
+            viewBox="0 0 545 498"
+            fill="currentColor"
+          >
+            <path d="M 95.5 2.5 H 434 C 508 2.5 553 41 534 116 C 529 136 520 169 507 202 C 482 267 431 300 362 300 H 185 L 121 487 H 1 L 118 162 H 235 L 214.5 217 H 341 C 372 217 397 200 406 170 L 413 148 C 426 110 405 90 379 90 H 58.5 Z"/>
+          </svg>
         </RouterLink>
 
         <div class="flex items-center gap-6">

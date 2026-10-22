@@ -421,7 +421,7 @@ section:not(.intro-screen) {
 }
 
 .actions-spacing {
-    @apply mt-8;
+    @apply mt-8 flex flex-wrap gap-6;
 }
 
 
