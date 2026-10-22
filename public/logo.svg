@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 56" fill="currentColor">
+  <!-- Clean italic P - even strokes -->
+  <path fill-rule="evenodd" d="
+    M2 56 L10 56 L18 18 L18 8 L8 8 L8 0 L32 0
+    C40 0 42 6 40 14 L38 22 C36 30 30 34 22 34 L16 34 L10 56 Z
+    M20 8 L16 26 L20 26 C26 26 29 24 30 18 L31 14 C32 8 28 8 24 8 Z
+  "/>
+</svg>

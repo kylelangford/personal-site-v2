@@ -1,10 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <defs>
-    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#00FFC2"/>
-      <stop offset="100%" stop-color="#7FFFE6"/>
-    </linearGradient>
-  </defs>
-  <rect width="64" height="64" rx="12" fill="#0A0F1F"/>
-  <path d="M16 44 L28 20 L36 36 L48 20" stroke="url(#g)" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="#D63000">
+  <!-- Clean italic P favicon -->
+  <path fill-rule="evenodd" d="
+    M14 56 L22 56 L30 22 L30 14 L18 14 L18 8 L44 8
+    C52 8 54 14 52 22 L50 30 C48 38 42 42 34 42 L28 42 L22 56 Z
+    M32 14 L28 30 L32 30 C38 30 41 28 42 22 L43 18 C44 14 40 14 36 14 Z
+  "/>
 </svg>

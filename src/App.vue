@@ -1,11 +1,22 @@
 <script setup>
-import { onMounted } from 'vue'
+import { onMounted, onUnmounted, ref } from 'vue'
 import { RouterView, RouterLink } from 'vue-router'
 
 const year = new Date().getFullYear()
+const scrolled = ref(false)
+
+function handleScroll() {
+  scrolled.value = window.scrollY > 100
+}
 
 onMounted(() => {
   document.documentElement.setAttribute('data-theme', 'dark')
+  window.addEventListener('scroll', handleScroll, { passive: true })
+  handleScroll()
+})
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', handleScroll)
 })
 
 const services = [
@@ -31,8 +42,23 @@ const services = [
   <header class="bg-ink/95 backdrop-blur-sm border-b border-orange/10 sticky top-0 z-50">
     <div class="container py-4">
       <nav class="flex items-center justify-between" aria-label="Main navigation">
-        <RouterLink to="/" class="header-logo font-display text-lg text-offwhite hover:text-orange transition-all">
-          Precision Frontend
+        <RouterLink to="/" class="header-logo flex items-center gap-2 text-offwhite hover:text-orange transition-all">
+          <!-- P Logo - visible initially, fades out on scroll -->
+          <svg
+            class="h-7 w-auto text-orange transition-all duration-300"
+            :class="scrolled ? 'opacity-0 w-0 overflow-hidden' : 'opacity-100'"
+            viewBox="0 0 40 56"
+            fill="currentColor"
+          >
+            <path fill-rule="evenodd" d="M2 56 L10 56 L18 18 L18 8 L8 8 L8 0 L32 0 C40 0 42 6 40 14 L38 22 C36 30 30 34 22 34 L16 34 L10 56 Z M20 8 L16 26 L20 26 C26 26 29 24 30 18 L31 14 C32 8 28 8 24 8 Z"/>
+          </svg>
+          <!-- Text - hidden initially, revealed on scroll -->
+          <span
+            class="font-display text-lg transition-all duration-300"
+            :class="scrolled ? 'opacity-100' : 'opacity-0 w-0 overflow-hidden'"
+          >
+            Precision Frontend
+          </span>
         </RouterLink>
 
         <div class="flex items-center gap-6">
