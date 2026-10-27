@@ -282,7 +282,8 @@ const projects = [
     solution: 'Consolidated into 130 JSON shards loaded on-demand',
     result: 'Sub-second lookups, deployment reduced from GB to 1.5 MB',
     features: ['Multi-step form with validation', 'Location-based matching', 'Python data pipeline', 'Enterprise CMS integration'],
-    image: null // TODO: Add screenshot
+    image: '/images/work/demand-response-calculator.webp',
+    imageAlt: 'Demand Response Earnings Calculator: zip code, industry, and load curtailment slider steps'
   },
   {
     title: 'Analytics Data Tables',
@@ -304,7 +305,8 @@ const projects = [
     solution: 'Drag-and-drop builder with component library',
     result: 'Marketing self-serve, consistent output, faster production',
     features: ['Drag-and-drop components', 'Real-time preview', 'HTML export', 'Litmus testing integration'],
-    image: null // TODO: Add screenshot
+    image: '/images/work/drizly-email-builder.webp',
+    imageAlt: 'Drizly email builder: project list, live email preview, and block editor fields'
   }
 ]
 
@@ -543,8 +545,9 @@ const processSteps = [
             <img
               v-if="project.image"
               :src="project.image"
-              :alt="project.title + ' screenshot'"
-              class="w-full h-full object-cover"
+              :alt="project.imageAlt || project.title + ' screenshot'"
+              class="w-full h-full object-contain p-6"
+              loading="lazy"
             />
             <span v-else class="text-slate text-sm">Screenshot coming soon</span>
           </div>
