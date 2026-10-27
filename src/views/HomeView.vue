@@ -13,6 +13,11 @@ let isSnapping = false
 // Intro animation state
 const introComplete = ref(false)
 
+// Process cards active state (mobile)
+const activeProcessIndex = ref(0)
+const processCardsRef = ref(null)
+let processObserver = null
+
 // Sections for navigation
 const sections = [
   { id: 'intro', label: 'Top' },
@@ -178,6 +183,27 @@ onMounted(() => {
     }
   }
 
+  // Process cards active state observer (mobile)
+  const isMobile = window.matchMedia('(max-width: 768px)').matches
+  if (isMobile && processCardsRef.value) {
+    const cards = processCardsRef.value.querySelectorAll('.process-card')
+    processObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const index = Array.from(cards).indexOf(entry.target)
+          if (index !== -1) {
+            activeProcessIndex.value = index
+          }
+        }
+      })
+    }, {
+      root: processCardsRef.value,
+      threshold: 0.6
+    })
+
+    cards.forEach(card => processObserver.observe(card))
+  }
+
   const animatedElements = document.querySelectorAll('[data-animate]')
 
   if (prefersReducedMotion) {
@@ -213,6 +239,10 @@ onUnmounted(() => {
   if (observer) {
     observer.disconnect()
     observer = null
+  }
+  if (processObserver) {
+    processObserver.disconnect()
+    processObserver = null
   }
 })
 
@@ -278,26 +308,45 @@ const projects = [
   }
 ]
 
-// Pricing tiers
-const pricing = [
+// Pricing cards - both expand together
+const cardsExpanded = ref(false)
+
+function toggleCards() {
+  cardsExpanded.value = !cardsExpanded.value
+}
+
+const plans = [
   {
-    name: 'Standard',
-    price: '$8,000',
-    description: 'Tool + tracking + embed',
-    features: ['Interactive tool (calculator, configurator, etc.)', 'GA4 event tracking', 'Embed script for your site', 'Mobile-responsive', 'Accessibility compliant']
+    id: 'build',
+    badge: 'Fixed Price',
+    badgeClass: 'badge-free',
+    meta: 'Quote within 48 hours',
+    title: 'Tool Build',
+    description: 'Calculators, configurators, and quote builders. Embedded in your site with tracking included.',
+    highlights: ['Fixed-price quote', '50% down, 50% on completion', 'No obligation'],
+    tiersHeading: 'Tool Pricing',
+    tiers: [
+      { name: 'Standard', price: '$8,000', description: 'Tool, GA4 tracking, embed script' },
+      { name: 'With Admin', price: '$15,000', description: '+ Admin interface so your team updates data without deploys' },
+      { name: 'Full Integration', price: '$25,000', description: '+ CRM/API connection and data pipeline' }
+    ],
+    cta: 'Get a Quote'
   },
   {
-    name: 'With Admin',
-    price: '$15,000',
-    description: '+ Admin interface for data management',
-    features: ['Everything in Standard', 'Admin dashboard', 'Content/data management UI', 'Role-based access', 'Update without code deploys'],
-    featured: true
-  },
-  {
-    name: 'Full Integration',
-    price: '$25,000',
-    description: '+ CRM/API integration, data pipeline',
-    features: ['Everything in With Admin', 'CRM/email integration', 'Backend API connections', 'Data transformation pipeline', 'Ongoing support options']
+    id: 'support',
+    badge: 'Monthly',
+    badgeClass: 'badge-paid',
+    meta: 'After launch',
+    title: 'Ongoing Support',
+    description: 'Keep your tools accurate and add new ones. Dedicated senior capacity for your marketing team.',
+    highlights: ['Priority response', 'Direct Slack access', 'Unused hours roll over'],
+    tiersHeading: 'Support Options',
+    tiers: [
+      { name: 'Maintain', hours: '~10 hrs/mo', price: '$2,500/mo', description: 'Data updates, bug fixes, small changes' },
+      { name: 'Grow', hours: '~20 hrs/mo', price: '$4,500/mo', description: 'New tool variations, A/B tests, tracking reviews' },
+      { name: 'Scale', hours: '~30 hrs/mo', price: '$6,000/mo', description: 'New tools, priority everything' }
+    ],
+    cta: 'Discuss Support'
   }
 ]
 
@@ -307,14 +356,6 @@ const processSteps = [
   { step: '02', title: 'We Scope & Quote', description: 'Fixed price, clear deliverables. You know the cost before we start.' },
   { step: '03', title: 'We Build', description: 'Vue SPA or embeddable widget. Regular check-ins, no surprises.' },
   { step: '04', title: 'You Launch', description: 'Embed script, CMS integration, or standalone. Events firing from day one.' }
-]
-
-// Why work with us
-const reasons = [
-  { title: 'Senior Dev, Direct', description: 'You work with me directly. No sales team, no handoffs, no account managers.' },
-  { title: 'Fixed Pricing', description: 'Know the cost before we start. 50% down, 50% on completion.' },
-  { title: 'Modern Stack', description: 'Vue, TypeScript, modern tooling. Built to last and easy to maintain.' },
-  { title: 'Tracking Included', description: 'Analytics wired in from the start, not bolted on after.' }
 ]
 </script>
 
@@ -420,7 +461,7 @@ const reasons = [
         </p>
       </div>
 
-      <div class="actions-spacing grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div class="mt-8 grid md:grid-cols-2 lg:grid-cols-3 gap-4">
         <div
           v-for="(tool, index) in toolTypes"
           :key="tool.name"
@@ -444,7 +485,7 @@ const reasons = [
         </h2>
       </div>
 
-      <div class="actions-spacing grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="mt-8 grid md:grid-cols-2 gap-x-12 gap-y-8">
         <div
           v-for="(item, index) in included"
           :key="item.title"
@@ -459,7 +500,7 @@ const reasons = [
         </div>
       </div>
 
-      <div class="mt-16 max-w-3xl">
+      <div class="mt-16">
         <h3 class="text-offwhite font-semibold mb-6" data-animate="fade-up">When You Need More</h3>
         <div class="grid md:grid-cols-3 gap-6">
           <div
@@ -557,47 +598,74 @@ const reasons = [
     <div class="container section-padding">
       <div class="max-w-3xl">
         <h2 id="pricing-heading" class="heading-section" data-animate="fade-up">
-          Pricing
+          How We Work
         </h2>
         <p class="content-spacing text-lead" data-animate="fade-up" data-delay="100">
-          Fixed scope, fixed price. No surprises.
+          Two ways to work together, depending on what you need.
         </p>
       </div>
 
-      <div class="actions-spacing grid md:grid-cols-3 gap-6">
-        <article
-          v-for="(tier, index) in pricing"
-          :key="tier.name"
-          class="card flex flex-col"
-          :class="{ 'ring-2 ring-orange': tier.featured }"
+      <div class="actions-spacing services-carousel flex overflow-x-auto snap-x snap-mandatory md:overflow-visible md:flex-row gap-4 md:gap-8 items-start pt-2 pb-4 md:pt-0 md:pb-0 -mx-5 px-5 md:mx-0 md:px-0 scrollbar-hide">
+        <!-- data-animate lives on the wrapper: Vue's :class patch would strip animate-in from the article -->
+        <div
+          v-for="(plan, index) in plans"
+          :key="plan.id"
+          class="flex-none w-[85vw] md:w-auto md:flex-1 snap-center"
           data-animate="fade-up"
           :data-delay="100 + (index * 50)"
         >
-          <div v-if="tier.featured" class="text-orange text-xs font-semibold uppercase tracking-wide mb-2">
-            Most Popular
-          </div>
-          <h3 class="heading-card">{{ tier.name }}</h3>
-          <p class="text-orange text-3xl font-display mt-2">{{ tier.price }}</p>
-          <p class="text-slate text-sm mt-1 mb-6">{{ tier.description }}</p>
+          <article
+            class="expandable-card"
+            :class="{ 'is-expanded': cardsExpanded }"
+          >
+            <div class="expandable-card-inner" @click="toggleCards">
+              <div class="flex items-center gap-3 mb-4">
+                <span :class="plan.badgeClass">{{ plan.badge }}</span>
+                <span class="text-slate text-sm">{{ plan.meta }}</span>
+              </div>
+              <h3 class="heading-card">{{ plan.title }}</h3>
+              <p class="content-spacing-sm text-body">{{ plan.description }}</p>
+              <ul class="mt-4 space-y-1 text-sm text-slate">
+                <li v-for="item in plan.highlights" :key="item" class="flex items-center gap-2">
+                  <Icon name="check" size="16" class="text-orange flex-shrink-0" /> {{ item }}
+                </li>
+              </ul>
 
-          <ul class="space-y-2 mt-auto">
-            <li
-              v-for="feature in tier.features"
-              :key="feature"
-              class="flex items-start gap-2 text-slate text-sm"
-            >
-              <Icon name="check" size="16" class="text-orange flex-shrink-0 mt-0.5" />
-              {{ feature }}
-            </li>
-          </ul>
+              <div :id="`${plan.id}-pricing`" class="expandable-card-extra">
+                <div class="pt-6 mt-6 border-t border-orange/60 space-y-6">
+                  <div>
+                    <h4 class="text-offwhite font-semibold mb-3">{{ plan.tiersHeading }}</h4>
+                    <div class="space-y-3">
+                      <template v-for="tier in plan.tiers" :key="tier.name">
+                        <div class="flex flex-wrap justify-between items-baseline gap-x-2">
+                          <div>
+                            <span class="text-offwhite">{{ tier.name }}</span>
+                            <span v-if="tier.hours" class="text-slate text-sm ml-2">{{ tier.hours }}</span>
+                          </div>
+                          <span class="text-orange font-semibold whitespace-nowrap">{{ tier.price }}</span>
+                        </div>
+                        <p class="text-slate text-sm -mt-1">{{ tier.description }}</p>
+                      </template>
+                    </div>
+                  </div>
+                  <a href="#contact" class="btn-primary w-full sm:w-auto justify-center" @click.stop>{{ plan.cta }}</a>
+                </div>
+              </div>
 
-          <a href="#contact" class="btn-primary w-full justify-center mt-6">Get Started</a>
-        </article>
+              <button
+                type="button"
+                class="expandable-card-toggle mt-6 text-orange text-sm font-medium"
+                :aria-expanded="cardsExpanded"
+                :aria-controls="`${plan.id}-pricing`"
+                @click.stop="toggleCards"
+              >
+                <span v-if="cardsExpanded">Show Less ↑</span>
+                <span v-else>View Pricing →</span>
+              </button>
+            </div>
+          </article>
+        </div>
       </div>
-
-      <p class="text-center text-slate text-sm mt-8" data-animate="fade-up">
-        All projects: 50% down, 50% on completion.
-      </p>
     </div>
   </section>
 
@@ -610,37 +678,30 @@ const reasons = [
         </h2>
       </div>
 
-      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div ref="processCardsRef" class="process-cards">
         <div
           v-for="(step, index) in processSteps"
           :key="step.step"
-          data-animate="fade-up"
-          :data-delay="100 + (index * 50)"
+          class="process-card"
+          :class="{ 'is-active': activeProcessIndex === index }"
+          :style="{ animationDelay: `${index * 2}s` }"
         >
-          <div class="text-5xl font-display text-orange mb-4">{{ step.step }}</div>
-          <h3 class="text-offwhite font-semibold mb-2">{{ step.title }}</h3>
-          <p class="text-slate text-sm">{{ step.description }}</p>
+          <div class="text-6xl font-display text-orange">{{ step.step }}</div>
+          <div>
+            <h3 class="text-offwhite font-semibold text-xl mb-3">{{ step.title }}</h3>
+            <p class="text-body text-sm">{{ step.description }}</p>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- WHY US -->
-  <section class="bg-ink" aria-labelledby="why-heading">
-    <div class="container section-padding">
-      <h2 id="why-heading" class="heading-section" data-animate="fade-up">
-        Why Work With Us
-      </h2>
-      <div class="actions-spacing grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div
-          v-for="(reason, index) in reasons"
-          :key="reason.title"
-          data-animate="fade-up"
-          :data-delay="100 + (index * 50)"
-        >
-          <h3 class="text-offwhite font-semibold mb-2">{{ reason.title }}</h3>
-          <p class="text-slate text-sm">{{ reason.description }}</p>
-        </div>
+      <!-- Mobile dot indicators -->
+      <div class="flex justify-center gap-2 mt-6 sm:hidden">
+        <span
+          v-for="(step, index) in processSteps"
+          :key="'dot-' + index"
+          class="w-2 h-2 rounded-full transition-colors"
+          :class="activeProcessIndex === index ? 'bg-orange' : 'bg-orange/30'"
+        ></span>
       </div>
     </div>
   </section>
