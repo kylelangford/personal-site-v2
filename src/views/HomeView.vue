@@ -286,17 +286,6 @@ const projects = [
     imageAlt: 'Demand Response Earnings Calculator: zip code, industry, and load curtailment slider steps'
   },
   {
-    title: 'Analytics Data Tables',
-    client: 'Sumer Sports',
-    tech: 'Vanilla JS, Gulp, Babel',
-    description: 'Embeddable data tables for football player and team statistics with real-time filtering and sorting.',
-    challenge: 'Dense stats that update throughout the season',
-    solution: 'JS-driven tables with client-side filtering',
-    result: 'Fast, scannable data that updates without rebuilds',
-    features: ['Season, team, position filters', 'Performance-optimized rendering', 'Designed for scanning', 'Embedded in platform'],
-    image: null // TODO: Add screenshot
-  },
-  {
     title: 'Email Campaign Builder',
     client: 'Drizly',
     tech: 'AngularJS',
