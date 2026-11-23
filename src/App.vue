@@ -42,23 +42,24 @@ const services = [
   <header class="bg-ink/95 backdrop-blur-sm border-b border-orange/10 sticky top-0 z-50">
     <div class="container py-4">
       <nav class="flex items-center justify-between" aria-label="Main navigation">
-        <RouterLink to="/" class="header-logo flex items-center gap-2 text-offwhite hover:text-orange transition-all">
-          <!-- Text - visible initially, fades out on scroll -->
-          <span
-            class="font-display text-lg transition-all duration-300"
-            :class="scrolled ? 'opacity-0 w-0 overflow-hidden' : 'opacity-100'"
-          >
-            Precision Frontend
-          </span>
-          <!-- P Logo - hidden initially, revealed on scroll -->
+        <RouterLink
+          to="/"
+          class="header-logo text-offwhite hover:text-orange transition-colors"
+          :class="{ 'is-scrolled': scrolled }"
+        >
+          <!-- P mark - always visible; animates in on load -->
           <svg
-            class="h-7 w-auto text-orange transition-all duration-300"
-            :class="scrolled ? 'opacity-100' : 'opacity-0 w-0 overflow-hidden'"
+            class="logo-mark h-7 w-auto text-orange"
             viewBox="0 0 545 498"
             fill="currentColor"
+            aria-hidden="true"
           >
             <path d="M 95.5 2.5 H 434 C 508 2.5 553 41 534 116 C 529 136 520 169 507 202 C 482 267 431 300 362 300 H 185 L 121 487 H 1 L 118 162 H 235 L 214.5 217 H 341 C 372 217 397 200 406 170 L 413 148 C 426 110 405 90 379 90 H 58.5 Z"/>
           </svg>
+          <!-- Name - wipes in on load, collapses into the mark on scroll -->
+          <span class="logo-name-wrap">
+            <span class="logo-name font-display text-lg">Precision Frontend</span>
+          </span>
         </RouterLink>
 
         <div class="flex items-center gap-6">
